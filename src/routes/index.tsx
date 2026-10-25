@@ -495,8 +495,8 @@ function FinalCta() {
           <Parallax src={patio.url} alt="Crianças brincando no pátio da Petit Poá" className="absolute inset-0" speed={0.08} />
           <div className="absolute inset-0 bg-ink/60" />
           <div className="relative px-8 py-20 text-center md:py-28">
-            <h2 className="mx-auto max-w-3xl text-4xl leading-tight text-primary-foreground md:text-6xl">Venha tomar um café com a gente e conhecer a escola.</h2>
-            <p className="mx-auto mt-5 max-w-xl text-lg text-primary-foreground/85">A visita dura cerca de 40 minutos. Traga seu filho, se quiser.</p>
+            <h2 className="mx-auto max-w-3xl text-4xl leading-tight text-primary-foreground md:text-6xl">Venha conhecer a escola de perto.</h2>
+            <p className="mx-auto mt-5 max-w-xl text-lg text-primary-foreground/85">Agende um horário e caminhe pelos espaços com a nossa equipe.</p>
             <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
               <Link to="/agendar-visita" className="ripple-btn inline-flex h-14 items-center justify-center gap-2 rounded-full bg-coral px-8 font-bold text-primary-foreground shadow-lift">Agendar visita <ArrowRight className="h-5 w-5" /></Link>
               <a href={waLink()} target="_blank" rel="noopener" className="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-whatsapp px-8 font-bold text-primary-foreground"><MessageCircle className="h-5 w-5" /> Falar no WhatsApp</a>
