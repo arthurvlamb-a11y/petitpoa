@@ -71,16 +71,16 @@ function Agendar() {
               </div>
             ) : (
               <form onSubmit={onSubmit} noValidate className="grid gap-5">
-                <Field label="Seu nome" error={errors.name}><input name="name" autoComplete="name" maxLength={100} className={field} /></Field>
-                <Field label="Telefone / WhatsApp" error={errors.phone}><input name="phone" type="tel" inputMode="tel" autoComplete="tel" maxLength={30} placeholder="(51) 9 0000-0000" className={field} /></Field>
+                <Field label="Seu nome" error={errors["name"]}><input name="name" autoComplete="name" maxLength={100} className={field} /></Field>
+                <Field label="Telefone / WhatsApp" error={errors["phone"]}><input name="phone" type="tel" inputMode="tel" autoComplete="tel" maxLength={30} placeholder="(51) 9 0000-0000" className={field} /></Field>
                 <div className="grid gap-5 sm:grid-cols-2">
-                  <Field label="Idade da criança" error={errors.child_age}>
+                  <Field label="Idade da criança" error={errors["child_age"]}>
                     <select name="child_age" defaultValue="" className={field}>
                       <option value="" disabled>Selecione</option>
                       {["4 a 12 meses", "1 ano", "2 anos", "3 anos", "4 anos", "5 anos", "Ainda vai nascer"].map((o) => <option key={o}>{o}</option>)}
                     </select>
                   </Field>
-                  <Field label="Turno desejado" error={errors.shift}>
+                  <Field label="Turno desejado" error={errors["shift"]}>
                     <select name="shift" defaultValue="" className={field}>
                       <option value="" disabled>Selecione</option>
                       {["Integral", "Manhã", "Tarde", "Ainda não sei"].map((o) => <option key={o}>{o}</option>)}
@@ -119,7 +119,7 @@ function Agendar() {
   );
 }
 
-function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
+function Field({ label, error, children }: { label: string; error?: string | undefined; children: React.ReactNode }) {
   return (
     <label className="grid gap-2">
       <span className="text-sm font-semibold text-ink">{label}</span>
