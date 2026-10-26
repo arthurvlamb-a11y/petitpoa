@@ -25,17 +25,17 @@ export const Route = createFileRoute("/turmas")({
 
 const CLASSES = [
   {
-    t: "Berçário", age: "A partir de 4 meses", img: playground.url, bg: "bg-sky-soft", accent: "text-primary",
+    t: "Berçário", age: "Berçário I e II · a partir de 4 meses", img: playground.url, bg: "bg-sky-soft", accent: "text-primary",
     lead: "Os primeiros vínculos fora de casa, construídos com colo, rotina e muito olhar.",
     w: [{ I: Sun, t: "Solário" }, { I: Trees, t: "Mini pátio" }, { I: Hand, t: "Shantala" }, { I: Flower2, t: "Yoga" }, { I: Music, t: "Música" }],
   },
   {
-    t: "Maternal", age: "Primeira infância", img: horta.url, bg: "bg-sage-soft", accent: "text-accent-foreground",
+    t: "Maternal", age: "Maternal I e II", img: horta.url, bg: "bg-sage-soft", accent: "text-accent-foreground",
     lead: "A fase dos porquês. Curiosidade transformada em descoberta todos os dias.",
     w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }],
   },
   {
-    t: "Pré-escola", age: "4 e 5 anos", img: fachada.url, bg: "bg-sun-soft", accent: "text-coral",
+    t: "Pré-escola", age: "Pré-escola I e II · 4 e 5 anos", img: fachada.url, bg: "bg-sun-soft", accent: "text-coral",
     lead: "Autonomia, leitura do mundo e preparo para o ensino fundamental, sem perder a infância.",
     w: [{ I: Sparkles, t: "Balé" }, { I: Footprints, t: "Dança" }, { I: Waves, t: "Natação" }, { I: BookOpen, t: "Biblioteca" }, { I: Brain, t: "Raciocínio lógico" }],
   },

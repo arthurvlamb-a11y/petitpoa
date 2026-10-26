@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AgendarVisitaRouteImport } from './routes/agendar-visita'
+import { Route as PropostaPedagogicaRouteImport } from './routes/proposta-pedagogica'
 import { Route as TurmasRouteImport } from './routes/turmas'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const AgendarVisitaRoute = AgendarVisitaRouteImport.update({
   path: '/agendar-visita',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PropostaPedagogicaRoute = PropostaPedagogicaRouteImport.update({
+  id: '/proposta-pedagogica',
+  path: '/proposta-pedagogica',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TurmasRoute = TurmasRouteImport.update({
   id: '/turmas',
   path: '/turmas',
@@ -32,30 +38,34 @@ const TurmasRoute = TurmasRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/agendar-visita': typeof AgendarVisitaRoute
+  '/proposta-pedagogica': typeof PropostaPedagogicaRoute
   '/turmas': typeof TurmasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/agendar-visita': typeof AgendarVisitaRoute
+  '/proposta-pedagogica': typeof PropostaPedagogicaRoute
   '/turmas': typeof TurmasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/agendar-visita': typeof AgendarVisitaRoute
+  '/proposta-pedagogica': typeof PropostaPedagogicaRoute
   '/turmas': typeof TurmasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/agendar-visita' | '/turmas'
+  fullPaths: '/' | '/agendar-visita' | '/proposta-pedagogica' | '/turmas'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/agendar-visita' | '/turmas'
-  id: '__root__' | '/' | '/agendar-visita' | '/turmas'
+  to: '/' | '/agendar-visita' | '/proposta-pedagogica' | '/turmas'
+  id: '__root__' | '/' | '/agendar-visita' | '/proposta-pedagogica' | '/turmas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AgendarVisitaRoute: typeof AgendarVisitaRoute
+  PropostaPedagogicaRoute: typeof PropostaPedagogicaRoute
   TurmasRoute: typeof TurmasRoute
 }
 
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AgendarVisitaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/proposta-pedagogica': {
+      id: '/proposta-pedagogica'
+      path: '/proposta-pedagogica'
+      fullPath: '/proposta-pedagogica'
+      preLoaderRoute: typeof PropostaPedagogicaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/turmas': {
       id: '/turmas'
       path: '/turmas'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AgendarVisitaRoute: AgendarVisitaRoute,
+  PropostaPedagogicaRoute: PropostaPedagogicaRoute,
   TurmasRoute: TurmasRoute,
 }
 export const routeTree = rootRouteImport

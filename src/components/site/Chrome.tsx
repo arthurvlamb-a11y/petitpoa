@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 
 const NAV = [
   { to: "/", label: "A escola" },
+  { to: "/proposta-pedagogica", label: "Proposta" },
   { to: "/turmas", label: "Turmas" },
   { to: "/agendar-visita", label: "Agendar visita" },
 ] as const;
@@ -28,7 +29,7 @@ export function Header() {
           <span className={cn("hidden font-display text-lg font-semibold sm:block", scrolled || open ? "text-ink" : "text-primary-foreground")}>Petit Poá</span>
         </Link>
         <nav className="hidden items-center gap-1 md:flex">
-          {NAV.slice(0, 2).map((n) => (
+          {NAV.slice(0, 3).map((n) => (
             <Link key={n.to} to={n.to} className={cn("rounded-full px-4 py-2 text-sm font-semibold transition-colors", scrolled ? "text-foreground hover:bg-muted" : "text-primary-foreground/90 hover:bg-primary-foreground/10")} activeOptions={{ exact: true }}>
               {n.label}
             </Link>
