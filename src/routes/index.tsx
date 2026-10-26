@@ -72,6 +72,7 @@ function Home() {
       <TrustBar />
       <Story />
       <Pedagogy />
+      <PedagogyTeaser />
       <ClassesTeaser />
       <Tour />
       <Safety />
@@ -212,11 +213,43 @@ function Pedagogy() {
   );
 }
 
+function PedagogyTeaser() {
+  const steps = [
+    { I: Puzzle, t: "Aprender brincando", d: "O brincar é o eixo de tudo." },
+    { I: Sprout, t: "Projetos e expedições", d: "Temas que nascem das perguntas das crianças." },
+    { I: FileText, t: "Avaliação descritiva", d: "Um parecer por semestre, sem notas." },
+    { I: HeartHandshake, t: "Parceria com a família", d: "Agenda diária, reuniões e conversas." },
+  ];
+  return (
+    <section className="bg-cream py-24 md:py-32">
+      <div className="container-x grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:items-center">
+        <div>
+          <Reveal><p className="eyebrow">Proposta pedagógica</p></Reveal>
+          <Reveal delay={80}><h2 className="mt-4 text-4xl leading-tight md:text-5xl">Acolhimento com método.</h2></Reveal>
+          <Reveal delay={140}><p className="mt-5 text-lg text-muted-foreground">Cada momento da rotina segue nosso Projeto Político-Pedagógico, alinhado à BNCC. A criança é protagonista, e a professora observa, media e registra cada conquista.</p></Reveal>
+          <Reveal delay={200}><Link to="/proposta-pedagogica" className="mt-8 inline-flex items-center gap-2 font-semibold text-primary transition-all hover:gap-3">Conheça a proposta <ArrowRight className="h-4 w-4" /></Link></Reveal>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {steps.map(({ I, t, d }, i) => (
+            <Reveal key={t} delay={i * 80}>
+              <Link to="/proposta-pedagogica" className="lift block h-full rounded-[2rem] bg-card p-7 shadow-soft">
+                <I className="h-7 w-7 text-coral" />
+                <h3 className="mt-4 text-2xl">{t}</h3>
+                <p className="mt-2 text-muted-foreground">{d}</p>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ClassesTeaser() {
   const items = [
-    { t: "Berçário", a: "4 meses a 1 ano e meio", c: "bg-sky-soft", tags: ["Solário", "Shantala", "Música"] },
-    { t: "Maternal", a: "1 ano e meio a 3 anos", c: "bg-sage-soft", tags: ["Inglês", "Horta", "Teatro"] },
-    { t: "Pré-escola", a: "4 e 5 anos", c: "bg-sun-soft", tags: ["Balé", "Natação", "Biblioteca"] },
+    { t: "Berçário", a: "Berçário I e II · a partir de 4 meses", c: "bg-sky-soft", tags: ["Solário", "Shantala", "Música"] },
+    { t: "Maternal", a: "Maternal I e II", c: "bg-sage-soft", tags: ["Inglês", "Horta", "Teatro"] },
+    { t: "Pré-escola", a: "Pré I e II · 4 e 5 anos", c: "bg-sun-soft", tags: ["Balé", "Natação", "Biblioteca"] },
   ];
   return (
     <section className="py-24 md:py-32">

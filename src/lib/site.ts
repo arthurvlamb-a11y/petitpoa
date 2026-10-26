@@ -22,11 +22,14 @@ export const waLink = (text = "Olá! Gostaria de agendar uma visita na Petit Po�
   `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`;
 
 export const FAQ = [
-  { q: "Como funciona a adaptação?", a: "A adaptação é gradual e individual. Começamos com períodos curtos, com a presença da família quando necessário, e ampliamos o tempo conforme a criança se sente segura. Nossa psicóloga escolar acompanha esse momento junto com as professoras." },
-  { q: "Tem turno integral?", a: "Sim. Oferecemos turno integral com funcionamento até as 19h, além das opções de meio turno pela manhã ou à tarde." },
-  { q: "A alimentação está inclusa?", a: "Sim. Todas as refeições estão inclusas, com cardápio nutritivo e preparado pensando em cada fase do desenvolvimento infantil." },
-  { q: "Como acompanho meu filho?", a: "Pelo aplicativo de câmeras, pela agenda diária com as professoras e por encontros com a coordenação. Você acompanha a rotina de perto, com tranquilidade." },
+  { q: "Como funciona a adaptação?", a: "É gradual e respeita a família e a criança. Na matrícula, a direção e a coordenação apresentam a escola e os combinados. Depois, as professoras fazem uma entrevista com a família sobre o desenvolvimento do bebê. O choro é acolhido com colo, bico ou o objeto de apego que trouxer segurança. Nossa psicóloga escolar acompanha esse momento junto com as professoras." },
+  { q: "Como as crianças aprendem na Petit Poá?", a: "Brincando. Trabalhamos por projetos e expedições pedagógicas que partem do interesse das crianças, alinhados à BNCC e aos seus seis direitos de aprendizagem: conviver, brincar, participar, explorar, expressar e conhecer-se." },
+  { q: "Como é a avaliação?", a: "Não há nota nem reprovação. A cada semestre, a família recebe um parecer descritivo sobre o desenvolvimento motor, afetivo, cognitivo e social da criança, junto com suas produções, em uma conversa com a professora." },
+  { q: "Tem turno integral?", a: "Sim. Oferecemos turno integral (mínimo de 7 horas por dia) e turno parcial (mínimo de 4 horas por dia), com funcionamento até as 19h." },
+  { q: "A alimentação está inclusa?", a: "Sim. As refeições são preparadas na escola, com cardápio saudável para cada faixa etária, acompanhado por nutricionista, e com mobília adequada para incentivar a autonomia." },
+  { q: "Como acompanho meu filho?", a: "Pela agenda diária, que é o canal oficial de recados entre a família e a escola, pelo aplicativo de câmeras, pelas reuniões de pais e pela entrega semestral das avaliações." },
   { q: "Tem câmeras?", a: "Sim. As salas contam com monitoramento por câmeras com acesso para as famílias por aplicativo, além de segurança monitorada 24 horas." },
-  { q: "Quais idades atendem?", a: "Atendemos crianças de 4 meses a 5 anos, nas turmas de Berçário, Maternal e Pré-escola." },
-  { q: "O que preciso para matrícula?", a: "Certidão de nascimento da criança, carteira de vacinação atualizada, documento de identidade e CPF dos responsáveis e comprovante de residência. Na visita, confirmamos a lista completa com você." },
+  { q: "Quais idades atendem?", a: "Atendemos bebês a partir de 4 meses e crianças até 5 anos, nas turmas de Berçário I e II, Maternal I e II e Pré-escola I e II, organizadas pela idade conforme a data de corte do Conselho Municipal de Educação." },
+  { q: "A escola pode dar remédio ao meu filho?", a: "Sim, desde que a família entregue a receita médica legível com as orientações." },
+  { q: "O que preciso para matrícula?", a: "Certidão de nascimento da criança (e CPF, se tiver), carteira de vacinação atualizada, comprovante de residência e CPF do responsável. Na matrícula, você também recebe o Projeto Político-Pedagógico e o Regimento da escola." },
 ];
