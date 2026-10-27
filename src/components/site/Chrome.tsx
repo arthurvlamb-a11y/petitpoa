@@ -33,11 +33,11 @@ export function Header() {
         </Link>
         <nav className="hidden items-center gap-1 md:flex">
           {NAV.slice(0, 3).map((n) => (
-            <Link key={n.to} to={n.to} className={cn("rounded-full px-4 py-2 text-sm font-semibold transition-colors", scrolled ? "text-foreground hover:bg-muted" : "text-primary-foreground/90 hover:bg-primary-foreground/10")} activeOptions={{ exact: true }}>
+            <Link key={n.to} to={n.to} className={cn("rounded-full px-4 py-2 text-sm font-semibold transition-colors", scrolled || !overPhoto ? "text-foreground hover:bg-muted" : "text-primary-foreground/90 hover:bg-primary-foreground/10")} activeOptions={{ exact: true }}>
               {n.label}
             </Link>
           ))}
-          <a href={waLink()} target="_blank" rel="noopener" className={cn("rounded-full px-4 py-2 text-sm font-semibold transition-colors", scrolled ? "text-foreground hover:bg-muted" : "text-primary-foreground/90 hover:bg-primary-foreground/10")}>WhatsApp</a>
+          <a href={waLink()} target="_blank" rel="noopener" className={cn("rounded-full px-4 py-2 text-sm font-semibold transition-colors", scrolled || !overPhoto ? "text-foreground hover:bg-muted" : "text-primary-foreground/90 hover:bg-primary-foreground/10")}>WhatsApp</a>
           <Link to="/agendar-visita" className="ripple-btn ml-2 rounded-full bg-coral px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-soft transition-transform hover:scale-[1.03]">Agendar visita</Link>
         </nav>
         <Button variant="ghost" size="icon" aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Fechar menu" : "Abrir menu"} onClick={() => setOpen(!open)} className={cn("grid h-11 w-11 place-items-center rounded-full md:hidden", scrolled || open || !overPhoto ? "bg-muted text-ink" : "bg-primary-foreground/15 text-primary-foreground backdrop-blur")}>
