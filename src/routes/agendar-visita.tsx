@@ -1,16 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
-import { z } from "zod";
+import { cloneElement, useId, useState, type FormEvent, type ReactElement } from "react";
 import { Camera, CheckCircle2, Clock, Loader2, MessageCircle, ShieldCheck, Utensils } from "lucide-react";
 import fachada from "@/assets/fachada.webp.asset.json";
 import { supabase } from "@/integrations/supabase/client";
 import { Reveal } from "@/components/site/Reveal";
 import { SITE, waLink } from "@/lib/site";
+import { Button } from "@/components/ui/button";
+import { CHILD_AGES, SHIFTS, visitSchema } from "@/lib/visit";
 
 const TITLE = "Agende sua visita — Petit Poá Escola Infantil em Estância Velha";
 const DESC = "Agende uma visita à Petit Poá, escola de educação infantil no Centro de Estância Velha/RS. Conheça berçário, maternal e pré-escola pessoalmente.";
 
 export const Route = createFileRoute("/agendar-visita")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: TITLE },
@@ -18,19 +20,12 @@ export const Route = createFileRoute("/agendar-visita")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/agendar-visita" },
+      { property: "og:url", content: SITE.origin + "/agendar-visita" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/agendar-visita" }],
+    links: [{ rel: "canonical", href: SITE.origin + "/agendar-visita" }],
   }),
   component: Agendar,
-});
-
-const schema = z.object({
-  name: z.string().trim().min(2, "Informe seu nome").max(100),
-  phone: z.string().trim().min(8, "Informe um telefone válido").max(30).regex(/^[0-9()+\-\s]+$/, "Use apenas números"),
-  child_age: z.string().trim().min(1, "Selecione a idade").max(50),
-  shift: z.string().trim().min(1, "Selecione o turno").max(50),
-  message: z.string().trim().max(1000).optional(),
 });
 
 const field = "h-14 w-full rounded-2xl border bg-background px-5 text-base text-ink outline-none transition focus:border-primary focus:ring-4 focus:ring-ring/20";
@@ -41,16 +36,24 @@ function Agendar() {
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (status === "sending") return;
+    const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string>;
-    const parsed = schema.safeParse(data);
+    const parsed = visitSchema.safeParse(data);
     if (!parsed.success) {
       setErrors(Object.fromEntries(parsed.error.issues.map((i) => [i.path[0] as string, i.message])));
+      const first = parsed.error.issues[0]?.path[0];
+      if (typeof first === "string") form.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
       return;
     }
     setErrors({});
     setStatus("sending");
-    const { error } = await supabase.from("visit_requests").insert({ ...parsed.data, message: parsed.data.message || null });
-    setStatus(error ? "error" : "ok");
+    try {
+      const { error } = await supabase.from("visit_requests").insert({ ...parsed.data, message: parsed.data.message || null });
+      setStatus(error ? "error" : "ok");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -63,35 +66,36 @@ function Agendar() {
 
           <Reveal delay={220} className="mt-10 rounded-[2rem] bg-card p-6 shadow-soft md:p-10">
             {status === "ok" ? (
-              <div className="py-10 text-center">
+              <div className="py-10 text-center" role="status" aria-live="polite">
                 <CheckCircle2 className="breathe mx-auto h-14 w-14 text-sage" />
                 <h2 className="mt-5 text-3xl">Recebemos seu pedido!</h2>
                 <p className="mt-3 text-muted-foreground">Em breve entraremos em contato para confirmar sua visita.</p>
                 <a href={waLink()} target="_blank" rel="noopener" className="mt-8 inline-flex h-12 items-center gap-2 rounded-full bg-whatsapp px-6 font-bold text-primary-foreground"><MessageCircle className="h-5 w-5" /> Prefere falar agora?</a>
               </div>
             ) : (
-              <form onSubmit={onSubmit} noValidate className="grid gap-5">
+               <form onSubmit={onSubmit} noValidate className="grid gap-5" aria-busy={status === "sending"}>
                 <Field label="Seu nome" error={errors["name"]}><input name="name" autoComplete="name" maxLength={100} className={field} /></Field>
                 <Field label="Telefone / WhatsApp" error={errors["phone"]}><input name="phone" type="tel" inputMode="tel" autoComplete="tel" maxLength={30} placeholder="(51) 9 0000-0000" className={field} /></Field>
                 <div className="grid gap-5 sm:grid-cols-2">
                   <Field label="Idade da criança" error={errors["child_age"]}>
                     <select name="child_age" defaultValue="" className={field}>
                       <option value="" disabled>Selecione</option>
-                      {["4 a 12 meses", "1 ano", "2 anos", "3 anos", "4 anos", "5 anos", "Ainda vai nascer"].map((o) => <option key={o}>{o}</option>)}
+                      {CHILD_AGES.map((o) => <option key={o}>{o}</option>)}
                     </select>
                   </Field>
                   <Field label="Turno desejado" error={errors["shift"]}>
                     <select name="shift" defaultValue="" className={field}>
                       <option value="" disabled>Selecione</option>
-                      {["Integral", "Manhã", "Tarde", "Ainda não sei"].map((o) => <option key={o}>{o}</option>)}
+                      {SHIFTS.map((o) => <option key={o}>{o}</option>)}
                     </select>
                   </Field>
                 </div>
                 <Field label="Mensagem (opcional)"><textarea name="message" rows={4} maxLength={1000} className={`${field} h-auto py-4`} placeholder="Conte um pouco sobre seu filho ou suas dúvidas" /></Field>
-                {status === "error" && <p className="text-sm text-destructive">Não conseguimos enviar agora. Tente novamente ou fale pelo WhatsApp.</p>}
-                <button disabled={status === "sending"} className="ripple-btn flex h-14 items-center justify-center gap-2 rounded-2xl bg-coral text-lg font-bold text-primary-foreground shadow-soft transition-transform hover:scale-[1.01] disabled:opacity-70">
+                <p className="text-sm leading-relaxed text-muted-foreground">Usaremos seu nome, telefone e preferências para responder ao pedido e combinar a visita. Não envie nomes completos da criança, documentos ou informações de saúde. Para solicitar acesso, correção ou exclusão dos dados, escreva para <a className="underline" href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+                {status === "error" && <p role="alert" className="text-sm text-destructive">Não conseguimos enviar agora. Tente novamente ou fale pelo WhatsApp.</p>}
+                <Button type="submit" disabled={status === "sending"} className="ripple-btn flex h-14 whitespace-normal items-center justify-center gap-2 rounded-2xl bg-coral text-base font-bold text-primary-foreground shadow-soft transition-transform hover:bg-coral/90 hover:scale-[1.01] disabled:opacity-70">
                   {status === "sending" && <Loader2 className="h-5 w-5 animate-spin" />} Quero agendar minha visita
-                </button>
+                </Button>
               </form>
             )}
           </Reveal>
@@ -119,12 +123,13 @@ function Agendar() {
   );
 }
 
-function Field({ label, error, children }: { label: string; error?: string | undefined; children: React.ReactNode }) {
+function Field({ label, error, children }: { label: string; error?: string | undefined; children: ReactElement<{ id?: string; "aria-invalid"?: boolean; "aria-describedby"?: string; "aria-required"?: boolean }> }) {
+  const id = useId();
   return (
-    <label className="grid gap-2">
+    <label htmlFor={id} className="grid gap-2">
       <span className="text-sm font-semibold text-ink">{label}</span>
-      {children}
-      {error && <span className="text-sm text-destructive">{error}</span>}
+      {cloneElement(children, { id, "aria-invalid": !!error, "aria-describedby": error ? `${id}-error` : undefined, "aria-required": !label.includes("opcional") })}
+      {error && <span id={`${id}-error`} role="alert" className="text-sm text-destructive">{error}</span>}
     </label>
   );
 }

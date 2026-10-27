@@ -4,14 +4,15 @@ import {
   Moon, Music, NotebookPen, Palette, Pill, Puzzle, Search, Shapes, Sparkles, Users, Utensils, Baby, Footprints, Globe2,
 } from "lucide-react";
 import horta from "@/assets/horta.webp.asset.json";
-import menina from "@/assets/menina-coelho.webp.asset.json";
+import fachada from "@/assets/fachada.webp.asset.json";
 import { Reveal } from "@/components/site/Reveal";
-import { waLink } from "@/lib/site";
+import { SITE, waLink } from "@/lib/site";
 
 const TITLE = "Proposta pedagógica: como as crianças aprendem na Petit Poá";
 const DESC = "Aprender brincando, por projetos e expedições pedagógicas alinhadas à BNCC. Adaptação, rotina, avaliação descritiva semestral e parceria com as famílias.";
 
 export const Route = createFileRoute("/proposta-pedagogica")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: TITLE },
@@ -19,9 +20,10 @@ export const Route = createFileRoute("/proposta-pedagogica")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE.origin + "/proposta-pedagogica" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/proposta-pedagogica" }],
+    links: [{ rel: "canonical", href: SITE.origin + "/proposta-pedagogica" }],
   }),
   component: Proposta,
 });
@@ -91,7 +93,7 @@ function Proposta() {
         <div className="container-x grid items-center gap-12 lg:grid-cols-2">
           <Reveal>
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-lift">
-              <img src={menina.url} alt="Menina brincando com um coelho no pátio da escola" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+              <img src={fachada.url} alt="Entrada e jardim da Petit Poá" loading="lazy" decoding="async" className="h-full w-full object-cover" />
             </div>
           </Reveal>
           <div>
@@ -115,7 +117,7 @@ function Proposta() {
           <div className="max-w-2xl">
             <Reveal><p className="eyebrow">Alinhados à BNCC</p></Reveal>
             <Reveal delay={80}><h2 className="mt-4 text-4xl leading-tight md:text-5xl">Seis direitos que guiam o dia a dia.</h2></Reveal>
-            <Reveal delay={140}><p className="mt-5 text-lg text-muted-foreground">A Base Nacional Comum Curricular garante a toda criança da Educação Infantil esses direitos. Aqui, eles estão na rotina, não só no papel.</p></Reveal>
+            <Reveal delay={140}><p className="mt-5 text-lg text-muted-foreground">A Base Nacional Comum Curricular garante a toda criança da Educação Infantil esses direitos. Eles orientam as experiências propostas pela escola.</p></Reveal>
           </div>
           <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {RIGHTS.map(({ I, t, d }, i) => (
@@ -151,7 +153,7 @@ function Proposta() {
             {METHOD.map(({ I, t, d }, i) => (
               <Reveal key={t} delay={i * 90}>
                 <li className="relative h-full rounded-[2rem] bg-sun-soft p-7">
-                  <span className="font-display text-5xl text-coral/40">0{i + 1}</span>
+                  <span className="font-display text-5xl text-coral">0{i + 1}</span>
                   <I className="mt-4 h-7 w-7 text-coral" />
                   <h3 className="mt-4 text-2xl">{t}</h3>
                   <p className="mt-2 text-muted-foreground">{d}</p>
@@ -169,7 +171,7 @@ function Proposta() {
             <Reveal delay={100}>
               <div className="h-full rounded-[2rem] border p-8">
                 <p className="flex items-center gap-2 text-sm font-bold text-primary"><BookOpen className="h-4 w-4" /> Materiais de apoio</p>
-                <p className="mt-3 text-muted-foreground">O planejamento segue a BNCC e usa o programa pedagógico Cloe e o Currículo Linear Camino, uma plataforma de aprendizagem ativa.</p>
+                <p className="mt-3 text-muted-foreground">O PPP de 2023 cita o programa Cloe e o Currículo Linear Camino como materiais de apoio ao planejamento alinhado à BNCC.</p>
               </div>
             </Reveal>
           </div>
@@ -233,13 +235,18 @@ function Proposta() {
         </div>
       </section>
 
+      <section className="bg-sage-soft py-16 md:py-20">
+        <div className="container-x max-w-4xl">
+          <Reveal><p className="eyebrow">Inclusão e respeito</p><h2 className="mt-4 text-4xl">Cada criança tem lugar nessa história.</h2><p className="mt-5 text-lg text-muted-foreground">O Regimento orienta relações sem discriminação e acompanhamento pedagógico pela coordenação. Valorizar diferentes culturas, escutar a família e considerar os ritmos de aprendizagem fazem parte dessa proposta.</p><p className="mt-4 text-muted-foreground">Quando há necessidades específicas, a direção conversa com os responsáveis sobre os apoios e encaminhamentos adequados. Conheça as possibilidades da escola durante a visita.</p></Reveal>
+        </div>
+      </section>
       {/* Funcionamento */}
       <section className="bg-ink py-20 text-primary-foreground md:py-28">
         <div className="container-x">
           <div className="max-w-2xl">
             <Reveal><p className="eyebrow text-sun">Regimento escolar</p></Reveal>
             <Reveal delay={80}><h2 className="mt-4 text-4xl leading-tight text-primary-foreground md:text-5xl">Combinados claros desde o primeiro dia.</h2></Reveal>
-            <Reveal delay={140}><p className="mt-5 text-lg text-primary-foreground/75">As principais regras de funcionamento, em poucas linhas. Na matrícula, a família recebe o Projeto Político-Pedagógico e o Regimento completos.</p></Reveal>
+            <Reveal delay={140}><p className="mt-5 text-lg text-primary-foreground/75">Síntese do PPP e do Regimento de 2023. Confirme com a direção o calendário e as condições contratuais vigentes. Na matrícula, a família recebe o Projeto Político-Pedagógico e o Regimento completos.</p></Reveal>
           </div>
           <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {RULES.map(({ I, t, d }, i) => (

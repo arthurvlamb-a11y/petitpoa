@@ -3,12 +3,14 @@ import { ArrowRight, BookOpen, Brain, Drama, FlaskConical, Footprints, Hand, Lan
 import fachada from "@/assets/fachada.webp.asset.json";
 import horta from "@/assets/horta.webp.asset.json";
 import playground from "@/assets/playground.webp.asset.json";
+import { SITE } from "@/lib/site";
 import { Reveal } from "@/components/site/Reveal";
 
 const TITLE = "Turmas: Berçário, Maternal e Pré-escola em Estância Velha — Petit Poá";
 const DESC = "Conheça as turmas da Petit Poá: Berçário com shantala e yoga, Maternal com inglês e horta, Pré-escola com balé, natação e biblioteca. Estância Velha/RS.";
 
 export const Route = createFileRoute("/turmas")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: TITLE },
@@ -16,9 +18,10 @@ export const Route = createFileRoute("/turmas")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/turmas" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: SITE.origin + "/turmas" },
     ],
-    links: [{ rel: "canonical", href: "/turmas" }],
+    links: [{ rel: "canonical", href: SITE.origin + "/turmas" }],
   }),
   component: Turmas,
 });
@@ -48,7 +51,7 @@ function Turmas() {
         <div className="container-x max-w-4xl text-center">
           <Reveal><p className="eyebrow">Turmas e oficinas</p></Reveal>
           <Reveal delay={80}><h1 className="mt-5 text-5xl leading-[1.05] md:text-7xl">Cada idade tem seu encanto.</h1></Reveal>
-          <Reveal delay={160}><p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">De 4 meses a 5 anos, com oficinas que fazem parte da rotina, e não de um pacote extra.</p></Reveal>
+          <Reveal delay={160}><p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">De 4 meses a 5 anos. As turmas seguem a idade e a data de corte do Conselho Municipal de Educação. Converse com a equipe sobre o grupo indicado para seu filho.</p></Reveal>
         </div>
       </section>
       <section className="py-16 md:py-24">
@@ -78,6 +81,7 @@ function Turmas() {
         </div>
       </section>
       <section className="pb-24">
+        <p className="container-x mb-10 text-center text-muted-foreground">As oficinas apresentadas foram informadas pela escola. Confirme na visita a disponibilidade, a programação e as condições para cada turma.</p>
         <div className="container-x text-center">
           <Reveal><h2 className="text-4xl md:text-5xl">Qual turma é a do seu filho?</h2></Reveal>
           <Reveal delay={100}><Link to="/agendar-visita" className="ripple-btn mt-8 inline-flex h-14 items-center gap-2 rounded-full bg-coral px-8 font-bold text-primary-foreground shadow-lift">Agendar visita <ArrowRight className="h-5 w-5" /></Link></Reveal>

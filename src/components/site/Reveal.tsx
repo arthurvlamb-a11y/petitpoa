@@ -5,13 +5,14 @@ export function Reveal({ children, className, delay = 0, as: Tag = "div" }: { ch
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || !("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    el.classList.add("is-pending");
     const io = new IntersectionObserver(
-      ([e]) => { if (e?.isIntersecting) { el.classList.add("is-visible"); io.disconnect(); } },
+      ([e]) => { if (e?.isIntersecting) { el.classList.remove("is-pending"); el.classList.add("is-visible"); io.disconnect(); } },
       { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
     );
     io.observe(el);
-    return () => io.disconnect();
+    return () => { io.disconnect(); el.classList.remove("is-pending"); };
   }, []);
   return (
     <Tag ref={ref} className={cn("reveal", className)} style={{ transitionDelay: `${delay}ms` }}>
@@ -24,6 +25,7 @@ export function Parallax({ src, alt, className, speed = 0.12 }: { src: string; a
   const wrap = useRef<HTMLDivElement>(null);
   const img = useRef<HTMLImageElement>(null);
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let raf = 0;
     const onScroll = () => {
       cancelAnimationFrame(raf);
@@ -31,8 +33,9 @@ export function Parallax({ src, alt, className, speed = 0.12 }: { src: string; a
         const w = wrap.current, i = img.current;
         if (!w || !i) return;
         const r = w.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > window.innerHeight) return;
         const offset = (r.top + r.height / 2 - window.innerHeight / 2) * -speed;
-        i.style.transform = `translate3d(0, ${offset}px, 0) scale(1.18)`;
+        i.style.transform = `translate3d(0, ${Math.max(-r.height * 0.08, Math.min(r.height * 0.08, offset))}px, 0) scale(1.18)`;
       });
     };
     onScroll();
@@ -48,7 +51,7 @@ export function Parallax({ src, alt, className, speed = 0.12 }: { src: string; a
 
 export function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [n, setN] = useState(0);
+  const [n, setN] = useState(to);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;

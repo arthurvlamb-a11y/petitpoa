@@ -1,26 +1,24 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight, Baby, Brain, Camera, Car, ChevronLeft, ChevronRight, Clock, HeartHandshake, Leaf, MapPin,
   Puzzle, ShieldCheck, Sparkles, Sprout, Star, Sun, Users, Utensils, Hand, Apple, Salad, CalendarCheck,
   Footprints, FileText, MessageCircle, Building2, HeartPulse,
 } from "lucide-react";
 import hero from "@/assets/hero.webp.asset.json";
-import menina from "@/assets/menina-coelho.webp.asset.json";
 import fachada from "@/assets/fachada.webp.asset.json";
 import lago from "@/assets/lago.webp.asset.json";
 import horta from "@/assets/horta.webp.asset.json";
-import patio from "@/assets/patio.webp.asset.json";
 import playground from "@/assets/playground.webp.asset.json";
 import coelho from "@/assets/coelho.webp.asset.json";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Counter, Parallax, Reveal } from "@/components/site/Reveal";
+import { Parallax, Reveal } from "@/components/site/Reveal";
 import { FAQ, SITE, waLink } from "@/lib/site";
 
 const TITLE = "Escola Infantil em Estância Velha | Berçário, Maternal e Pré — Petit Poá";
 const DESC = "Creche e escola de educação infantil no Centro de Estância Velha/RS. Berçário, Maternal e Pré-escola de 4 meses a 5 anos, integral até 19h, câmeras para os pais e alimentação inclusa.";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: TITLE },
@@ -29,10 +27,11 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: SITE.origin + "/" },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: SITE.origin + "/" },
       { rel: "preload", as: "image", href: hero.url, fetchPriority: "high" },
     ],
     scripts: [
@@ -43,11 +42,13 @@ export const Route = createFileRoute("/")({
           "@type": ["Preschool", "ChildCare", "LocalBusiness"],
           name: "Escola de Educação Infantil Petit Poá",
           description: DESC,
-          telephone: "+55 51 3271-8400",
+          telephone: SITE.phoneHref.replace("tel:", ""),
+          url: SITE.origin,
+          foundingDate: SITE.founded,
           email: SITE.email,
           address: { "@type": "PostalAddress", streetAddress: SITE.street, addressLocality: SITE.city, addressRegion: SITE.state, postalCode: SITE.zip, addressCountry: "BR" },
           areaServed: ["Estância Velha", "Novo Hamburgo", "Ivoti", "Portão"],
-          openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "07:00", closes: "19:00" }],
+          openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: SITE.opens, closes: SITE.closes }],
           founder: [{ "@type": "Person", name: "Cátia Engel Moraes" }, { "@type": "Person", name: "Maida Ludwig" }],
           sameAs: [SITE.instagram, SITE.facebook],
         }),
@@ -88,13 +89,13 @@ function Home() {
 
 function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] items-end overflow-hidden">
+    <section className="relative flex min-h-[92svh] items-end overflow-hidden">
       <img src={hero.url} alt="Fachada azul e pátio arborizado da Petit Poá em Estância Velha" fetchPriority="high" decoding="async" className="hero-zoom absolute inset-0 h-full w-full object-cover" />
       <div className="bg-hero-fade absolute inset-0" />
       <div className="container-x relative pb-32 pt-32 md:pb-24">
         <Reveal>
           <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-foreground/15 px-4 py-2 text-xs font-semibold text-primary-foreground backdrop-blur-md">
-            <span className="breathe h-2 w-2 rounded-full bg-sun" /> Matrículas abertas · Estância Velha/RS
+            <span className="breathe h-2 w-2 rounded-full bg-sun" /> Petit Poá · Estância Velha/RS
           </p>
         </Reveal>
         <Reveal delay={100}>
@@ -159,10 +160,10 @@ function Story() {
       <div className="container-x grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <Reveal className="relative">
           <div className="overflow-hidden rounded-[2.5rem] shadow-lift">
-            <img src={menina.url} alt="Menina segurando um coelho no pátio da escola" loading="lazy" decoding="async" width={1100} height={1467} className="aspect-[4/5] w-full object-cover" />
+            <img src={fachada.url} alt="Fachada da Petit Poá, no Centro de Estância Velha" loading="lazy" decoding="async" width={1100} height={1467} className="aspect-[4/5] w-full object-cover" />
           </div>
           <div className="float-slow absolute -bottom-8 -right-2 rounded-3xl bg-card p-5 shadow-lift sm:-right-8">
-            <p className="font-display text-4xl text-primary"><Counter to={15} suffix="+" /></p>
+            <p className="font-display text-4xl text-primary">{SITE.foundersExperience}+</p>
             <p className="text-xs font-semibold text-muted-foreground">anos de experiência<br />de cada fundadora</p>
           </div>
         </Reveal>
@@ -171,9 +172,9 @@ function Story() {
           <Reveal delay={80}><h2 className="mt-4 text-4xl leading-tight md:text-5xl">Nasceu de duas educadoras que já conheciam o coração de cada criança.</h2></Reveal>
           <Reveal delay={160}>
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-muted-foreground">
-              <p>Por mais de quinze anos, Cátia Engel Moraes e Maida Ludwig viveram a Educação Infantil de perto, na rede pública da região. Acompanharam primeiros passos, primeiras palavras, primeiras despedidas no portão.</p>
+              <p>Cátia Engel Moraes e Maida Ludwig trouxeram mais de quinze anos de experiência na Educação Infantil para criar a Petit Poá. A escola foi inaugurada em 6 de agosto de 2015.</p>
               <p>Dessa convivência nasceu uma certeza: a criança aprende melhor quando se sente segura e amada. Com formação em Desenvolvimento Infantil e Psicopedagogia, elas decidiram criar a escola que gostariam de oferecer aos próprios filhos.</p>
-              <p className="font-display text-2xl leading-snug text-ink">Assim nasceu a Petit Poá: uma casa cheia de árvores, bichinhos e descobertas, onde cada família é recebida pelo nome.</p>
+              <p className="font-display text-2xl leading-snug text-ink">Em setembro de 2022, a escola chegou ao Centro de Estância Velha, com pátio externo, salas com solários e uma área coberta maior.</p>
             </div>
           </Reveal>
         </div>
@@ -183,11 +184,11 @@ function Story() {
 }
 
 const PEDA = [
-  { I: Brain, t: "Neurociência cognitiva", d: "Experiências planejadas para as janelas de desenvolvimento de cada idade.", c: "bg-sky-soft text-primary" },
+  { I: Brain, t: "Neurociência cognitiva", d: "Observação do desenvolvimento para planejar desafios adequados, sem comparar ou apressar as crianças.", c: "bg-sky-soft text-primary" },
   { I: Users, t: "Sócio-construtivismo", d: "A criança constrói o conhecimento na troca com o outro e com o mundo.", c: "bg-sage-soft text-accent-foreground" },
-  { I: Puzzle, t: "Aprender brincando", d: "O brincar é a linguagem da infância. Aqui ele é levado a sério.", c: "bg-sun-soft text-ink" },
-  { I: Hand, t: "Autonomia", d: "Pequenas conquistas diárias que constroem confiança em si mesma.", c: "bg-coral-soft text-coral" },
-  { I: Sparkles, t: "Desenvolvimento integral", d: "Corpo, emoção, linguagem e pensamento crescendo juntos.", c: "bg-sky-soft text-primary" },
+  { I: Puzzle, t: "Aprender brincando", d: "Ao brincar de faz de conta, a criança experimenta papéis, cria histórias e aprende a conviver.", c: "bg-sun-soft text-ink" },
+  { I: Hand, t: "Autonomia", d: "Comer, participar das escolhas e cuidar de si, com apoio e materiais adequados à sua idade.", c: "bg-coral-soft text-coral" },
+  { I: Sparkles, t: "Desenvolvimento integral", d: "Movimento, música, histórias e interação desenvolvem corpo, emoção, linguagem e pensamento juntos.", c: "bg-sky-soft text-primary" },
   { I: Leaf, t: "Respeito ao tempo da criança", d: "Ninguém é apressado. Cada criança floresce no seu ritmo.", c: "bg-sage-soft text-accent-foreground" },
 ];
 
@@ -259,7 +260,7 @@ function ClassesTeaser() {
             <Reveal><p className="eyebrow">Turmas</p></Reveal>
             <Reveal delay={80}><h2 className="mt-4 text-4xl leading-tight md:text-5xl">Uma rotina pensada para cada fase.</h2></Reveal>
           </div>
-          <Reveal><Link to="/turmas" className="inline-flex items-center gap-2 font-semibold text-primary hover:gap-3 transition-all">Ver todas as oficinas <ArrowRight className="h-4 w-4" /></Link></Reveal>
+          <Reveal><Link to="/turmas" className="inline-flex items-center gap-2 font-semibold text-primary hover:gap-3 transition-all">Conhecer as turmas <ArrowRight className="h-4 w-4" /></Link></Reveal>
         </div>
         <div className="mt-12 grid gap-4 md:grid-cols-3">
           {items.map((it, i) => (
@@ -283,7 +284,7 @@ const TOUR = [
   { src: fachada.url, t: "Fachada e acolhida", d: "Uma casa de verdade, com jardim e varanda.", cls: "md:col-span-2 md:row-span-2 aspect-[4/5] md:aspect-auto" },
   { src: lago.url, t: "Laguinho dos peixes", d: "Natureza para observar todos os dias.", cls: "aspect-[4/3]" },
   { src: playground.url, t: "Playground interno", d: "Brincar com segurança, faça chuva ou sol.", cls: "aspect-[4/3]" },
-  { src: patio.url, t: "Pátio arborizado", d: "Casinhas, caminhos de pedra e bichinhos.", cls: "md:col-span-2 aspect-[16/10]" },
+  { src: hero.url, t: "Pátio arborizado", d: "Casinhas, caminhos de pedra e bichinhos.", cls: "md:col-span-2 aspect-[16/10]" },
   { src: horta.url, t: "Horta pedagógica", d: "Plantar, cuidar e colher com as próprias mãos.", cls: "aspect-[4/3]" },
   { src: coelho.url, t: "Contato com animais", d: "Cuidar de um coelho ensina empatia.", cls: "aspect-[4/3]" },
 ];
@@ -356,7 +357,7 @@ function Food() {
             <div>
               <Reveal><p className="eyebrow">Alimentação</p></Reveal>
               <Reveal delay={80}><h2 className="mt-4 text-4xl leading-tight md:text-5xl">Comida de verdade, feita com carinho de casa.</h2></Reveal>
-              <Reveal delay={160}><p className="mt-6 text-lg leading-relaxed text-muted-foreground">Todas as refeições estão inclusas. Um cardápio nutritivo, colorido e pensado para cada fase do desenvolvimento infantil, com ingredientes que as crianças também conhecem na nossa horta.</p></Reveal>
+              <Reveal delay={160}><p className="mt-6 text-lg leading-relaxed text-muted-foreground">Todas as refeições estão inclusas. Um cardápio nutritivo, colorido e pensado para cada fase do desenvolvimento infantil, com acompanhamento de nutricionista, conforme o Regimento Escolar.</p></Reveal>
             </div>
             <div className="grid grid-cols-3 gap-3">
               {[{ I: Utensils, t: "Alimentação inclusa" }, { I: Salad, t: "Cardápio nutritivo" }, { I: Apple, t: "Pensado para cada fase" }].map(({ I, t }, i) => (
@@ -373,64 +374,16 @@ function Food() {
   );
 }
 
-const TESTI = [
-  { q: "Desde a primeira visita sentimos confiança. Nossa filha se adaptou muito mais rápido do que imaginávamos.", n: "Família de aluna do Maternal" },
-  { q: "Poder olhar as câmeras no meio do dia mudou a minha rotina. Trabalho tranquila sabendo que ele está bem.", n: "Mãe de aluno do Berçário" },
-  { q: "Ele chega em casa contando da horta, do coelho, das músicas. Dá para ver que é feliz lá.", n: "Pai de aluno da Pré-escola" },
-  { q: "A equipe conhece nosso filho de verdade. Cada conversa na saída mostra o quanto ele é cuidado.", n: "Família do Maternal" },
-];
-
 function Testimonials() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [idx, setIdx] = useState(0);
-  const go = (d: number) => {
-    const el = ref.current;
-    if (!el) return;
-    const next = (idx + d + TESTI.length) % TESTI.length;
-    const card = el.children[next] as HTMLElement;
-    el.scrollTo({ left: card.offsetLeft - el.offsetLeft, behavior: "smooth" });
-    setIdx(next);
-  };
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const on = () => {
-      const w = (el.children[0] as HTMLElement).offsetWidth + 16;
-      setIdx(Math.round(el.scrollLeft / w));
-    };
-    el.addEventListener("scroll", on, { passive: true });
-    return () => el.removeEventListener("scroll", on);
-  }, []);
   return (
-    <section className="bg-cream py-24 md:py-32">
-      <div className="container-x">
-        <div className="flex items-end justify-between gap-6">
-          <div className="max-w-xl">
-            <Reveal><p className="eyebrow">Famílias Petit Poá</p></Reveal>
-            <Reveal delay={80}><h2 className="mt-4 text-4xl leading-tight md:text-5xl">O que as famílias sentem.</h2></Reveal>
-          </div>
-          <div className="hidden gap-2 md:flex">
-            <button aria-label="Anterior" onClick={() => go(-1)} className="grid h-12 w-12 place-items-center rounded-full bg-card shadow-soft transition-transform hover:scale-105"><ChevronLeft className="h-5 w-5" /></button>
-            <button aria-label="Próximo" onClick={() => go(1)} className="grid h-12 w-12 place-items-center rounded-full bg-card shadow-soft transition-transform hover:scale-105"><ChevronRight className="h-5 w-5" /></button>
-          </div>
+    <section className="bg-cream py-20 md:py-28">
+      <div className="container-x grid items-center gap-8 md:grid-cols-[1.4fr_1fr]">
+        <div>
+          <Reveal><p className="eyebrow">Conheça e compare</p></Reveal>
+          <Reveal delay={80}><h2 className="mt-4 text-4xl leading-tight md:text-5xl">Confiança se constrói com informação.</h2></Reveal>
+          <Reveal delay={140}><p className="mt-5 text-lg text-muted-foreground">Conheça os espaços, converse com a equipe e consulte as avaliações públicas da escola no Google Maps.</p></Reveal>
         </div>
-        <div ref={ref} className="no-scrollbar -mx-5 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-5 md:mx-0 md:px-0">
-          {TESTI.map((t) => (
-            <figure key={t.q} className="flex w-[85%] shrink-0 snap-start flex-col justify-between rounded-[2rem] bg-card p-8 shadow-soft md:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.7rem)]">
-              <div>
-                <div className="flex gap-1 text-sun">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-4 w-4 fill-current" />)}</div>
-                <blockquote className="mt-5 font-display text-xl leading-snug text-ink">“{t.q}”</blockquote>
-              </div>
-              <figcaption className="mt-8 text-sm">
-                <p className="font-semibold text-ink">{t.n}</p>
-                <p className="text-muted-foreground">Estância Velha/RS</p>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-        <div className="mt-6 flex justify-center gap-2">
-          {TESTI.map((_, i) => <span key={i} className={`h-1.5 rounded-full transition-all duration-500 ${i === idx ? "w-8 bg-primary" : "w-1.5 bg-border"}`} />)}
-        </div>
+        <Reveal><a href={SITE.mapReviews} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-14 items-center gap-3 rounded-full border bg-card px-7 py-4 font-semibold text-primary">Consultar no Google Maps <ArrowRight className="h-5 w-5 shrink-0" /></a></Reveal>
       </div>
     </section>
   );
@@ -467,10 +420,10 @@ function Compare() {
 
 function Enrollment() {
   const steps = [
-    { I: CalendarCheck, t: "Agende uma visita", d: "Escolha o melhor dia pelo site ou WhatsApp." },
+    { I: CalendarCheck, t: "Agende uma visita", d: "Envie um pedido pelo site ou WhatsApp e combine o horário com a equipe." },
     { I: Footprints, t: "Conheça os espaços", d: "Caminhe pela escola e conheça a equipe." },
     { I: MessageCircle, t: "Tire dúvidas", d: "Converse com a coordenação sem pressa." },
-    { I: FileText, t: "Envie documentos", d: "Certidão de nascimento, carteira de vacinação, RG/CPF dos responsáveis e comprovante de residência." },
+    { I: FileText, t: "Envie documentos", d: "Certidão de nascimento (e CPF, se tiver), vacinação atualizada, comprovante de residência e CPF do responsável." },
     { I: HeartHandshake, t: "Início da adaptação", d: "Um começo gradual, no tempo do seu filho." },
   ];
   return (
@@ -479,7 +432,7 @@ function Enrollment() {
         <Reveal><p className="eyebrow">Matrícula</p></Reveal>
         <Reveal delay={80}><h2 className="mt-4 max-w-2xl text-4xl leading-tight md:text-5xl">Cinco passos até o primeiro dia.</h2></Reveal>
         <ol className="relative mt-14 grid gap-6 md:grid-cols-5 md:gap-4">
-          <div className="absolute left-7 top-0 h-full w-px bg-border md:left-0 md:top-7 md:h-px md:w-full" aria-hidden />
+          
           {steps.map(({ I, t, d }, i) => (
             <Reveal as="li" key={t} delay={i * 90} className="relative flex gap-5 md:flex-col">
               <span className="relative grid h-14 w-14 shrink-0 place-items-center rounded-full bg-card text-primary shadow-soft"><I className="h-6 w-6" /></span>
@@ -525,7 +478,7 @@ function FinalCta() {
     <section className="pb-24 md:pb-32">
       <div className="container-x">
         <Reveal className="relative overflow-hidden rounded-[2.5rem]">
-          <Parallax src={patio.url} alt="Crianças brincando no pátio da Petit Poá" className="absolute inset-0" speed={0.08} />
+          <Parallax src={hero.url} alt="Pátio arborizado da Petit Poá" className="absolute inset-0" speed={0.08} />
           <div className="absolute inset-0 bg-ink/60" />
           <div className="relative px-8 py-20 text-center md:py-28">
             <h2 className="mx-auto max-w-3xl text-4xl leading-tight text-primary-foreground md:text-6xl">Venha conhecer a escola de perto.</h2>
