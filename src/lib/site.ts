@@ -23,6 +23,7 @@ export const SITE = {
   linktree: "https://linktr.ee/escolapetitpoa",
   mapEmbed:
     "https://www.google.com/maps?q=Av.+Sete+de+Setembro,+543,+Centro,+Est%C3%A2ncia+Velha+-+RS&output=embed",
+  mapReviews: "https://www.google.com/maps/search/?api=1&query=Petit+Po%C3%A1+Av.+Sete+de+Setembro+543+Est%C3%A2ncia+Velha",
 };
 
 export const waLink = (text = "Olá! Gostaria de agendar uma visita na Petit Poá.") =>
