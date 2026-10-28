@@ -47,7 +47,7 @@ export const Route = createFileRoute("/")({
           foundingDate: SITE.founded,
           email: SITE.email,
           address: { "@type": "PostalAddress", streetAddress: SITE.street, addressLocality: SITE.city, addressRegion: SITE.state, postalCode: SITE.zip, addressCountry: "BR" },
-          areaServed: ["Estância Velha", "Novo Hamburgo", "Ivoti", "Portão"],
+          areaServed: SITE.city,
           openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: SITE.opens, closes: SITE.closes }],
           founder: [{ "@type": "Person", name: "Cátia Engel Moraes" }, { "@type": "Person", name: "Maida Ludwig" }],
           sameAs: [SITE.instagram, SITE.facebook],
@@ -173,7 +173,7 @@ function Story() {
           <Reveal delay={160}>
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-muted-foreground">
               <p>Cátia Engel Moraes e Maida Ludwig trouxeram mais de quinze anos de experiência na Educação Infantil para criar a Petit Poá. A escola foi inaugurada em 6 de agosto de 2015.</p>
-              <p>Dessa convivência nasceu uma certeza: a criança aprende melhor quando se sente segura e amada. Com formação em Desenvolvimento Infantil e Psicopedagogia, elas decidiram criar a escola que gostariam de oferecer aos próprios filhos.</p>
+              <p>Com formação em Desenvolvimento Infantil e Psicopedagogia, elas uniram experiência e acolhimento. O Projeto Político-Pedagógico da escola coloca o brincar e o desenvolvimento integral no centro dessa proposta.</p>
               <p className="font-display text-2xl leading-snug text-ink">Em setembro de 2022, a escola chegou ao Centro de Estância Velha, com pátio externo, salas com solários e uma área coberta maior.</p>
             </div>
           </Reveal>
@@ -323,7 +323,7 @@ function Safety() {
     { I: Camera, t: "Câmeras com aplicativo", d: "Acompanhe a rotina pelo celular, de onde estiver." },
     { I: ShieldCheck, t: "Segurança monitorada", d: "Monitoramento 24 horas, todos os dias." },
     { I: Building2, t: "Embarque protegido", d: "Entrada e saída cobertas, com acompanhamento da equipe." },
-    { I: Car, t: "Estacionamento exclusivo", d: "Chegada tranquila, sem pressa e sem rua." },
+    { I: Car, t: "Estacionamento exclusivo", d: "Um espaço para facilitar a chegada e a saída das famílias." },
     { I: HeartHandshake, t: "Equipe preparada", d: "Profissionais treinados para cuidar e acolher." },
   ];
   return (
