@@ -28,17 +28,17 @@ export const Route = createFileRoute("/turmas")({
 
 const CLASSES = [
   {
-    t: "Berçário", age: "Berçário I e II · a partir de 4 meses", img: playground.url, bg: "bg-sky-soft", accent: "text-primary",
+    t: "Berçário", age: "Berçário I e II · a partir de 4 meses", img: playground.url, alt: "Playground interno da Petit Poá", bg: "bg-sky-soft", accent: "text-primary",
     lead: "Os primeiros vínculos fora de casa, construídos com colo, rotina e muito olhar.",
     w: [{ I: Sun, t: "Solário" }, { I: Trees, t: "Mini pátio" }, { I: Hand, t: "Shantala" }, { I: Flower2, t: "Yoga" }, { I: Music, t: "Música" }],
   },
   {
-    t: "Maternal", age: "Maternal I e II", img: horta.url, bg: "bg-sage-soft", accent: "text-accent-foreground",
+    t: "Maternal", age: "Maternal I e II", img: horta.url, alt: "Horta pedagógica da Petit Poá", bg: "bg-sage-soft", accent: "text-accent-foreground",
     lead: "A fase dos porquês. Curiosidade transformada em descoberta todos os dias.",
     w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }],
   },
   {
-    t: "Pré-escola", age: "Pré-escola I e II · 4 e 5 anos", img: fachada.url, bg: "bg-sun-soft", accent: "text-coral",
+    t: "Pré-escola", age: "Pré-escola I e II · 4 e 5 anos", img: fachada.url, alt: "Fachada e jardim da Petit Poá", bg: "bg-sun-soft", accent: "text-coral",
     lead: "Autonomia, leitura do mundo e preparo para o ensino fundamental, sem perder a infância.",
     w: [{ I: Sparkles, t: "Balé" }, { I: Footprints, t: "Dança" }, { I: Waves, t: "Natação" }, { I: BookOpen, t: "Biblioteca" }, { I: Brain, t: "Raciocínio lógico" }],
   },
@@ -60,7 +60,7 @@ function Turmas() {
             <Reveal key={c.t}>
               <article className={`grid overflow-hidden rounded-[2.5rem] ${c.bg} lg:grid-cols-2`}>
                 <div className={`relative min-h-72 overflow-hidden ${i % 2 ? "lg:order-2" : ""}`}>
-                  <img src={c.img} alt={`Espaço da turma ${c.t}`} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.5s] hover:scale-105" />
+                  <img src={c.img} alt={c.alt} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.5s] hover:scale-105" />
                 </div>
                 <div className="p-8 md:p-14">
                   <p className={`text-sm font-bold ${c.accent}`}>{c.age}</p>

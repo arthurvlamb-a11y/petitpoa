@@ -90,7 +90,7 @@ function Agendar() {
                     </select>
                   </Field>
                 </div>
-                <Field label="Mensagem (opcional)"><textarea name="message" rows={4} maxLength={1000} className={`${field} h-auto py-4`} placeholder="Conte um pouco sobre seu filho ou suas dúvidas" /></Field>
+                <Field label="Mensagem (opcional)" error={errors["message"]}><textarea name="message" rows={4} maxLength={1000} className={`${field} h-auto py-4`} placeholder="Conte suas dúvidas ou preferência de horário" /></Field>
                 <p className="text-sm leading-relaxed text-muted-foreground">Usaremos seu nome, telefone e preferências para responder ao pedido e combinar a visita. Não envie nomes completos da criança, documentos ou informações de saúde. Para solicitar acesso, correção ou exclusão dos dados, escreva para <a className="underline" href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
                 {status === "error" && <p role="alert" className="text-sm text-destructive">Não conseguimos enviar agora. Tente novamente ou fale pelo WhatsApp.</p>}
                 <Button type="submit" disabled={status === "sending"} className="ripple-btn flex h-14 whitespace-normal items-center justify-center gap-2 rounded-2xl bg-coral text-base font-bold text-primary-foreground shadow-soft transition-transform hover:bg-coral/90 hover:scale-[1.01] disabled:opacity-70">

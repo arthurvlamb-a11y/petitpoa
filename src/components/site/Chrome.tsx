@@ -31,7 +31,7 @@ export function Header() {
           <img src={logo.url} alt="Petit Poá Escola de Educação Infantil" width={52} height={37} className="h-10 w-auto rounded-lg md:h-11" />
           <span className={cn("hidden font-display text-lg font-semibold sm:block", scrolled || open || !overPhoto ? "text-ink" : "text-primary-foreground")}>Petit Poá</span>
         </Link>
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav aria-label="Navegação principal" className="hidden items-center gap-1 md:flex">
           {NAV.slice(0, 3).map((n) => (
             <Link key={n.to} to={n.to} className={cn("rounded-full px-4 py-2 text-sm font-semibold transition-colors", scrolled || !overPhoto ? "text-foreground hover:bg-muted" : "text-primary-foreground/90 hover:bg-primary-foreground/10")} activeOptions={{ exact: true }}>
               {n.label}
