@@ -152,11 +152,11 @@ const DIFS = [
 
 function TrustBar() {
   return (
-    <section className="relative z-10 -mt-10">
+    <section className="relative z-10 bg-ink pb-14 pt-6 md:pb-20">
       <div className="container-x">
-        <div className="grid grid-cols-3 gap-2 sm:gap-3">
+        <div className="-mt-12 grid grid-cols-3 gap-2 sm:gap-3">
           {TABS.map((x) => (
-            <Link key={x.hash} to="/turmas" hash={x.hash} className={`lift flex flex-col items-center justify-center rounded-2xl px-2 py-4 text-center shadow-soft ${x.c}`}>
+            <Link key={x.hash} to="/turmas" hash={x.hash} className={`lift flex flex-col items-center justify-center rounded-2xl px-2 py-4 text-center shadow-lift ${x.c}`}>
               <span className="font-display text-lg font-semibold sm:text-2xl">{x.t}</span>
               <span className="mt-1 text-[11px] font-semibold opacity-80 sm:text-xs">{x.a}</span>
             </Link>
@@ -164,8 +164,8 @@ function TrustBar() {
         </div>
         <ul className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
           {DIFS.map(({ I, t }) => (
-            <li key={t} className="flex items-center gap-2 rounded-2xl bg-card px-3 py-3 text-sm font-semibold text-ink shadow-soft">
-              <I className="h-4 w-4 shrink-0 text-primary" /> {t}
+            <li key={t} className="flex items-center gap-2 rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 px-3 py-3 text-sm font-semibold text-primary-foreground">
+              <I className="h-4 w-4 shrink-0 text-sun" /> {t}
             </li>
           ))}
         </ul>
