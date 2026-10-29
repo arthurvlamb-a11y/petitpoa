@@ -3,7 +3,7 @@ import {
   ArrowRight, BookOpen, CalendarDays, ClipboardList, Compass, Ear, FileText, HeartHandshake, Leaf, Map,
   Moon, Music, NotebookPen, Palette, Pill, Puzzle, Search, Shapes, Sparkles, Users, Utensils, Baby, Footprints, Globe2,
 } from "lucide-react";
-import horta from "@/assets/horta.webp.asset.json";
+import horta from "@/assets/horta-nova.webp.asset.json";
 import fachada from "@/assets/fachada.webp.asset.json";
 import { Reveal } from "@/components/site/Reveal";
 import { SITE, waLink } from "@/lib/site";

@@ -8,7 +8,7 @@ import hero from "@/assets/criancas-uniforme.webp.asset.json";
 import meninaCoelho from "@/assets/menina-coelho.webp.asset.json";
 import fachada from "@/assets/fachada.webp.asset.json";
 import lago from "@/assets/lago.webp.asset.json";
-import horta from "@/assets/horta.webp.asset.json";
+import horta from "@/assets/horta-nova.webp.asset.json";
 import playground from "@/assets/playground.webp.asset.json";
 import coelho from "@/assets/coelho.webp.asset.json";
 import aPatinhos from "@/assets/animal-patinhos.webp.asset.json";
