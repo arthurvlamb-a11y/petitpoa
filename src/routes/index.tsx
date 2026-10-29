@@ -216,7 +216,6 @@ const HL = [
     { src: aGalo.url, alt: "Galo" },
     { src: aPata.url, alt: "Pata branca na grama" },
     { src: aFamilia.url, alt: "Família de patos" },
-    { src: viveiro.url, alt: "Crianças no espaço dos animais" },
   ] },
 ];
 
