@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight, Baby, Brain, Camera, Car, ChevronLeft, ChevronRight, Clock, HeartHandshake, Leaf, MapPin,
   Puzzle, ShieldCheck, Sparkles, Sprout, Star, Sun, Users, Utensils, Hand, Apple, Salad, CalendarCheck,
-  Footprints, FileText, MessageCircle, Building2, HeartPulse, Rabbit, Languages, Waves, Music, BookOpen,
+  Footprints, FileText, MessageCircle, Building2, HeartPulse, Rabbit, Languages, Trees, Waves, Music, BookOpen,
 } from "lucide-react";
 import hero from "@/assets/criancas-uniforme.webp.asset.json";
 import meninaCoelho from "@/assets/menina-coelho.webp.asset.json";
