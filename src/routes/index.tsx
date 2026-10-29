@@ -101,7 +101,7 @@ function Hero() {
         </Reveal>
         <Reveal delay={100}>
           <h1 className="max-w-4xl text-[2.6rem] font-medium leading-[1.04] text-primary-foreground sm:text-6xl lg:text-7xl">
-            Onde o cuidado vira confiança e cada descoberta constrói o futuro.
+            Muito mais que estrutura, um lugar para viver a infância.
           </h1>
         </Reveal>
         <Reveal delay={200}>
