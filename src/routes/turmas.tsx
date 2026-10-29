@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BookOpen, Brain, Drama, FlaskConical, Footprints, Hand, Languages, Music, Palette, Sprout, Sun, Trees, Waves, Flower2, Sparkles } from "lucide-react";
 import fachada from "@/assets/fachada.webp.asset.json";
-import horta from "@/assets/horta.webp.asset.json";
+import horta from "@/assets/horta-nova.webp.asset.json";
 import b1aEstimulos from "@/assets/b1a-sala-estimulos.webp.asset.json";
 import b1aDescanso from "@/assets/b1a-sala-descanso.webp.asset.json";
 import { SITE } from "@/lib/site";
