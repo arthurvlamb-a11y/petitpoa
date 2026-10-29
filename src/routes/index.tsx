@@ -110,7 +110,7 @@ function Hero() {
           </p>
         </Reveal>
         <Reveal delay={300} className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Link to="/agendar-visita" className="ripple-btn inline-flex h-14 items-center justify-center gap-2 rounded-full bg-coral px-8 font-bold text-primary-foreground shadow-lift transition-transform hover:scale-[1.03]">
+          <Link to="/agendar-visita" className="ripple-btn inline-flex h-14 items-center justify-center gap-2 rounded-full bg-sun px-8 font-bold text-navy shadow-lift transition-transform hover:scale-[1.03]">
             Agendar visita <ArrowRight className="h-5 w-5" />
           </Link>
           <a href="#tour" className="inline-flex h-14 items-center justify-center rounded-full bg-primary-foreground/15 px-8 font-semibold text-primary-foreground backdrop-blur-md transition-colors hover:bg-primary-foreground/25">
@@ -505,7 +505,7 @@ function FinalCta() {
             <h2 className="mx-auto max-w-3xl text-4xl leading-tight text-primary-foreground md:text-6xl">Venha conhecer a escola de perto.</h2>
             <p className="mx-auto mt-5 max-w-xl text-lg text-primary-foreground/85">Agende um horário e caminhe pelos espaços com a nossa equipe.</p>
             <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-              <Link to="/agendar-visita" className="ripple-btn inline-flex h-14 items-center justify-center gap-2 rounded-full bg-coral px-8 font-bold text-primary-foreground shadow-lift">Agendar visita <ArrowRight className="h-5 w-5" /></Link>
+              <Link to="/agendar-visita" className="ripple-btn inline-flex h-14 items-center justify-center gap-2 rounded-full bg-sun px-8 font-bold text-navy shadow-lift">Agendar visita <ArrowRight className="h-5 w-5" /></Link>
               <a href={waLink()} target="_blank" rel="noopener" className="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-whatsapp px-8 font-bold text-primary-foreground"><MessageCircle className="h-5 w-5" /> Falar no WhatsApp</a>
             </div>
           </div>

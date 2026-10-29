@@ -38,7 +38,7 @@ export function Header() {
             </Link>
           ))}
           <a href={waLink()} target="_blank" rel="noopener" className={cn("rounded-full px-4 py-2 text-sm font-semibold transition-colors", "text-primary-foreground/90 hover:bg-primary-foreground/10")}>WhatsApp</a>
-          <Link to="/agendar-visita" className="ripple-btn ml-2 rounded-full bg-coral px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-soft transition-transform hover:scale-[1.03]">Agendar visita</Link>
+          <Link to="/agendar-visita" className="ripple-btn ml-2 rounded-full bg-sun px-5 py-2.5 text-sm font-bold text-navy shadow-soft transition-transform hover:scale-[1.03]">Agendar visita</Link>
         </nav>
         <Button variant="ghost" size="icon" aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Fechar menu" : "Abrir menu"} onClick={() => setOpen(!open)} className={cn("grid h-11 w-11 place-items-center rounded-full md:hidden", "bg-primary-foreground/15 text-primary-foreground backdrop-blur")}>
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -62,7 +62,7 @@ export function MobileDock() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t bg-background/90 px-4 pb-[max(env(safe-area-inset-bottom),0.75rem)] pt-3 backdrop-blur-xl md:hidden">
       <div className="grid grid-cols-[1fr_auto] gap-3">
-        <Link to="/agendar-visita" className="ripple-btn flex h-14 items-center justify-center gap-2 rounded-2xl bg-coral font-bold text-primary-foreground shadow-soft">
+        <Link to="/agendar-visita" className="ripple-btn flex h-14 items-center justify-center gap-2 rounded-2xl bg-sun font-bold text-navy shadow-soft">
           <CalendarHeart className="h-5 w-5" /> Agendar visita
         </Link>
         <a href={waLink()} target="_blank" rel="noopener" aria-label="Falar no WhatsApp" className="ripple-btn grid h-14 w-14 place-items-center rounded-2xl bg-whatsapp text-primary-foreground shadow-soft">
