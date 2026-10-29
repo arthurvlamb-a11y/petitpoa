@@ -267,7 +267,7 @@ function Proposta() {
           <Reveal><h2 className="mx-auto max-w-2xl text-4xl md:text-5xl">Venha ver essa proposta acontecendo.</h2></Reveal>
           <Reveal delay={100}>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <Link to="/agendar-visita" className="ripple-btn inline-flex h-14 items-center justify-center gap-2 rounded-full bg-coral px-8 font-bold text-primary-foreground shadow-lift">Agendar visita <ArrowRight className="h-5 w-5" /></Link>
+              <Link to="/agendar-visita" className="ripple-btn inline-flex h-14 items-center justify-center gap-2 rounded-full bg-sun px-8 font-bold text-navy shadow-lift">Agendar visita <ArrowRight className="h-5 w-5" /></Link>
               <a href={waLink("Olá! Li sobre a proposta pedagógica da Petit Poá e gostaria de tirar algumas dúvidas.")} target="_blank" rel="noopener" className="inline-flex h-14 items-center justify-center rounded-full border px-8 font-bold text-ink">Tirar dúvidas no WhatsApp</a>
             </div>
           </Reveal>

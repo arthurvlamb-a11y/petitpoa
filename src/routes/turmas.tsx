@@ -84,7 +84,7 @@ function Turmas() {
         <p className="container-x mb-10 text-center text-muted-foreground">As oficinas apresentadas foram informadas pela escola. Confirme na visita a disponibilidade, a programação e as condições para cada turma.</p>
         <div className="container-x text-center">
           <Reveal><h2 className="text-4xl md:text-5xl">Qual turma é a do seu filho?</h2></Reveal>
-          <Reveal delay={100}><Link to="/agendar-visita" className="ripple-btn mt-8 inline-flex h-14 items-center gap-2 rounded-full bg-coral px-8 font-bold text-primary-foreground shadow-lift">Agendar visita <ArrowRight className="h-5 w-5" /></Link></Reveal>
+          <Reveal delay={100}><Link to="/agendar-visita" className="ripple-btn mt-8 inline-flex h-14 items-center gap-2 rounded-full bg-sun px-8 font-bold text-navy shadow-lift">Agendar visita <ArrowRight className="h-5 w-5" /></Link></Reveal>
         </div>
       </section>
     </>
