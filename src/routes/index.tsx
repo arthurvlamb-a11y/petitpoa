@@ -83,6 +83,7 @@ function Home() {
       <PedagogyTeaser />
       <ClassesTeaser />
       <Tour />
+      <Animals />
       <Safety />
       <Food />
       <Testimonials />
