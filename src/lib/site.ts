@@ -10,7 +10,8 @@ export const SITE = {
   short: "Petit Poá",
   phoneDisplay: "(51) 3271-8400",
   phoneHref: "tel:+555132718400",
-  whatsapp: "555132718400",
+  whatsapp: "5551998447256",
+  whatsappDisplay: "(51) 99844-7256",
   email: "escolainfantilpetitpoa@gmail.com",
   street: "Av. Sete de Setembro, 543",
   district: "Centro",
@@ -18,7 +19,7 @@ export const SITE = {
   state: "RS",
   zip: "93600-340",
   hours: "Segunda a sexta, das 6h30 às 19h",
-  instagram: "https://www.instagram.com/escolapetitpoa/",
+  instagram: "https://www.instagram.com/escolainfantilpetitpoa/",
   facebook: "https://www.facebook.com/escolapetitpoa/",
   linktree: "https://linktr.ee/escolapetitpoa",
   mapEmbed:
