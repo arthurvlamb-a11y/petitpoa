@@ -199,9 +199,6 @@ const HL = [
   { k: "ingles", t: "Inglês", I: Languages, d: "Inglês desde cedo, com histórias, músicas e muita leitura.", p: [
     { src: inglesVideo.url, alt: "Vídeo da aula de inglês", video: true, poster: inglesPoster.url },
     { src: inglesFoto.url, alt: "Aula de inglês na Petit Poá" },
-    { src: leit1.url, alt: "Professora lendo um livro com um bebê" },
-    { src: leit2.url, alt: "Professora lendo um livro ilustrado com uma criança" },
-    { src: bib.url, alt: "Estante da biblioteca com livros infantis" },
   ] },
   { k: "horta", t: "Horta", I: Sprout, d: "Plantar, cuidar e colher. Da horta para a mesa.", p: [
     { src: h1.url, alt: "Crianças colhendo alface com a professora" },
