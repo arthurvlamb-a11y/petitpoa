@@ -107,7 +107,7 @@ function Home() {
 function Hero() {
   return (
     <section className="relative flex min-h-[92svh] items-end overflow-hidden">
-      <img src={hero.url} alt="Crianças com o uniforme da Petit Poá abraçadas no pátio" fetchPriority="high" decoding="async" className="hero-zoom absolute inset-0 h-full w-full object-cover object-[center_35%]" />
+      <img src={hero.url} alt="Escola Petit Poá" fetchPriority="high" decoding="async" className="hero-zoom absolute inset-0 h-full w-full object-cover object-[center_35%]" />
       <div className="bg-hero-fade absolute inset-0" />
       <div className="container-x relative pb-32 pt-32 md:pb-24">
         <Reveal>
@@ -374,7 +374,7 @@ const TOUR = [
   { src: fachada.url, t: "Fachada e acolhida", d: "Uma casa de verdade, com jardim e varanda.", cls: "md:col-span-2 md:row-span-2 aspect-[4/5] md:aspect-auto" },
   { src: lago.url, t: "Laguinho dos peixes", d: "Natureza para observar todos os dias.", cls: "aspect-[4/3]" },
   { src: playground.url, t: "Playground interno", d: "Brincar com segurança, faça chuva ou sol.", cls: "aspect-[4/3]" },
-  { src: hero.url, t: "Pátio arborizado", d: "Casinhas, caminhos de pedra e bichinhos.", cls: "md:col-span-2 aspect-[16/10]" },
+  { src: uniforme.url, t: "Pátio arborizado", d: "Casinhas, caminhos de pedra e bichinhos.", cls: "md:col-span-2 aspect-[16/10]" },
   { src: horta.url, t: "Horta pedagógica", d: "Plantar, cuidar e colher com as próprias mãos.", cls: "aspect-[4/3]" },
   { src: coelho.url, t: "Contato com animais", d: "Cuidar de um coelho ensina empatia.", cls: "aspect-[4/3]" },
 ];
@@ -600,7 +600,7 @@ function FinalCta() {
     <section className="pb-24 md:pb-32">
       <div className="container-x">
         <Reveal className="relative overflow-hidden rounded-[2.5rem]">
-          <Parallax src={hero.url} alt="Pátio arborizado da Petit Poá" className="absolute inset-0" speed={0.08} />
+          <Parallax src={uniforme.url} alt="Pátio arborizado da Petit Poá" className="absolute inset-0" speed={0.08} />
           <div className="absolute inset-0 bg-ink/60" />
           <div className="relative px-8 py-20 text-center md:py-28">
             <h2 className="mx-auto max-w-3xl text-4xl leading-tight text-primary-foreground md:text-6xl">Venha conhecer a escola de perto.</h2>
