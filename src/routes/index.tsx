@@ -11,6 +11,10 @@ import lago from "@/assets/lago.webp.asset.json";
 import horta from "@/assets/horta-nova.webp.asset.json";
 import playground from "@/assets/playground.webp.asset.json";
 import coelho from "@/assets/coelho.webp.asset.json";
+import h1 from "@/assets/horta-1.webp.asset.json";
+import h2 from "@/assets/horta-2.webp.asset.json";
+import h3 from "@/assets/horta-3.webp.asset.json";
+import h4 from "@/assets/horta-4.webp.asset.json";
 import aPatinhos from "@/assets/animal-patinhos.webp.asset.json";
 import aPavao from "@/assets/animal-pavao.webp.asset.json";
 import aCoelho from "@/assets/animal-coelho-preto.webp.asset.json";
@@ -84,6 +88,7 @@ function Home() {
       <ClassesTeaser />
       <Tour />
       <Animals />
+      <Garden />
       <Safety />
       <Food />
       <Testimonials />
@@ -549,6 +554,34 @@ function FinalCta() {
             </div>
           </div>
         </Reveal>
+      </div>
+    </section>
+  );
+}
+
+const GARDEN = [
+  { src: h1.url, alt: "Crianças colhendo alface com a professora na horta" },
+  { src: h2.url, alt: "Menino segurando rabanetes colhidos na horta" },
+  { src: h3.url, alt: "Professora com um repolho colhido na horta" },
+  { src: h4.url, alt: "Crianças com cestas de verduras colhidas" },
+];
+
+function Garden() {
+  return (
+    <section id="horta" className="scroll-mt-20 py-24 md:py-32">
+      <div className="container-x">
+        <div className="max-w-2xl">
+          <Reveal><p className="eyebrow">Horta pedagógica</p></Reveal>
+          <Reveal delay={80}><h2 className="mt-4 text-4xl leading-tight md:text-5xl">Da horta para a mesa.</h2></Reveal>
+          <Reveal delay={160}><p className="mt-5 text-lg text-muted-foreground">As crianças plantam, cuidam e colhem. Aprendem de onde vem o alimento e descobrem o gosto do que cultivaram.</p></Reveal>
+        </div>
+        <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+          {GARDEN.map((g, i) => (
+            <Reveal key={g.src} delay={i * 80} className="group relative aspect-[3/4] overflow-hidden rounded-[1.75rem]">
+              <img src={g.src} alt={g.alt} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
