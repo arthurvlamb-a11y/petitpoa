@@ -8,7 +8,7 @@ import { SITE } from "@/lib/site";
 import { Reveal } from "@/components/site/Reveal";
 
 const TITLE = "Turmas: Berçário, Maternal e Pré-escola em Estância Velha — Petit Poá";
-const DESC = "Conheça as turmas da Petit Poá: Berçário com shantala e yoga, Maternal com inglês e horta, Pré-escola com balé, natação e biblioteca. Estância Velha/RS.";
+const DESC = "Conheça as turmas da Petit Poá: Berçário com adaptação, natureza e pilates, Maternal com inglês e horta, Pré-escola com balé, natação e biblioteca. Estância Velha/RS.";
 
 export const Route = createFileRoute("/turmas")({
   staticData: { sitemap: true },
