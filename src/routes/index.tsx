@@ -222,7 +222,7 @@ const HL = [
 
 function Highlights() {
   const [a, setA] = useState(0);
-  const cur = HL[a];
+  const cur = HL[a] ?? HL[0]!;
   return (
     <div id="destaques" className="mt-12 scroll-mt-24">
       <div role="tablist" aria-label="Destaques da escola" className="grid grid-cols-4 gap-2 rounded-full bg-primary-foreground/10 p-1.5">
