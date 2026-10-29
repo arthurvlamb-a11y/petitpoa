@@ -14,6 +14,9 @@ import horta from "@/assets/horta-nova.webp.asset.json";
 import playground from "@/assets/playground.webp.asset.json";
 import coelho from "@/assets/coelho.webp.asset.json";
 import bib from "@/assets/biblioteca.webp.asset.json";
+import inglesVideo from "@/assets/ingles-video.mp4.asset.json";
+import inglesFoto from "@/assets/ingles-foto.webp.asset.json";
+import inglesPoster from "@/assets/ingles-poster.webp.asset.json";
 import leit1 from "@/assets/leitura-1.webp.asset.json";
 import leit2 from "@/assets/leitura-2.webp.asset.json";
 import viveiro from "@/assets/viveiro.webp.asset.json";
@@ -194,6 +197,8 @@ function TrustBar() {
 
 const HL = [
   { k: "ingles", t: "Inglês", I: Languages, d: "Inglês desde cedo, com histórias, músicas e muita leitura.", p: [
+    { src: inglesVideo.url, alt: "Vídeo da aula de inglês", video: true, poster: inglesPoster.url },
+    { src: inglesFoto.url, alt: "Aula de inglês na Petit Poá" },
     { src: leit1.url, alt: "Professora lendo um livro com um bebê" },
     { src: leit2.url, alt: "Professora lendo um livro ilustrado com uma criança" },
     { src: bib.url, alt: "Estante da biblioteca com livros infantis" },
@@ -236,8 +241,13 @@ function Highlights() {
       <p className="mt-5 text-center text-primary-foreground/80">{cur.d}</p>
       <div key={cur.k} role="tabpanel" className="mt-5 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 animate-in fade-in duration-500">
         {cur.p.map((ph) => (
+          "video" in ph ? (
+            <video key={ph.src} src={ph.src} poster={ph.poster} controls playsInline preload="none" aria-label={ph.alt}
+              className="aspect-[4/5] w-[70%] shrink-0 snap-start rounded-[1.5rem] bg-navy object-cover sm:w-[38%] lg:w-[23%]" />
+          ) : (
           <img key={ph.src} src={ph.src} alt={ph.alt} loading="lazy" decoding="async"
             className="aspect-[4/5] w-[70%] shrink-0 snap-start rounded-[1.5rem] object-cover sm:w-[38%] lg:w-[23%]" />
+          )
         ))}
       </div>
     </div>
