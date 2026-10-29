@@ -31,7 +31,7 @@ const CLASSES = [
   {
     t: "Berçário", age: "Berçário I e II · a partir de 4 meses", img: b1aEstimulos.url, alt: "Sala do Berçário I com tatames coloridos e brinquedos de espuma", img2: b1aDescanso.url, alt2: "Sala de descanso do Berçário I com colchonetes e trocador", bg: "bg-sky-soft", accent: "text-primary",
     lead: "Os primeiros vínculos fora de casa, construídos com colo, rotina e muito olhar.",
-    w: [{ I: Sun, t: "Solário" }, { I: Hand, t: "Adaptação" }, { I: Trees, t: "Natureza" }, { I: ShieldCheck, t: "Segurança" }, { I: Flower2, t: "Pilates" }],
+    w: [{ I: Sun, t: "Solário" }, { I: Hand, t: "Adaptação Humanizada" }, { I: Trees, t: "Natureza" }, { I: ShieldCheck, t: "Segurança" }, { I: Flower2, t: "Pilates" }],
   },
   {
     t: "Maternal", age: "Maternal I e II", img: horta.url, alt: "Horta pedagógica da Petit Poá", bg: "bg-sage-soft", accent: "text-accent-foreground",
