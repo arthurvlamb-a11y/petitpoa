@@ -123,7 +123,7 @@ function Agendar() {
   );
 }
 
-function Field({ label, error, children }: { label: string; error?: string | undefined; children: ReactElement<{ id?: string; "aria-invalid"?: boolean; "aria-describedby"?: string; "aria-required"?: boolean }> }) {
+function Field({ label, error, children }: { label: string; error?: string | undefined; children: ReactElement<{ id?: string; "aria-invalid"?: boolean; "aria-describedby"?: string | undefined; "aria-required"?: boolean }> }) {
   const id = useId();
   return (
     <label htmlFor={id} className="grid gap-2">
