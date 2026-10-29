@@ -5,7 +5,8 @@ import {
   Puzzle, ShieldCheck, Sparkles, Sprout, Star, Sun, Users, Utensils, Hand, Apple, Salad, CalendarCheck,
   Footprints, FileText, MessageCircle, Building2, HeartPulse, Rabbit, Languages, Trees, Waves, Music, BookOpen,
 } from "lucide-react";
-import hero from "@/assets/criancas-uniforme.webp.asset.json";
+import hero from "@/assets/hero-capa.webp.asset.json";
+import uniforme from "@/assets/criancas-uniforme.webp.asset.json";
 import meninaCoelho from "@/assets/menina-coelho.webp.asset.json";
 import fachada from "@/assets/fachada.webp.asset.json";
 import lago from "@/assets/lago.webp.asset.json";
@@ -205,7 +206,7 @@ const HL = [
     { src: horta.url, alt: "Horta coberta com canteiros elevados" },
   ] },
   { k: "natureza", t: "Natureza", I: Trees, d: "Pátio arborizado, laguinho e muito espaço ao ar livre.", p: [
-    { src: hero.url, alt: "Pátio arborizado da Petit Poá" },
+    { src: uniforme.url, alt: "Pátio arborizado da Petit Poá" },
     { src: lago.url, alt: "Laguinho dos peixes" },
     { src: fachada.url, alt: "Fachada e jardim da escola" },
   ] },
