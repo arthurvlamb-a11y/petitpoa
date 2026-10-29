@@ -179,16 +179,32 @@ function TrustBar() {
           ))}
         </div>
         <p className="eyebrow mt-10 text-center !text-sun">Diferenciais da Petit Poá</p>
-        <ul className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
-          {DIFS.map(({ I, t }) => (
-            <li key={t} className="flex items-center gap-2 rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 px-3 py-3 text-sm font-semibold text-primary-foreground">
-              <I className="h-4 w-4 shrink-0 text-sun" /> {t}
-            </li>
-          ))}
-        </ul>
+        <DifsList />
         <Highlights />
       </div>
     </section>
+  );
+}
+
+function DifsList() {
+  const [open, setOpen] = useState(false);
+  const list = open ? DIFS : DIFS.slice(0, 6);
+  return (
+    <>
+      <ul className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+        {list.map(({ I, t }) => (
+          <li key={t} className="flex items-center gap-2 rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 px-3 py-3 text-sm font-semibold text-primary-foreground">
+            <I className="h-4 w-4 shrink-0 text-sun" /> {t}
+          </li>
+        ))}
+      </ul>
+      <div className="mt-3 text-center">
+        <button type="button" onClick={() => setOpen((v) => !v)} aria-expanded={open}
+          className="rounded-full px-4 py-2 text-sm font-bold text-sun underline-offset-4 hover:underline">
+          {open ? "Ver menos" : "Ver mais..."}
+        </button>
+      </div>
+    </>
   );
 }
 
