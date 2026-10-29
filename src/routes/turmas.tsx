@@ -34,12 +34,12 @@ const CLASSES = [
     w: [{ I: Sun, t: "Solário" }, { I: Hand, t: "Adaptação Humanizada" }, { I: Trees, t: "Natureza" }, { I: ShieldCheck, t: "Segurança" }, { I: Flower2, t: "Pilates" }],
   },
   {
-    t: "Maternal", age: "Maternal I e II", img: horta.url, alt: "Horta pedagógica da Petit Poá", bg: "bg-sage-soft", accent: "text-accent-foreground",
+    t: "Maternal", age: "Maternal I e II", img: horta.url, alt: "Horta pedagógica da Petit Poá", bg: "bg-sky-soft", accent: "text-accent-foreground",
     lead: "A fase dos porquês. Curiosidade transformada em descoberta todos os dias.",
     w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }],
   },
   {
-    t: "Pré-escola", age: "Pré-escola I e II · 4 e 5 anos", img: fachada.url, alt: "Fachada e jardim da Petit Poá", bg: "bg-sun-soft", accent: "text-coral",
+    t: "Pré-escola", age: "Pré-escola I e II · 4 e 5 anos", img: fachada.url, alt: "Fachada e jardim da Petit Poá", bg: "bg-sky-soft", accent: "text-coral",
     lead: "Autonomia, leitura do mundo e preparo para o ensino fundamental, sem perder a infância.",
     w: [{ I: Sparkles, t: "Balé" }, { I: Footprints, t: "Dança" }, { I: Waves, t: "Natação" }, { I: BookOpen, t: "Biblioteca" }, { I: Brain, t: "Raciocínio lógico" }],
   },
