@@ -13,12 +13,9 @@ import lago from "@/assets/lago.webp.asset.json";
 import horta from "@/assets/horta-nova.webp.asset.json";
 import playground from "@/assets/playground.webp.asset.json";
 import coelho from "@/assets/coelho.webp.asset.json";
-import bib from "@/assets/biblioteca.webp.asset.json";
 import inglesVideo from "@/assets/ingles-video.mp4.asset.json";
 import inglesFoto from "@/assets/ingles-foto.webp.asset.json";
 import inglesPoster from "@/assets/ingles-poster.webp.asset.json";
-import leit1 from "@/assets/leitura-1.webp.asset.json";
-import leit2 from "@/assets/leitura-2.webp.asset.json";
 import viveiro from "@/assets/viveiro.webp.asset.json";
 import h1 from "@/assets/horta-1.webp.asset.json";
 import h2 from "@/assets/horta-2.webp.asset.json";
@@ -199,9 +196,6 @@ const HL = [
   { k: "ingles", t: "Inglês", I: Languages, d: "Inglês desde cedo, com histórias, músicas e muita leitura.", p: [
     { src: inglesVideo.url, alt: "Vídeo da aula de inglês", video: true, poster: inglesPoster.url },
     { src: inglesFoto.url, alt: "Aula de inglês na Petit Poá" },
-    { src: leit1.url, alt: "Professora lendo um livro com um bebê" },
-    { src: leit2.url, alt: "Professora lendo um livro ilustrado com uma criança" },
-    { src: bib.url, alt: "Estante da biblioteca com livros infantis" },
   ] },
   { k: "horta", t: "Horta", I: Sprout, d: "Plantar, cuidar e colher. Da horta para a mesa.", p: [
     { src: h1.url, alt: "Crianças colhendo alface com a professora" },
