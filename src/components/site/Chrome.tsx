@@ -25,22 +25,22 @@ export function Header() {
     return () => window.removeEventListener("scroll", on);
   }, []);
   return (
-    <header className={cn("fixed inset-x-0 top-0 z-50 transition-all duration-500", scrolled || open || !overPhoto ? "bg-background/95 shadow-soft backdrop-blur-xl" : "bg-transparent")}>
+    <header className={cn("fixed inset-x-0 top-0 z-50 transition-all duration-500", scrolled || open || !overPhoto ? "bg-navy/95 shadow-soft backdrop-blur-xl" : "bg-transparent")}>
       <div className="container-x flex h-16 items-center justify-between gap-4 md:h-20">
         <Link to="/" className="flex shrink-0 items-center gap-3" onClick={() => setOpen(false)}>
           <img src={logo.url} alt="Petit Poá Escola de Educação Infantil" width={52} height={37} className="h-10 w-auto rounded-lg md:h-11" />
-          <span className={cn("hidden font-display text-lg font-semibold sm:block", scrolled || open || !overPhoto ? "text-ink" : "text-primary-foreground")}>Petit Poá</span>
+          <span className={cn("hidden font-display text-lg font-semibold sm:block", "text-primary-foreground")}>Petit Poá</span>
         </Link>
         <nav aria-label="Navegação principal" className="hidden items-center gap-1 md:flex">
           {NAV.slice(0, 3).map((n) => (
-            <Link key={n.to} to={n.to} className={cn("rounded-full px-4 py-2 text-sm font-semibold transition-colors", scrolled || !overPhoto ? "text-foreground hover:bg-muted" : "text-primary-foreground/90 hover:bg-primary-foreground/10")} activeOptions={{ exact: true }}>
+            <Link key={n.to} to={n.to} className={cn("rounded-full px-4 py-2 text-sm font-semibold transition-colors", "text-primary-foreground/90 hover:bg-primary-foreground/10")} activeOptions={{ exact: true }}>
               {n.label}
             </Link>
           ))}
-          <a href={waLink()} target="_blank" rel="noopener" className={cn("rounded-full px-4 py-2 text-sm font-semibold transition-colors", scrolled || !overPhoto ? "text-foreground hover:bg-muted" : "text-primary-foreground/90 hover:bg-primary-foreground/10")}>WhatsApp</a>
+          <a href={waLink()} target="_blank" rel="noopener" className={cn("rounded-full px-4 py-2 text-sm font-semibold transition-colors", "text-primary-foreground/90 hover:bg-primary-foreground/10")}>WhatsApp</a>
           <Link to="/agendar-visita" className="ripple-btn ml-2 rounded-full bg-coral px-5 py-2.5 text-sm font-bold text-primary-foreground shadow-soft transition-transform hover:scale-[1.03]">Agendar visita</Link>
         </nav>
-        <Button variant="ghost" size="icon" aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Fechar menu" : "Abrir menu"} onClick={() => setOpen(!open)} className={cn("grid h-11 w-11 place-items-center rounded-full md:hidden", scrolled || open || !overPhoto ? "bg-muted text-ink" : "bg-primary-foreground/15 text-primary-foreground backdrop-blur")}>
+        <Button variant="ghost" size="icon" aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? "Fechar menu" : "Abrir menu"} onClick={() => setOpen(!open)} className={cn("grid h-11 w-11 place-items-center rounded-full md:hidden", "bg-primary-foreground/15 text-primary-foreground backdrop-blur")}>
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </Button>
       </div>
@@ -48,9 +48,9 @@ export function Header() {
         <nav id="mobile-navigation" inert={!open} aria-label="Navegação móvel" className="min-h-0">
           <div className="container-x flex flex-col gap-1 pb-6 pt-2">
             {NAV.map((n) => (
-              <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="rounded-2xl px-4 py-4 font-display text-2xl text-ink active:bg-muted">{n.label}</Link>
+              <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="rounded-2xl px-4 py-4 font-display text-2xl text-primary-foreground active:bg-primary-foreground/10">{n.label}</Link>
             ))}
-            <a href={waLink()} target="_blank" rel="noopener" className="rounded-2xl px-4 py-4 font-display text-2xl text-ink">Falar no WhatsApp</a>
+            <a href={waLink()} target="_blank" rel="noopener" className="rounded-2xl px-4 py-4 font-display text-2xl text-primary-foreground">Falar no WhatsApp</a>
           </div>
         </nav>
       </div>
@@ -86,7 +86,7 @@ export function WhatsAppFab() {
 
 export function Footer() {
   return (
-    <footer className="bg-ink pb-28 pt-20 text-primary-foreground/80 md:pb-12">
+    <footer className="bg-navy pb-28 pt-20 text-primary-foreground/80 md:pb-12">
       <div className="container-x grid gap-12 lg:grid-cols-[1.1fr_1fr]">
         <div>
           <img src={logo.url} alt="Petit Poá" width={120} height={85} loading="lazy" className="h-20 w-auto rounded-2xl" />
