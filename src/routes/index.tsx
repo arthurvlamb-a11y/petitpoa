@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight, Baby, Brain, Camera, Car, ChevronLeft, ChevronRight, Clock, HeartHandshake, Leaf, MapPin,
   Puzzle, ShieldCheck, Sparkles, Sprout, Star, Sun, Users, Utensils, Hand, Apple, Salad, CalendarCheck,
-  Footprints, FileText, MessageCircle, Building2, HeartPulse, Rabbit, Languages, Waves, Music, BookOpen,
+  Footprints, FileText, MessageCircle, Building2, HeartPulse, Rabbit, Languages, Trees, Waves, Music, BookOpen,
 } from "lucide-react";
 import hero from "@/assets/criancas-uniforme.webp.asset.json";
 import meninaCoelho from "@/assets/menina-coelho.webp.asset.json";
@@ -11,6 +12,10 @@ import lago from "@/assets/lago.webp.asset.json";
 import horta from "@/assets/horta-nova.webp.asset.json";
 import playground from "@/assets/playground.webp.asset.json";
 import coelho from "@/assets/coelho.webp.asset.json";
+import bib from "@/assets/biblioteca.webp.asset.json";
+import leit1 from "@/assets/leitura-1.webp.asset.json";
+import leit2 from "@/assets/leitura-2.webp.asset.json";
+import viveiro from "@/assets/viveiro.webp.asset.json";
 import h1 from "@/assets/horta-1.webp.asset.json";
 import h2 from "@/assets/horta-2.webp.asset.json";
 import h3 from "@/assets/horta-3.webp.asset.json";
@@ -87,8 +92,6 @@ function Home() {
       <PedagogyTeaser />
       <ClassesTeaser />
       <Tour />
-      <Animals />
-      <Garden />
       <Safety />
       <Food />
       <Testimonials />
@@ -182,8 +185,62 @@ function TrustBar() {
             </li>
           ))}
         </ul>
+        <Highlights />
       </div>
     </section>
+  );
+}
+
+const HL = [
+  { k: "ingles", t: "Inglês", I: Languages, d: "Inglês desde cedo, com histórias, músicas e muita leitura.", p: [
+    { src: leit1.url, alt: "Professora lendo um livro com um bebê" },
+    { src: leit2.url, alt: "Professora lendo um livro ilustrado com uma criança" },
+    { src: bib.url, alt: "Estante da biblioteca com livros infantis" },
+  ] },
+  { k: "horta", t: "Horta", I: Sprout, d: "Plantar, cuidar e colher. Da horta para a mesa.", p: [
+    { src: h1.url, alt: "Crianças colhendo alface com a professora" },
+    { src: h2.url, alt: "Menino segurando rabanetes colhidos" },
+    { src: h3.url, alt: "Professora com um repolho colhido" },
+    { src: h4.url, alt: "Crianças com cestas de verduras" },
+    { src: horta.url, alt: "Horta coberta com canteiros elevados" },
+  ] },
+  { k: "natureza", t: "Natureza", I: Trees, d: "Pátio arborizado, laguinho e muito espaço ao ar livre.", p: [
+    { src: hero.url, alt: "Pátio arborizado da Petit Poá" },
+    { src: lago.url, alt: "Laguinho dos peixes" },
+    { src: fachada.url, alt: "Fachada e jardim da escola" },
+  ] },
+  { k: "animais", t: "Animais", I: Rabbit, d: "Patos, pavão, coelho e galo convivem com as crianças.", p: [
+    { src: aPatinhos.url, alt: "Patinhos" },
+    { src: aPavao.url, alt: "Pavão no pátio" },
+    { src: aCoelho.url, alt: "Coelho entre as plantas" },
+    { src: aGalo.url, alt: "Galo" },
+    { src: aPata.url, alt: "Pata branca na grama" },
+    { src: aFamilia.url, alt: "Família de patos" },
+    { src: viveiro.url, alt: "Crianças no espaço dos animais" },
+  ] },
+];
+
+function Highlights() {
+  const [a, setA] = useState(0);
+  const cur = HL[a] ?? HL[0]!;
+  return (
+    <div id="destaques" className="mt-12 scroll-mt-24">
+      <div role="tablist" aria-label="Destaques da escola" className="grid grid-cols-4 gap-2 rounded-full bg-primary-foreground/10 p-1.5">
+        {HL.map((h, i) => (
+          <button key={h.k} role="tab" aria-selected={a === i} onClick={() => setA(i)}
+            className={`flex items-center justify-center gap-1.5 rounded-full px-2 py-2.5 text-xs font-bold transition-colors sm:text-sm ${a === i ? "bg-sun text-navy" : "text-primary-foreground hover:bg-primary-foreground/10"}`}>
+            <h.I className="hidden h-4 w-4 sm:block" /> {h.t}
+          </button>
+        ))}
+      </div>
+      <p className="mt-5 text-center text-primary-foreground/80">{cur.d}</p>
+      <div key={cur.k} role="tabpanel" className="mt-5 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 animate-in fade-in duration-500">
+        {cur.p.map((ph) => (
+          <img key={ph.src} src={ph.src} alt={ph.alt} loading="lazy" decoding="async"
+            className="aspect-[4/5] w-[70%] shrink-0 snap-start rounded-[1.5rem] object-cover sm:w-[38%] lg:w-[23%]" />
+        ))}
+      </div>
+    </div>
   );
 }
 
