@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, BookOpen, Brain, Drama, FlaskConical, Footprints, Hand, Languages, Music, Palette, Sprout, Sun, Trees, Waves, Flower2, Sparkles } from "lucide-react";
+import { Activity, HeartHandshake, Leaf, ShieldCheck, ArrowRight, BookOpen, Brain, Drama, FlaskConical, Footprints, Hand, Languages, Music, Palette, Sprout, Sun, Trees, Waves, Flower2, Sparkles } from "lucide-react";
 import fachada from "@/assets/fachada.webp.asset.json";
 import horta from "@/assets/horta-nova.webp.asset.json";
 import b1aEstimulos from "@/assets/b1a-sala-estimulos.webp.asset.json";
@@ -31,7 +31,7 @@ const CLASSES = [
   {
     t: "Berçário", age: "Berçário I e II · a partir de 4 meses", img: b1aEstimulos.url, alt: "Sala do Berçário I com tatames coloridos e brinquedos de espuma", img2: b1aDescanso.url, alt2: "Sala de descanso do Berçário I com colchonetes e trocador", bg: "bg-sky-soft", accent: "text-primary",
     lead: "Os primeiros vínculos fora de casa, construídos com colo, rotina e muito olhar.",
-    w: [{ I: Sun, t: "Solário" }, { I: Trees, t: "Mini pátio" }, { I: Hand, t: "Shantala" }, { I: Flower2, t: "Yoga" }, { I: Music, t: "Música" }],
+    w: [{ I: Sun, t: "Solário" }, { I: HeartHandshake, t: "Adaptação" }, { I: Leaf, t: "Natureza" }, { I: ShieldCheck, t: "Segurança" }, { I: Activity, t: "Pilates" }],
   },
   {
     t: "Maternal", age: "Maternal I e II", img: horta.url, alt: "Horta pedagógica da Petit Poá", bg: "bg-sage-soft", accent: "text-accent-foreground",
