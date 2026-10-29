@@ -2,9 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight, Baby, Brain, Camera, Car, ChevronLeft, ChevronRight, Clock, HeartHandshake, Leaf, MapPin,
   Puzzle, ShieldCheck, Sparkles, Sprout, Star, Sun, Users, Utensils, Hand, Apple, Salad, CalendarCheck,
-  Footprints, FileText, MessageCircle, Building2, HeartPulse,
+  Footprints, FileText, MessageCircle, Building2, HeartPulse, Rabbit, Languages, Waves, Music, BookOpen,
 } from "lucide-react";
-import hero from "@/assets/hero.webp.asset.json";
+import hero from "@/assets/criancas-uniforme.webp.asset.json";
+import meninaCoelho from "@/assets/menina-coelho.webp.asset.json";
 import fachada from "@/assets/fachada.webp.asset.json";
 import lago from "@/assets/lago.webp.asset.json";
 import horta from "@/assets/horta.webp.asset.json";
@@ -90,7 +91,7 @@ function Home() {
 function Hero() {
   return (
     <section className="relative flex min-h-[92svh] items-end overflow-hidden">
-      <img src={hero.url} alt="Fachada azul e pátio arborizado da Petit Poá em Estância Velha" fetchPriority="high" decoding="async" className="hero-zoom absolute inset-0 h-full w-full object-cover" />
+      <img src={hero.url} alt="Crianças com o uniforme da Petit Poá abraçadas no pátio" fetchPriority="high" decoding="async" className="hero-zoom absolute inset-0 h-full w-full object-cover object-[center_35%]" />
       <div className="bg-hero-fade absolute inset-0" />
       <div className="container-x relative pb-32 pt-32 md:pb-24">
         <Reveal>
@@ -128,27 +129,46 @@ function Hero() {
   );
 }
 
-const TRUST = [
-  { I: Camera, t: "Monitoramento por câmeras", c: "bg-sky-soft text-primary" },
-  { I: Utensils, t: "Alimentação inclusa", c: "bg-sun-soft text-ink" },
-  { I: HeartPulse, t: "Psicóloga escolar", c: "bg-coral-soft text-coral" },
-  { I: Sun, t: "Funcionamento o ano inteiro", c: "bg-sun-soft text-ink" },
-  { I: ShieldCheck, t: "Segurança 24h", c: "bg-sage-soft text-accent-foreground" },
-  { I: Users, t: "Equipe especializada", c: "bg-sky-soft text-primary" },
+const TABS = [
+  { hash: "bercario", t: "Berçário", a: "a partir de 4 meses", c: "bg-sky-soft text-primary" },
+  { hash: "maternal", t: "Maternal", a: "Maternal I e II", c: "bg-sage-soft text-accent-foreground" },
+  { hash: "pre-escola", t: "Pré-escola", a: "4 e 5 anos", c: "bg-sun-soft text-ink" },
+] as const;
+
+const DIFS = [
+  { I: Rabbit, t: "Contato com animais" },
+  { I: Languages, t: "Inglês" },
+  { I: HeartHandshake, t: "Adaptação acolhedora" },
+  { I: Camera, t: "Câmeras com app" },
+  { I: ShieldCheck, t: "Segurança 24h" },
+  { I: Utensils, t: "Alimentação inclusa" },
+  { I: HeartPulse, t: "Psicóloga escolar" },
+  { I: Clock, t: "Integral até 19h" },
+  { I: Sprout, t: "Horta" },
+  { I: Waves, t: "Natação" },
+  { I: Music, t: "Música e balé" },
+  { I: BookOpen, t: "Biblioteca" },
 ];
 
 function TrustBar() {
   return (
     <section className="relative z-10 -mt-10">
       <div className="container-x">
-        <div className="no-scrollbar -mx-5 flex snap-x gap-3 overflow-x-auto px-5 pb-4 md:mx-0 md:grid md:grid-cols-3 md:px-0 lg:grid-cols-6">
-          {TRUST.map(({ I, t, c }, i) => (
-            <Reveal key={t} delay={i * 60} className="lift flex min-w-[10.5rem] snap-start flex-col gap-4 rounded-3xl bg-card p-5 shadow-soft">
-              <span className={`breathe grid h-11 w-11 place-items-center rounded-2xl ${c}`} style={{ animationDelay: `${i * 0.4}s` }}><I className="h-5 w-5" /></span>
-              <span className="text-sm font-semibold leading-snug text-ink">{t}</span>
-            </Reveal>
+        <div className="grid grid-cols-3 gap-2 sm:gap-3">
+          {TABS.map((x) => (
+            <Link key={x.hash} to="/turmas" hash={x.hash} className={`lift flex flex-col items-center justify-center rounded-2xl px-2 py-4 text-center shadow-soft ${x.c}`}>
+              <span className="font-display text-lg font-semibold sm:text-2xl">{x.t}</span>
+              <span className="mt-1 text-[11px] font-semibold opacity-80 sm:text-xs">{x.a}</span>
+            </Link>
           ))}
         </div>
+        <ul className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
+          {DIFS.map(({ I, t }) => (
+            <li key={t} className="flex items-center gap-2 rounded-2xl bg-card px-3 py-3 text-sm font-semibold text-ink shadow-soft">
+              <I className="h-4 w-4 shrink-0 text-primary" /> {t}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -160,7 +180,7 @@ function Story() {
       <div className="container-x grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <Reveal className="relative">
           <div className="overflow-hidden rounded-[2.5rem] shadow-lift">
-            <img src={fachada.url} alt="Fachada da Petit Poá, no Centro de Estância Velha" loading="lazy" decoding="async" width={1100} height={1467} className="aspect-[4/5] w-full object-cover" />
+            <img src={meninaCoelho.url} alt="Menina com um coelho no pátio da Petit Poá" loading="lazy" decoding="async" width={1100} height={1467} className="aspect-[4/5] w-full object-cover" />
           </div>
           <div className="float-slow absolute -bottom-8 -right-2 rounded-3xl bg-card p-5 shadow-lift sm:-right-8">
             <p className="font-display text-4xl text-primary">{SITE.foundersExperience}+</p>

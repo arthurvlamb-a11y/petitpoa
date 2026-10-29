@@ -58,7 +58,7 @@ function Turmas() {
         <div className="container-x space-y-8 md:space-y-12">
           {CLASSES.map((c, i) => (
             <Reveal key={c.t}>
-              <article className={`grid overflow-hidden rounded-[2.5rem] ${c.bg} lg:grid-cols-2`}>
+              <article id={["bercario", "maternal", "pre-escola"][i]} className={`grid scroll-mt-24 overflow-hidden rounded-[2.5rem] ${c.bg} lg:grid-cols-2`}>
                 <div className={`relative min-h-72 overflow-hidden ${i % 2 ? "lg:order-2" : ""}`}>
                   <img src={c.img} alt={c.alt} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.5s] hover:scale-105" />
                 </div>
