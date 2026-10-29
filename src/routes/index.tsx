@@ -11,6 +11,12 @@ import lago from "@/assets/lago.webp.asset.json";
 import horta from "@/assets/horta.webp.asset.json";
 import playground from "@/assets/playground.webp.asset.json";
 import coelho from "@/assets/coelho.webp.asset.json";
+import aPatinhos from "@/assets/animal-patinhos.webp.asset.json";
+import aPavao from "@/assets/animal-pavao.webp.asset.json";
+import aCoelho from "@/assets/animal-coelho-preto.webp.asset.json";
+import aGalo from "@/assets/animal-galo.webp.asset.json";
+import aPata from "@/assets/animal-pata-branca.webp.asset.json";
+import aFamilia from "@/assets/animal-patos-familia.webp.asset.json";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Parallax, Reveal } from "@/components/site/Reveal";
 import { FAQ, SITE, waLink } from "@/lib/site";
@@ -77,6 +83,7 @@ function Home() {
       <PedagogyTeaser />
       <ClassesTeaser />
       <Tour />
+      <Animals />
       <Safety />
       <Food />
       <Testimonials />
@@ -334,6 +341,38 @@ function Tour() {
         <Reveal className="mt-12 flex justify-center">
           <Link to="/agendar-visita" className="ripple-btn inline-flex h-14 items-center gap-2 rounded-full bg-sun px-8 font-bold text-ink transition-transform hover:scale-[1.03]">Quero visitar pessoalmente <ArrowRight className="h-5 w-5" /></Link>
         </Reveal>
+      </div>
+    </section>
+  );
+}
+
+const ANIMALS = [
+  { src: aPatinhos.url, t: "Patinhos" },
+  { src: aPavao.url, t: "Pavão" },
+  { src: aCoelho.url, t: "Coelho" },
+  { src: aGalo.url, t: "Galo" },
+  { src: aPata.url, t: "Pata" },
+  { src: aFamilia.url, t: "Família de patos" },
+];
+
+function Animals() {
+  return (
+    <section id="animais" className="scroll-mt-20 bg-sage-soft py-24 md:py-32">
+      <div className="container-x">
+        <div className="max-w-2xl">
+          <Reveal><p className="eyebrow">Contato com animais</p></Reveal>
+          <Reveal delay={80}><h2 className="mt-4 text-4xl leading-tight md:text-5xl">Nossos bichinhos.</h2></Reveal>
+          <Reveal delay={160}><p className="mt-5 text-lg text-muted-foreground">Patos, pavão, coelho e galo convivem no pátio. As crianças observam, cuidam e aprendem a respeitar a natureza.</p></Reveal>
+        </div>
+        <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+          {ANIMALS.map((a, i) => (
+            <Reveal key={a.t} delay={(i % 3) * 80} className="group relative aspect-square overflow-hidden rounded-[1.75rem]">
+              <img src={a.src} alt={`${a.t} no pátio da Petit Poá`} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/0 to-ink/0" />
+              <p className="absolute bottom-4 left-5 text-lg font-semibold text-primary-foreground">{a.t}</p>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
