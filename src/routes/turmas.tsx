@@ -2,7 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BookOpen, Brain, Drama, FlaskConical, Footprints, Hand, Languages, Music, Palette, Sprout, Sun, Trees, Waves, Flower2, Sparkles } from "lucide-react";
 import fachada from "@/assets/fachada.webp.asset.json";
 import horta from "@/assets/horta.webp.asset.json";
-import playground from "@/assets/playground.webp.asset.json";
+import b1aEstimulos from "@/assets/b1a-sala-estimulos.webp.asset.json";
+import b1aDescanso from "@/assets/b1a-sala-descanso.webp.asset.json";
 import { SITE } from "@/lib/site";
 import { Reveal } from "@/components/site/Reveal";
 
@@ -28,7 +29,7 @@ export const Route = createFileRoute("/turmas")({
 
 const CLASSES = [
   {
-    t: "Berçário", age: "Berçário I e II · a partir de 4 meses", img: playground.url, alt: "Playground interno da Petit Poá", bg: "bg-sky-soft", accent: "text-primary",
+    t: "Berçário", age: "Berçário I e II · a partir de 4 meses", img: b1aEstimulos.url, alt: "Sala do Berçário I com tatames coloridos e brinquedos de espuma", img2: b1aDescanso.url, alt2: "Sala de descanso do Berçário I com colchonetes e trocador", bg: "bg-sky-soft", accent: "text-primary",
     lead: "Os primeiros vínculos fora de casa, construídos com colo, rotina e muito olhar.",
     w: [{ I: Sun, t: "Solário" }, { I: Trees, t: "Mini pátio" }, { I: Hand, t: "Shantala" }, { I: Flower2, t: "Yoga" }, { I: Music, t: "Música" }],
   },
@@ -61,6 +62,9 @@ function Turmas() {
               <article id={["bercario", "maternal", "pre-escola"][i]} className={`grid scroll-mt-24 overflow-hidden rounded-[2.5rem] ${c.bg} lg:grid-cols-2`}>
                 <div className={`relative min-h-72 overflow-hidden ${i % 2 ? "lg:order-2" : ""}`}>
                   <img src={c.img} alt={c.alt} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.5s] hover:scale-105" />
+                  {"img2" in c && c.img2 && (
+                    <img src={c.img2} alt={c.alt2} loading="lazy" decoding="async" className="absolute bottom-4 right-4 w-2/5 rounded-2xl border-4 border-card object-cover shadow-lift aspect-[4/3]" />
+                  )}
                 </div>
                 <div className="p-8 md:p-14">
                   <p className={`text-sm font-bold ${c.accent}`}>{c.age}</p>
