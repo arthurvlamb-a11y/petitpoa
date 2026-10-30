@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight, Baby, Brain, Camera, Car, ChevronLeft, ChevronRight, Clock, HeartHandshake, Leaf, MapPin,
   Puzzle, ShieldCheck, Sparkles, Sprout, Star, Sun, Users, Utensils, Hand, Apple, Salad, CalendarCheck,
-  Footprints, FileText, MessageCircle, Building2, HeartPulse, Rabbit, Languages, Trees, Waves, Music, BookOpen,
+  Footprints, FileText, MessageCircle, Building2, Rabbit, Languages, Trees, Waves, Music, BookOpen,
 } from "lucide-react";
 import hero from "@/assets/hero-capa.webp.asset.json";
 import uniforme from "@/assets/criancas-uniforme.webp.asset.json";
@@ -27,6 +27,16 @@ import aCoelho from "@/assets/animal-coelho-preto.webp.asset.json";
 import aGalo from "@/assets/animal-galo.webp.asset.json";
 import aPata from "@/assets/animal-pata-branca.webp.asset.json";
 import aFamilia from "@/assets/animal-patos-familia.webp.asset.json";
+import aPatinhosComendo from "@/assets/animal-patinhos-comendo.webp.asset.json";
+import aPeriquito from "@/assets/animal-periquito.webp.asset.json";
+import natPatio1 from "@/assets/nat-patio-1.webp.asset.json";
+import natParquinho from "@/assets/nat-parquinho.webp.asset.json";
+import natPatio2 from "@/assets/nat-patio-2.webp.asset.json";
+import natBalanco from "@/assets/nat-balanco.webp.asset.json";
+import natPlayground from "@/assets/nat-playground-areia.webp.asset.json";
+import alimLegumes from "@/assets/alim-legumes.webp.asset.json";
+import alimCozinha from "@/assets/alim-cozinha.webp.asset.json";
+import alimVideo from "@/assets/alimentacao.mp4.asset.json";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Parallax, Reveal } from "@/components/site/Reveal";
 import { FAQ, SITE, waLink } from "@/lib/site";
@@ -158,7 +168,6 @@ const DIFS = [
   { I: Camera, t: "Câmeras com app" },
   { I: ShieldCheck, t: "Segurança 24h" },
   { I: Utensils, t: "Alimentação inclusa" },
-  { I: HeartPulse, t: "Psicóloga escolar" },
   { I: Clock, t: "Integral até 19h" },
   { I: Sprout, t: "Horta" },
   { I: Waves, t: "Natação" },
@@ -220,18 +229,30 @@ const HL = [
     { src: h4.url, alt: "Crianças com cestas de verduras" },
     { src: horta.url, alt: "Horta coberta com canteiros elevados" },
   ] },
-  { k: "natureza", t: "Natureza", I: Trees, d: "Pátio arborizado, laguinho e muito espaço ao ar livre.", p: [
+  { k: "natureza", t: "Natureza", I: Trees, d: "Pátio arborizado, parquinho de madeira, laguinho e muito espaço ao ar livre.", p: [
     { src: uniforme.url, alt: "Pátio arborizado da Petit Poá" },
+    { src: natPatio1.url, alt: "Jardim e caminhos de pedra do pátio" },
+    { src: natParquinho.url, alt: "Parquinho de madeira entre as árvores" },
+    { src: natPatio2.url, alt: "Pátio externo com árvores e parquinho" },
+    { src: natBalanco.url, alt: "Balanço de madeira no gramado" },
+    { src: natPlayground.url, alt: "Playground de areia com casinhas de madeira" },
     { src: lago.url, alt: "Laguinho dos peixes" },
     { src: fachada.url, alt: "Fachada e jardim da escola" },
   ] },
-  { k: "animais", t: "Animais", I: Rabbit, d: "Patos, pavão, coelho e galo convivem com as crianças.", p: [
+  { k: "animais", t: "Animais", I: Rabbit, d: "Patos, pavão, coelho, galo e periquito convivem com as crianças.", p: [
     { src: aPatinhos.url, alt: "Patinhos" },
+    { src: aPatinhosComendo.url, alt: "Patinhos comendo no pátio" },
     { src: aPavao.url, alt: "Pavão no pátio" },
     { src: aCoelho.url, alt: "Coelho entre as plantas" },
     { src: aGalo.url, alt: "Galo" },
     { src: aPata.url, alt: "Pata branca na grama" },
     { src: aFamilia.url, alt: "Família de patos" },
+    { src: aPeriquito.url, alt: "Periquito verde no viveiro" },
+  ] },
+  { k: "alimentacao", t: "Alimentação", I: Utensils, d: "Comida de verdade, preparada na cozinha da escola com frutas, legumes e verduras fresquinhas.", p: [
+    { src: alimVideo.url, alt: "Vídeo da cozinha da Petit Poá", video: true },
+    { src: alimLegumes.url, alt: "Cesta com legumes e verduras frescas" },
+    { src: alimCozinha.url, alt: "Cozinha da escola com frutas e legumes" },
   ] },
 ];
 
@@ -240,7 +261,7 @@ function Highlights() {
   const cur = HL[a] ?? HL[0]!;
   return (
     <div id="destaques" className="mt-12 scroll-mt-24">
-      <div role="tablist" aria-label="Destaques da escola" className="grid grid-cols-4 gap-2 rounded-full bg-primary-foreground/10 p-1.5">
+      <div role="tablist" aria-label="Destaques da escola" className="grid grid-cols-5 gap-2 rounded-full bg-primary-foreground/10 p-1.5">
         {HL.map((h, i) => (
           <button key={h.k} role="tab" aria-selected={a === i} onClick={() => setA(i)}
             className={`flex items-center justify-center gap-1.5 rounded-full px-2 py-2.5 text-xs font-bold transition-colors sm:text-sm ${a === i ? "bg-sun text-navy" : "text-primary-foreground hover:bg-primary-foreground/10"}`}>
@@ -533,7 +554,6 @@ function Testimonials() {
 
 function Compare() {
   const rows = [
-    ["Psicóloga escolar", "Apoio emocional para a criança e para a família"],
     ["Câmeras para pais", "Mais tranquilidade durante o seu dia"],
     ["Horta pedagógica", "Aprendizado prático, da semente ao prato"],
     ["Biblioteca itinerante", "Incentivo à leitura desde cedo"],
