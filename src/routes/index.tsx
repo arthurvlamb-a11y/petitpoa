@@ -145,7 +145,7 @@ function Hero() {
         </Reveal>
         <Reveal delay={400} className="mt-10 flex flex-wrap gap-2 sm:gap-3">
           {[{ I: Baby, t: "4 meses a 5 anos" }, { I: Clock, t: "Integral até 19h" }, { I: MapPin, t: "Centro de Estância Velha" }].map(({ I, t }) => (
-            <span key={t} className="inline-flex items-center gap-2 rounded-full bg-background/90 px-4 py-2.5 text-sm font-semibold text-ink shadow-soft backdrop-blur">
+            <span key={t} className="inline-flex items-center gap-2 rounded-full bg-card px-4 py-2.5 text-sm font-semibold text-ink shadow-soft">
               <I className="h-4 w-4 text-primary" /> {t}
             </span>
           ))}
