@@ -273,7 +273,7 @@ function Highlights() {
       <div key={cur.k} role="tabpanel" className="mt-5 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 animate-in fade-in duration-500">
         {cur.p.map((ph) => (
           "video" in ph ? (
-            <video key={ph.src} src={ph.src} poster={"poster" in ph ? ph.poster : undefined} controls playsInline preload="none" aria-label={ph.alt}
+            <video key={ph.src} src={ph.src} poster={("poster" in ph ? ph.poster : undefined) as string | undefined} controls playsInline preload="none" aria-label={ph.alt}
               className="aspect-[4/5] w-[70%] shrink-0 snap-start rounded-[1.5rem] bg-navy object-cover sm:w-[38%] lg:w-[23%]" />
           ) : (
           <img key={ph.src} src={ph.src} alt={ph.alt} loading="lazy" decoding="async"
