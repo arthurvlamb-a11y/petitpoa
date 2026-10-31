@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState, type KeyboardEvent } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight, Baby, Brain, Camera, Car, ChevronLeft, ChevronRight, Clock, HeartHandshake, Leaf, MapPin,
@@ -37,7 +37,9 @@ import natPlayground from "@/assets/nat-playground-areia.webp.asset.json";
 import alimLegumes from "@/assets/alim-legumes.webp.asset.json";
 import alimCozinha from "@/assets/alim-cozinha.webp.asset.json";
 import alimVideo from "@/assets/alimentacao.mp4.asset.json";
+import alimPoster from "@/assets/alimentacao-poster.webp.asset.json";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { Parallax, Reveal } from "@/components/site/Reveal";
 import { FAQ, SITE, waLink } from "@/lib/site";
 
@@ -116,17 +118,17 @@ function Home() {
 
 function Hero() {
   return (
-    <section className="relative flex min-h-[92svh] items-end overflow-hidden">
-      <img src={hero.url} alt="Escola Petit Poá" fetchPriority="high" decoding="async" className="hero-zoom absolute inset-0 h-full w-full object-cover object-[center_35%]" />
-      <div className="bg-hero-fade absolute inset-0" />
-      <div className="container-x relative pb-32 pt-32 md:pb-24">
+    <section className="school-hero relative flex items-end overflow-hidden md:min-h-[92svh]">
+      <img src={hero.url} alt="Menina da Petit Poá mostrando as mãos sujas de terra na horta" fetchPriority="high" decoding="async" className="hero-zoom absolute inset-x-0 top-0 h-[23rem] w-full object-cover object-[center_35%] md:h-full" />
+      <div className="bg-hero-fade absolute inset-x-0 top-0 h-[23rem] md:h-full" />
+      <div className="container-x relative pb-20 pt-[20rem] md:pb-24 md:pt-32">
         <Reveal>
           <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-foreground/15 px-4 py-2 text-xs font-semibold text-primary-foreground backdrop-blur-md">
             <span className="breathe h-2 w-2 rounded-full bg-sun" /> Petit Poá · Estância Velha/RS
           </p>
         </Reveal>
         <Reveal delay={100}>
-          <h1 className="max-w-4xl text-[2.6rem] font-medium leading-[1.04] text-primary-foreground sm:text-6xl lg:text-7xl">
+          <h1 className="hero-title max-w-4xl text-4xl font-medium leading-[1.12] text-primary-foreground sm:text-6xl lg:text-7xl">
             Muito mais que estrutura, um lugar para viver a infância.
           </h1>
         </Reveal>
@@ -139,9 +141,11 @@ function Hero() {
           <Link to="/agendar-visita" className="ripple-btn inline-flex h-14 items-center justify-center gap-2 rounded-full bg-sun px-8 font-bold text-navy shadow-lift transition-transform hover:scale-[1.03]">
             Agendar visita <ArrowRight className="h-5 w-5" />
           </Link>
-          <a href="#tour" className="inline-flex h-14 items-center justify-center rounded-full bg-primary-foreground/15 px-8 font-semibold text-primary-foreground backdrop-blur-md transition-colors hover:bg-primary-foreground/25">
+          <Button asChild variant="ghost" className="inline-flex h-14 items-center justify-center rounded-full border border-primary-foreground/40 bg-primary-foreground/10 px-8 text-base font-semibold text-primary-foreground backdrop-blur-md hover:bg-primary-foreground/20 hover:text-primary-foreground">
+            <a href="#tour">
             Conhecer a escola
-          </a>
+            </a>
+          </Button>
         </Reveal>
         <Reveal delay={400} className="mt-10 flex flex-wrap gap-2 sm:gap-3">
           {[{ I: Baby, t: "4 meses a 5 anos" }, { I: Clock, t: "Integral até 19h" }, { I: MapPin, t: "Centro de Estância Velha" }].map(({ I, t }) => (
@@ -208,10 +212,10 @@ function DifsList() {
         ))}
       </ul>
       <div className="mt-3 text-center">
-        <button type="button" onClick={() => setOpen((v) => !v)} aria-expanded={open}
-          className="rounded-full px-4 py-2 text-sm font-bold text-sun underline-offset-4 hover:underline">
+        <Button type="button" variant="ghost" onClick={() => setOpen((v) => !v)} aria-expanded={open}
+          className="h-11 rounded-full px-4 py-2 text-sm font-bold text-sun underline-offset-4 hover:bg-primary-foreground/10 hover:text-sun hover:underline">
           {open ? "Ver menos" : "Ver mais..."}
-        </button>
+        </Button>
       </div>
     </>
   );
@@ -250,7 +254,7 @@ const HL = [
     { src: aPeriquito.url, alt: "Periquito verde no viveiro" },
   ] },
   { k: "alimentacao", t: "Alimentação", I: Utensils, d: "Comida de verdade, preparada na cozinha da escola com frutas, legumes e verduras fresquinhas.", p: [
-    { src: alimVideo.url, alt: "Vídeo da cozinha da Petit Poá", video: true },
+    { src: alimVideo.url, alt: "Vídeo da cozinha da Petit Poá", video: true, poster: alimPoster.url },
     { src: alimLegumes.url, alt: "Cesta com legumes e verduras frescas" },
     { src: alimCozinha.url, alt: "Cozinha da escola com frutas e legumes" },
   ] },
@@ -258,28 +262,50 @@ const HL = [
 
 function Highlights() {
   const [a, setA] = useState(0);
-  const cur = HL[a] ?? HL[0]!;
+  const gallery = useRef<HTMLDivElement>(null);
+  const cur = HL[a];
+  if (!cur) return null;
+  function onTabKey(event: KeyboardEvent<HTMLButtonElement>, index: number) {
+    let next = index;
+    if (event.key === "ArrowRight") next = (index + 1) % HL.length;
+    else if (event.key === "ArrowLeft") next = (index + HL.length - 1) % HL.length;
+    else if (event.key === "Home") next = 0;
+    else if (event.key === "End") next = HL.length - 1;
+    else return;
+    event.preventDefault();
+    setA(next);
+    event.currentTarget.parentElement?.querySelectorAll<HTMLButtonElement>('[role="tab"]')[next]?.focus();
+  }
+  function moveGallery(direction: number) {
+    const el = gallery.current;
+    if (!el) return;
+    el.scrollBy({ left: direction * el.clientWidth * 0.8, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+  }
   return (
-    <div id="destaques" className="mt-12 scroll-mt-24">
-      <div role="tablist" aria-label="Destaques da escola" className="grid grid-cols-5 gap-2 rounded-full bg-primary-foreground/10 p-1.5">
+    <div id="destaques" className="mt-8 scroll-mt-24">
+      <div role="tablist" aria-label="Destaques da escola" className="grid grid-cols-3 gap-2 rounded-2xl bg-primary-foreground/10 p-2 sm:grid-cols-5">
         {HL.map((h, i) => (
-          <button key={h.k} role="tab" aria-selected={a === i} onClick={() => setA(i)}
-            className={`flex items-center justify-center gap-1.5 rounded-full px-2 py-2.5 text-xs font-bold transition-colors sm:text-sm ${a === i ? "bg-sun text-navy" : "text-primary-foreground hover:bg-primary-foreground/10"}`}>
-            <h.I className="hidden h-4 w-4 sm:block" /> {h.t}
-          </button>
+          <Button key={h.k} id={`tab-${h.k}`} variant="ghost" role="tab" aria-selected={a === i} aria-controls={`panel-${h.k}`} tabIndex={a === i ? 0 : -1} onKeyDown={(event) => onTabKey(event, i)} onClick={() => setA(i)}
+            className={`h-11 gap-1.5 rounded-full px-2 text-sm font-bold transition-colors ${a === i ? "bg-sun text-navy hover:bg-sun/90 hover:text-navy" : "text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"}`}>
+            <h.I className="h-4 w-4" /> {h.t}
+          </Button>
         ))}
       </div>
       <p className="mt-5 text-center text-primary-foreground/80">{cur.d}</p>
-      <div key={cur.k} role="tabpanel" className="mt-5 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 animate-in fade-in duration-500">
+      <div key={cur.k} ref={gallery} id={`panel-${cur.k}`} aria-labelledby={`tab-${cur.k}`} role="tabpanel" tabIndex={0} className="mt-5 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 animate-in fade-in duration-500">
         {cur.p.map((ph) => (
           "video" in ph ? (
             <video key={ph.src} src={ph.src} poster={("poster" in ph ? ph.poster : undefined) as string | undefined} controls playsInline preload="none" aria-label={ph.alt}
-              className="aspect-[4/5] w-[70%] shrink-0 snap-start rounded-[1.5rem] bg-navy object-cover sm:w-[38%] lg:w-[23%]" />
+              className="aspect-[4/5] w-[80%] shrink-0 snap-start rounded-[1.5rem] bg-navy object-contain sm:w-[38%] lg:w-[23%]" />
           ) : (
           <img key={ph.src} src={ph.src} alt={ph.alt} loading="lazy" decoding="async"
-            className="aspect-[4/5] w-[70%] shrink-0 snap-start rounded-[1.5rem] object-cover sm:w-[38%] lg:w-[23%]" />
+            className="aspect-[4/5] w-[80%] shrink-0 snap-start rounded-[1.5rem] object-cover sm:w-[38%] lg:w-[23%]" />
           )
         ))}
+      </div>
+      <div className="mt-3 flex justify-end gap-2">
+        <Button variant="ghost" size="icon" aria-label="Fotos anteriores" title="Fotos anteriores" onClick={() => moveGallery(-1)} className="h-11 w-11 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"><ChevronLeft /></Button>
+        <Button variant="ghost" size="icon" aria-label="Próximas fotos" title="Próximas fotos" onClick={() => moveGallery(1)} className="h-11 w-11 rounded-full border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"><ChevronRight /></Button>
       </div>
     </div>
   );

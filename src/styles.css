@@ -84,6 +84,7 @@
   --shadow-lift: 0 2px 4px oklch(0.3 0.05 255 / 0.05), 0 30px 60px -20px oklch(0.3 0.08 255 / 0.28);
   --gradient-hero: linear-gradient(180deg, oklch(0.5 0.17 262 / 0) 0%, oklch(0.5 0.17 262 / 0) 55%, oklch(0.5 0.17 262 / 0.25) 70%, oklch(0.5 0.17 262 / 0.6) 82%, oklch(0.5 0.17 262 / 0.88) 91%, var(--royal) 100%);
   --gradient-safety: linear-gradient(160deg, var(--sky-soft), var(--sage-soft));
+  --shadow-hero-text: 0 2px 12px oklch(0.22 0.04 260 / 0.55);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -190,7 +191,7 @@ main section {
   color: var(--foreground);
 }
 main section .eyebrow {
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-size: 1.1rem;
   font-weight: 300;
   letter-spacing: 0.01em;
   text-transform: none;
@@ -202,4 +203,16 @@ main section :is(.bg-card, .bg-background, .bg-muted, .bg-secondary, .bg-sky-sof
   --muted-foreground: oklch(0.48 0.025 255);
   --primary: oklch(0.4 0.13 262);
   color: var(--foreground);
+}
+
+/* Keep the photograph bright and join it to the exact section color. */
+main section.school-hero {
+  background: var(--royal);
+}
+.hero-title { text-shadow: var(--shadow-hero-text); }
+@media (width < 768px) {
+  .hero-title { text-shadow: none; }
+}
+main section :focus-visible {
+  outline-color: var(--sun);
 }
