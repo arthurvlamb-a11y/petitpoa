@@ -131,7 +131,7 @@ function Proposta() {
             ))}
           </ul>
           <Reveal>
-            <div className="mt-12 rounded-[2rem] bg-card/70 p-7">
+            <div className="mt-12 rounded-[2rem] bg-card p-7">
               <p className="flex items-center gap-2 text-sm font-bold text-primary"><Shapes className="h-4 w-4" /> Os cinco campos de experiência</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {FIELDS.map((f) => <span key={f} className="rounded-full bg-background px-4 py-2 text-sm font-medium text-ink">{f}</span>)}
