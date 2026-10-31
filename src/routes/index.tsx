@@ -37,6 +37,7 @@ import natPlayground from "@/assets/nat-playground-areia.webp.asset.json";
 import alimLegumes from "@/assets/alim-legumes.webp.asset.json";
 import alimCozinha from "@/assets/alim-cozinha.webp.asset.json";
 import alimVideo from "@/assets/alimentacao.mp4.asset.json";
+import alimPoster from "@/assets/alimentacao-poster.webp.asset.json";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Parallax, Reveal } from "@/components/site/Reveal";
@@ -253,7 +254,7 @@ const HL = [
     { src: aPeriquito.url, alt: "Periquito verde no viveiro" },
   ] },
   { k: "alimentacao", t: "Alimentação", I: Utensils, d: "Comida de verdade, preparada na cozinha da escola com frutas, legumes e verduras fresquinhas.", p: [
-    { src: alimVideo.url, alt: "Vídeo da cozinha da Petit Poá", video: true },
+    { src: alimVideo.url, alt: "Vídeo da cozinha da Petit Poá", video: true, poster: alimPoster.url },
     { src: alimLegumes.url, alt: "Cesta com legumes e verduras frescas" },
     { src: alimCozinha.url, alt: "Cozinha da escola com frutas e legumes" },
   ] },
