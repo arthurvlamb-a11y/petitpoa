@@ -118,17 +118,17 @@ function Home() {
 
 function Hero() {
   return (
-    <section className="school-hero relative flex items-end overflow-hidden md:min-h-[92svh]">
-      <img src={hero.url} alt="Menina da Petit Poá mostrando as mãos sujas de terra na horta" fetchPriority="high" decoding="async" className="hero-zoom absolute inset-x-0 top-0 h-[23rem] w-full object-cover object-[center_35%] md:h-full" />
-      <div className="bg-hero-fade absolute inset-x-0 top-0 h-[23rem] md:h-full" />
-      <div className="container-x relative pb-20 pt-[20rem] md:pb-24 md:pt-32">
+    <section className="relative flex min-h-[92svh] items-end overflow-hidden">
+      <img src={hero.url} alt="Menina da Petit Poá mostrando as mãos sujas de terra na horta" fetchPriority="high" decoding="async" className="hero-zoom absolute inset-0 h-full w-full object-cover object-[center_35%]" />
+      <div className="bg-hero-fade absolute inset-0" />
+      <div className="container-x relative pb-32 pt-32 md:pb-24">
         <Reveal>
           <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-foreground/15 px-4 py-2 text-xs font-semibold text-primary-foreground backdrop-blur-md">
             <span className="breathe h-2 w-2 rounded-full bg-sun" /> Petit Poá · Estância Velha/RS
           </p>
         </Reveal>
         <Reveal delay={100}>
-          <h1 className="hero-title max-w-4xl text-4xl font-medium leading-[1.12] text-primary-foreground sm:text-6xl lg:text-7xl">
+          <h1 className="max-w-4xl text-[2.6rem] font-medium leading-[1.04] text-primary-foreground sm:text-6xl lg:text-7xl">
             Muito mais que estrutura, um lugar para viver a infância.
           </h1>
         </Reveal>
@@ -141,7 +141,7 @@ function Hero() {
           <Link to="/agendar-visita" className="ripple-btn inline-flex h-14 items-center justify-center gap-2 rounded-full bg-sun px-8 font-bold text-navy shadow-lift transition-transform hover:scale-[1.03]">
             Agendar visita <ArrowRight className="h-5 w-5" />
           </Link>
-          <Button asChild variant="ghost" className="inline-flex h-14 items-center justify-center rounded-full border border-primary-foreground/40 bg-primary-foreground/10 px-8 text-base font-semibold text-primary-foreground backdrop-blur-md hover:bg-primary-foreground/20 hover:text-primary-foreground">
+          <Button asChild variant="ghost" className="inline-flex h-14 items-center justify-center rounded-full bg-primary-foreground/15 px-8 text-base font-semibold text-primary-foreground backdrop-blur-md transition-colors hover:bg-primary-foreground/25 hover:text-primary-foreground">
             <a href="#tour">
             Conhecer a escola
             </a>
