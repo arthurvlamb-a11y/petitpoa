@@ -30,14 +30,13 @@ export const Route = createFileRoute("/agendar-visita")({
 const field = "h-14 w-full rounded-2xl border bg-background px-5 text-base text-ink outline-none transition focus:border-primary focus:ring-4 focus:ring-ring/20";
 
 function Agendar() {
-  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
+  const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+  function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (status === "sending") return;
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string>;
+    const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
     const parsed = visitSchema.safeParse(data);
     if (!parsed.success) {
       setErrors(Object.fromEntries(parsed.error.issues.map((i) => [i.path[0] as string, i.message])));
@@ -46,13 +45,8 @@ function Agendar() {
       return;
     }
     setErrors({});
-    setStatus("sending");
-    try {
-      const { error } = await supabase.from("visit_requests").insert({ ...parsed.data, message: parsed.data.message || null });
-      setStatus(error ? "error" : "ok");
-    } catch {
-      setStatus("error");
-    }
+    window.open(waLink(visitMessage(parsed.data)), "_blank", "noopener");
+    setSent(true);
   }
 
   return (
