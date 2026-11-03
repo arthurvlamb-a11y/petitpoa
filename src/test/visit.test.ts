@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { visitMessage, visitSchema } from "@/lib/visit";
 import { SITE } from "@/lib/site";
 
-const valid = { name: "Responsável Teste", child_age: "2 anos", shift: "Integral" };
+const valid = { name: "Responsável Teste", child_age: "2 anos", shift: "Integral" } as const;
 
 describe("Visit requests", () => {
   it("accepts the required contact fields without a message", () => {
