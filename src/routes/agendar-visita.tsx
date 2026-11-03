@@ -1,12 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { cloneElement, useId, useState, type FormEvent, type ReactElement } from "react";
-import { Camera, CheckCircle2, Clock, Loader2, MessageCircle, ShieldCheck, Utensils } from "lucide-react";
+import { Camera, CheckCircle2, Clock, MessageCircle, ShieldCheck, Utensils } from "lucide-react";
 import fachada from "@/assets/fachada.webp.asset.json";
-import { supabase } from "@/integrations/supabase/client";
 import { Reveal } from "@/components/site/Reveal";
 import { SITE, waLink } from "@/lib/site";
 import { Button } from "@/components/ui/button";
-import { CHILD_AGES, SHIFTS, visitSchema } from "@/lib/visit";
+import { CHILD_AGES, SHIFTS, visitMessage, visitSchema } from "@/lib/visit";
 
 const TITLE = "Agende sua visita — Petit Poá Escola Infantil em Estância Velha";
 const DESC = "Agende uma visita à Petit Poá, escola de educação infantil no Centro de Estância Velha/RS. Conheça berçário, maternal e pré-escola pessoalmente.";
