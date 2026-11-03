@@ -1,15 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { visitSchema } from "@/lib/visit";
+import { visitMessage, visitSchema } from "@/lib/visit";
 import { SITE } from "@/lib/site";
 
-const valid = { name: "Responsável Teste", phone: "(51) 99999-0000", child_age: "2 anos", shift: "Integral" };
+const valid = { name: "Responsável Teste", child_age: "2 anos", shift: "Integral" };
 
 describe("Visit requests", () => {
   it("accepts the required contact fields without a message", () => {
     expect(visitSchema.safeParse(valid).success).toBe(true);
-  });
-  it("rejects an incomplete phone without DDD", () => {
-    expect(visitSchema.safeParse({ ...valid, phone: "99999-0000" }).success).toBe(false);
   });
   it("rejects a missing responsible name", () => {
     expect(visitSchema.safeParse({ ...valid, name: "" }).success).toBe(false);
@@ -22,6 +19,16 @@ describe("Visit requests", () => {
   });
   it("limits optional messages to 1000 characters", () => {
     expect(visitSchema.safeParse({ ...valid, message: "a".repeat(1001) }).success).toBe(false);
+  });
+  it("builds the WhatsApp message with name, age, shift and optional message", () => {
+    const text = visitMessage({ ...valid, message: "Prefiro de manhã" });
+    expect(text).toContain("Responsável Teste");
+    expect(text).toContain("2 anos");
+    expect(text).toContain("Integral");
+    expect(text).toContain("Prefiro de manhã");
+  });
+  it("omits the message line when none is given", () => {
+    expect(visitMessage(valid)).not.toContain("Mensagem:");
   });
 });
 

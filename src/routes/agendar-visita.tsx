@@ -55,7 +55,7 @@ function Agendar() {
         <div>
           <Reveal><p className="eyebrow">Agende sua visita</p></Reveal>
           <Reveal delay={80}><h1 className="mt-4 text-4xl leading-tight md:text-6xl">A melhor forma de escolher é sentindo de perto.</h1></Reveal>
-          <Reveal delay={160}><p className="mt-5 text-lg text-muted-foreground">Preencha os dados e nossa equipe entra em contato para combinar o melhor horário.</p></Reveal>
+          <Reveal delay={160}><p className="mt-5 text-lg text-muted-foreground">Preencha os dados e o WhatsApp da escola abre com a mensagem pronta — é só enviar.</p></Reveal>
 
           <Reveal delay={220} className="mt-10 rounded-[2rem] bg-card p-6 shadow-soft md:p-10">
             {sent ? (
