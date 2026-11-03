@@ -4,6 +4,7 @@ import fachada from "@/assets/fachada.webp.asset.json";
 import horta from "@/assets/horta-nova.webp.asset.json";
 import b1aEstimulos from "@/assets/b1a-sala-estimulos.webp.asset.json";
 import b1aDescanso from "@/assets/b1a-sala-descanso.webp.asset.json";
+import salaMaternal from "@/assets/sala-maternal.webp.asset.json";
 import { SITE } from "@/lib/site";
 import { Reveal } from "@/components/site/Reveal";
 
@@ -34,7 +35,7 @@ const CLASSES = [
     w: [{ I: Sun, t: "Solário" }, { I: Hand, t: "Adaptação Humanizada" }, { I: Trees, t: "Natureza" }, { I: ShieldCheck, t: "Segurança" }, { I: Flower2, t: "Pilates" }],
   },
   {
-    t: "Maternal", age: "Maternal I e II", img: horta.url, alt: "Horta pedagógica da Petit Poá", bg: "bg-sky-soft", accent: "text-accent-foreground",
+    t: "Maternal", age: "Maternal I e II", img: salaMaternal.url, alt: "Sala do Maternal com tatames, pelúcias e armários", img2: horta.url, alt2: "Horta pedagógica da Petit Poá", bg: "bg-sky-soft", accent: "text-accent-foreground",
     lead: "A fase dos porquês. Curiosidade transformada em descoberta todos os dias.",
     w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }],
   },
