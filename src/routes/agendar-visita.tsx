@@ -58,17 +58,16 @@ function Agendar() {
           <Reveal delay={160}><p className="mt-5 text-lg text-muted-foreground">Preencha os dados e nossa equipe entra em contato para combinar o melhor horário.</p></Reveal>
 
           <Reveal delay={220} className="mt-10 rounded-[2rem] bg-card p-6 shadow-soft md:p-10">
-            {status === "ok" ? (
+            {sent ? (
               <div className="py-10 text-center" role="status" aria-live="polite">
                 <CheckCircle2 className="breathe mx-auto h-14 w-14 text-sage" />
-                <h2 className="mt-5 text-3xl">Recebemos seu pedido!</h2>
-                <p className="mt-3 text-muted-foreground">Em breve entraremos em contato para confirmar sua visita.</p>
-                <a href={waLink()} target="_blank" rel="noopener" className="mt-8 inline-flex h-12 items-center gap-2 rounded-full bg-whatsapp px-6 font-bold text-primary-foreground"><MessageCircle className="h-5 w-5" /> Prefere falar agora?</a>
+                <h2 className="mt-5 text-3xl">Mensagem pronta!</h2>
+                <p className="mt-3 text-muted-foreground">Abrimos o WhatsApp da escola com seus dados. É só enviar a mensagem para combinarmos a visita.</p>
+                <button type="button" onClick={() => setSent(false)} className="mt-8 inline-flex h-12 items-center gap-2 rounded-full bg-sun px-6 font-bold text-navy shadow-soft">Preencher de novo</button>
               </div>
             ) : (
-               <form onSubmit={onSubmit} noValidate className="grid gap-5" aria-busy={status === "sending"}>
+              <form onSubmit={onSubmit} noValidate className="grid gap-5">
                 <Field label="Seu nome" error={errors["name"]}><input name="name" autoComplete="name" maxLength={100} className={field} /></Field>
-                <Field label="Telefone / WhatsApp" error={errors["phone"]}><input name="phone" type="tel" inputMode="tel" autoComplete="tel" maxLength={30} placeholder="(51) 9 0000-0000" className={field} /></Field>
                 <div className="grid gap-5 sm:grid-cols-2">
                   <Field label="Idade da criança" error={errors["child_age"]}>
                     <select name="child_age" defaultValue="" className={field}>
@@ -84,10 +83,9 @@ function Agendar() {
                   </Field>
                 </div>
                 <Field label="Mensagem (opcional)" error={errors["message"]}><textarea name="message" rows={4} maxLength={1000} className={`${field} h-auto py-4`} placeholder="Conte suas dúvidas ou preferência de horário" /></Field>
-                <p className="text-sm leading-relaxed text-muted-foreground">Usaremos seu nome, telefone e preferências para responder ao pedido e combinar a visita. Não envie nomes completos da criança, documentos ou informações de saúde. Para solicitar acesso, correção ou exclusão dos dados, escreva para <a className="underline" href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
-                {status === "error" && <p role="alert" className="text-sm text-destructive">Não conseguimos enviar agora. Tente novamente ou fale pelo WhatsApp.</p>}
-                <Button type="submit" disabled={status === "sending"} className="ripple-btn flex h-14 whitespace-normal items-center justify-center gap-2 rounded-2xl bg-sun text-base font-bold text-navy shadow-soft transition-transform hover:bg-sun/90 hover:scale-[1.01] disabled:opacity-70">
-                  {status === "sending" && <Loader2 className="h-5 w-5 animate-spin" />} Quero agendar minha visita
+                <p className="text-sm leading-relaxed text-muted-foreground">Ao tocar em agendar, o WhatsApp da escola abre com uma mensagem pronta com seus dados — é só enviar. Nada fica salvo no site.</p>
+                <Button type="submit" className="ripple-btn flex h-14 whitespace-normal items-center justify-center gap-2 rounded-2xl bg-sun text-base font-bold text-navy shadow-soft transition-transform hover:bg-sun/90 hover:scale-[1.01]">
+                  <MessageCircle className="h-5 w-5" /> Agendar pelo WhatsApp
                 </Button>
               </form>
             )}
