@@ -122,11 +122,6 @@ function Hero() {
       <img src={hero.url} alt="Menina da Petit Poá mostrando as mãos sujas de terra na horta" fetchPriority="high" decoding="async" className="hero-zoom absolute inset-0 h-full w-full object-cover object-[center_35%]" />
       <div className="bg-hero-fade absolute inset-0" />
       <div className="container-x relative pb-32 pt-32 md:pb-24">
-        <Reveal>
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-primary-foreground/15 px-4 py-2 text-xs font-semibold text-primary-foreground backdrop-blur-md">
-            <span className="breathe h-2 w-2 rounded-full bg-sun" /> Petit Poá · Estância Velha/RS
-          </p>
-        </Reveal>
         <Reveal delay={100}>
           <h1 className="max-w-4xl text-[2.6rem] font-medium leading-[1.04] text-primary-foreground sm:text-6xl lg:text-7xl">
             Muito mais que estrutura, um lugar para viver a infância.
