@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BookOpen, Brain, Drama, FlaskConical, Footprints, Hand, Languages, Music, Palette, Sprout, Sun, Trees, Waves, Flower2, Sparkles, ShieldCheck } from "lucide-react";
 import fachada from "@/assets/fachada.webp.asset.json";
 import b1aEstimulos from "@/assets/b1a-sala-estimulos.webp.asset.json";
-import b1aDescanso from "@/assets/b1a-sala-descanso.webp.asset.json";
+import bercarioBebes from "@/assets/bercario-bebes.webp.asset.json";
 import salaMaternal from "@/assets/sala-maternal.webp.asset.json";
 import maternalEscorregador from "@/assets/maternal-escorregador.webp.asset.json";
 import preTurma from "@/assets/pre-turma.webp.asset.json";
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/turmas")({
 
 const CLASSES = [
   {
-    t: "Berçário", age: "Berçário I e II · a partir de 4 meses", img: b1aEstimulos.url, alt: "Sala do Berçário I com tatames coloridos e brinquedos de espuma", img2: b1aDescanso.url, alt2: "Sala de descanso do Berçário I com colchonetes e trocador", bg: "bg-sky-soft", accent: "text-primary",
+    t: "Berçário", age: "Berçário I e II · a partir de 4 meses", img: b1aEstimulos.url, alt: "Sala do Berçário I com tatames coloridos e brinquedos de espuma", img2: bercarioBebes.url, alt2: "Educadoras do Berçário cuidando dos bebês no tatame", bg: "bg-sky-soft", accent: "text-primary",
     lead: "Os primeiros vínculos fora de casa, construídos com colo, rotina e muito olhar.",
     w: [{ I: Sun, t: "Solário" }, { I: Hand, t: "Adaptação Humanizada" }, { I: Trees, t: "Natureza" }, { I: ShieldCheck, t: "Segurança" }, { I: Flower2, t: "Pilates" }],
   },
