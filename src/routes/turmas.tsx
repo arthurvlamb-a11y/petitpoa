@@ -4,6 +4,7 @@ import fachada from "@/assets/fachada.webp.asset.json";
 import b1aEstimulos from "@/assets/b1a-sala-estimulos.webp.asset.json";
 import b1aDescanso from "@/assets/b1a-sala-descanso.webp.asset.json";
 import salaMaternal from "@/assets/sala-maternal.webp.asset.json";
+import maternalCrianca from "@/assets/maternal-crianca.webp.asset.json";
 import salaPre from "@/assets/sala-pre.webp.asset.json";
 import salaPre1 from "@/assets/sala-pre1.webp.asset.json";
 import { SITE } from "@/lib/site";
@@ -36,7 +37,7 @@ const CLASSES = [
     w: [{ I: Sun, t: "Solário" }, { I: Hand, t: "Adaptação Humanizada" }, { I: Trees, t: "Natureza" }, { I: ShieldCheck, t: "Segurança" }, { I: Flower2, t: "Pilates" }],
   },
   {
-    t: "Maternal", age: "Maternal I e II", img: salaMaternal.url, alt: "Sala do Maternal com tatames, pelúcias e armários", bg: "bg-sky-soft", accent: "text-accent-foreground",
+    t: "Maternal", age: "Maternal I e II", img: salaMaternal.url, alt: "Sala do Maternal com tatames, pelúcias e armários", img2: maternalCrianca.url, alt2: "Criança do Maternal sorrindo com um urso de pelúcia no colo", bg: "bg-sky-soft", accent: "text-accent-foreground",
     lead: "A fase dos porquês. Curiosidade transformada em descoberta todos os dias.",
     w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }],
   },
