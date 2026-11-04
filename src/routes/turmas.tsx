@@ -41,7 +41,7 @@ const CLASSES = [
     w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }],
   },
   {
-    t: "Pré-escola", age: "Pré-escola I e II · 4 e 5 anos", img: salaPre.url, alt: "Sala da Pré-escola da Petit Poá", img2: salaPre1.url, alt2: "Sala do Pré I com tatames, mesa e lareira decorativa", bg: "bg-sky-soft", accent: "text-ink",
+    t: "Pré-escola", age: "Pré-escola I e II · 4 e 5 anos", img: salaPre1.url, alt: "Sala do Pré I com tatames, mesa e lareira decorativa", img2: salaPre.url, alt2: "Sala da Pré-escola da Petit Poá", bg: "bg-sky-soft", accent: "text-ink",
     lead: "Autonomia, leitura do mundo e preparo para o ensino fundamental, sem perder a infância.",
     w: [{ I: Sparkles, t: "Balé" }, { I: Footprints, t: "Dança" }, { I: Waves, t: "Natação" }, { I: BookOpen, t: "Biblioteca" }, { I: Brain, t: "Raciocínio lógico" }],
   },
