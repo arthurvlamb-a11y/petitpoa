@@ -22,7 +22,6 @@ import h2 from "@/assets/horta-2.webp.asset.json";
 import h3 from "@/assets/horta-3.webp.asset.json";
 import h4 from "@/assets/horta-4.webp.asset.json";
 import aPatinhos from "@/assets/animal-patinhos.webp.asset.json";
-import aPatinhos from "@/assets/animal-patinhos.webp.asset.json";
 import aPavao from "@/assets/animal-pavao.webp.asset.json";
 import aCoelho from "@/assets/animal-coelho-preto.webp.asset.json";
 import aGalo from "@/assets/animal-galo.webp.asset.json";
