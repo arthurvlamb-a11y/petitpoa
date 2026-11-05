@@ -94,7 +94,7 @@ function Agendar() {
 
         <aside className="space-y-5">
           <Reveal className="overflow-hidden rounded-[2rem] shadow-lift">
-            <img src={visitaFoto.url} alt="Entrada da Petit Poá" loading="lazy" decoding="async" className="aspect-[4/3] w-full object-cover" />
+            <img src={visitaFoto.url} alt="Jardim e pátio da Petit Poá" loading="lazy" decoding="async" className="aspect-[4/3] w-full object-cover" />
           </Reveal>
           <Reveal delay={80} className="grid grid-cols-2 gap-3">
             {[{ I: Camera, t: "Câmeras para os pais" }, { I: Clock, t: "Integral até 19h" }, { I: Utensils, t: "Alimentação inclusa" }, { I: ShieldCheck, t: "Segurança 24h" }].map(({ I, t }) => (
