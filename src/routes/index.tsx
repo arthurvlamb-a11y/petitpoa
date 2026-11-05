@@ -239,7 +239,6 @@ const HL = [
     { src: fachada.url, alt: "Fachada e jardim da escola" },
   ] },
   { k: "animais", t: "Animais", I: Rabbit, d: "Patos, pavão, coelho, galo e periquito convivem com as crianças.", p: [
-    { src: aPatinhos.url, alt: "Patinhos" },
     { src: aPatinhosComendo.url, alt: "Patinhos comendo no pátio" },
     { src: aPavao.url, alt: "Pavão no pátio" },
     { src: aCoelho.url, alt: "Coelho entre as plantas" },
