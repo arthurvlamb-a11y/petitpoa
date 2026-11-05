@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, BookOpen, Drama, FlaskConical, Footprints, Hand, Languages, Music, Palette, Sprout, Sun, Trees, Waves, Flower2, Sparkles, ShieldCheck } from "lucide-react";
+import { ArrowRight, Rabbit, BookOpen, Drama, FlaskConical, Footprints, Hand, Languages, Music, Palette, Sprout, Sun, Trees, Waves, Flower2, Sparkles, ShieldCheck } from "lucide-react";
 import fachada from "@/assets/fachada.webp.asset.json";
 import b1aEstimulos from "@/assets/b1a-sala-estimulos.webp.asset.json";
 import bercarioBebes from "@/assets/bercario-bebes.webp.asset.json";
@@ -34,17 +34,17 @@ const CLASSES = [
   {
     t: "Berçário", age: "Berçário I e II · a partir de 4 meses", img: b1aEstimulos.url, alt: "Sala do Berçário I com tatames coloridos e brinquedos de espuma", img2: bercarioBebes.url, alt2: "Educadoras do Berçário cuidando dos bebês no tatame", bg: "bg-sky-soft", accent: "text-primary",
     lead: "Os primeiros vínculos fora de casa, construídos com colo, rotina e muito olhar.",
-    w: [{ I: Sun, t: "Solário" }, { I: Hand, t: "Adaptação Humanizada" }, { I: Trees, t: "Natureza" }, { I: ShieldCheck, t: "Segurança" }, { I: Flower2, t: "Pilates" }],
+    w: [{ I: Sun, t: "Solário" }, { I: Hand, t: "Adaptação Humanizada" }, { I: Trees, t: "Natureza" }, { I: ShieldCheck, t: "Segurança" }, { I: Flower2, t: "Pilates" }, { I: Rabbit, t: "Primeiros encontros com os bichinhos" }],
   },
   {
     t: "Maternal", age: "Maternal I e II", img: salaMaternal.url, alt: "Sala do Maternal com tatames, pelúcias e armários", img2: maternalEscorregador.url, alt2: "Crianças do Maternal brincando no escorregador do parquinho", bg: "bg-sky-soft", accent: "text-accent-foreground",
     lead: "A fase dos porquês. Curiosidade transformada em descoberta todos os dias.",
-    w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }],
+    w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }, { I: Rabbit, t: "Cuidar dos animais da escola" }],
   },
   {
     t: "Pré-escola", age: "Pré-escola I e II · 4 e 5 anos", img: salaPre2.url, alt: "Sala da Pré-escola com mesas coloridas e varanda", img2: preTurma.url, alt2: "Turma da Pré-escola reunida no espaço externo da Petit Poá", bg: "bg-sky-soft", accent: "text-ink",
     lead: "Autonomia, leitura do mundo e preparo para o ensino fundamental, sem perder a infância.",
-    w: [{ I: Sparkles, t: "Balé" }, { I: Footprints, t: "Dança" }, { I: Waves, t: "Natação" }, { I: BookOpen, t: "Biblioteca" }, { I: Trees, t: "Natureza" }],
+    w: [{ I: Sparkles, t: "Balé" }, { I: Footprints, t: "Dança" }, { I: Waves, t: "Natação" }, { I: BookOpen, t: "Biblioteca" }, { I: Trees, t: "Natureza" }, { I: Rabbit, t: "Pequenos guardiões dos animais" }],
   },
 ];
 
