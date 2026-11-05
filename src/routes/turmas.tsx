@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, BookOpen, Brain, Drama, FlaskConical, Footprints, Hand, Languages, Music, Palette, Sprout, Sun, Trees, Waves, Flower2, Sparkles, ShieldCheck } from "lucide-react";
+import { ArrowRight, BookOpen, Drama, FlaskConical, Footprints, Hand, Languages, Music, Palette, Sprout, Sun, Trees, Waves, Flower2, Sparkles, ShieldCheck } from "lucide-react";
 import fachada from "@/assets/fachada.webp.asset.json";
 import b1aEstimulos from "@/assets/b1a-sala-estimulos.webp.asset.json";
 import bercarioBebes from "@/assets/bercario-bebes.webp.asset.json";
@@ -44,7 +44,7 @@ const CLASSES = [
   {
     t: "Pré-escola", age: "Pré-escola I e II · 4 e 5 anos", img: salaPre2.url, alt: "Sala da Pré-escola com mesas coloridas e varanda", img2: preTurma.url, alt2: "Turma da Pré-escola reunida no espaço externo da Petit Poá", bg: "bg-sky-soft", accent: "text-ink",
     lead: "Autonomia, leitura do mundo e preparo para o ensino fundamental, sem perder a infância.",
-    w: [{ I: Sparkles, t: "Balé" }, { I: Footprints, t: "Dança" }, { I: Waves, t: "Natação" }, { I: BookOpen, t: "Biblioteca" }, { I: Brain, t: "Raciocínio lógico" }],
+    w: [{ I: Sparkles, t: "Balé" }, { I: Footprints, t: "Dança" }, { I: Waves, t: "Natação" }, { I: BookOpen, t: "Biblioteca" }, { I: Trees, t: "Natureza" }],
   },
 ];
 
