@@ -38,6 +38,10 @@ import alimLegumes from "@/assets/alim-legumes.webp.asset.json";
 import alimCozinha from "@/assets/alim-cozinha.webp.asset.json";
 import alimVideo from "@/assets/alimentacao.mp4.asset.json";
 import alimPoster from "@/assets/alimentacao-poster.webp.asset.json";
+import depo1 from "@/assets/depoimento-familia-1.mp4.asset.json";
+import depo1Poster from "@/assets/depoimento-familia-1.jpg.asset.json";
+import depo2 from "@/assets/depoimento-familia-2.mp4.asset.json";
+import depo2Poster from "@/assets/depoimento-familia-2.jpg.asset.json";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Parallax, Reveal } from "@/components/site/Reveal";
@@ -251,6 +255,10 @@ const HL = [
     { src: alimVideo.url, alt: "Vídeo da cozinha da Petit Poá", video: true, poster: alimPoster.url },
     { src: alimLegumes.url, alt: "Cesta com legumes e verduras frescas" },
     { src: alimCozinha.url, alt: "Cozinha da escola com frutas e legumes" },
+  ] },
+  { k: "familias", t: "A palavra das famílias", I: Heart, d: "Quem conhece de perto conta como é viver a Petit Poá todos os dias.", p: [
+    { src: depo1.url, alt: "Depoimento de uma família da Petit Poá", video: true, poster: depo1Poster.url },
+    { src: depo2.url, alt: "Depoimento de uma família da Petit Poá", video: true, poster: depo2Poster.url },
   ] },
 ];
 
