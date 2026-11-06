@@ -256,7 +256,7 @@ const HL = [
     { src: alimLegumes.url, alt: "Cesta com legumes e verduras frescas" },
     { src: alimCozinha.url, alt: "Cozinha da escola com frutas e legumes" },
   ] },
-  { k: "familias", t: "A palavra das famílias", I: HeartHandshake, d: "Quem conhece de perto conta como é viver a Petit Poá todos os dias.", p: [
+  { k: "familias", t: "Famílias", I: HeartHandshake, d: "Quem conhece de perto conta como é viver a Petit Poá todos os dias.", p: [
     { src: depo1.url, alt: "Depoimento de uma família da Petit Poá", video: true, poster: depo1Poster.url },
     { src: depo2.url, alt: "Depoimento de uma família da Petit Poá", video: true, poster: depo2Poster.url },
   ] },
