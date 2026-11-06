@@ -256,7 +256,7 @@ const HL = [
     { src: alimLegumes.url, alt: "Cesta com legumes e verduras frescas" },
     { src: alimCozinha.url, alt: "Cozinha da escola com frutas e legumes" },
   ] },
-  { k: "familias", t: "A palavra das famílias", I: Heart, d: "Quem conhece de perto conta como é viver a Petit Poá todos os dias.", p: [
+  { k: "familias", t: "A palavra das famílias", I: HeartHandshake, d: "Quem conhece de perto conta como é viver a Petit Poá todos os dias.", p: [
     { src: depo1.url, alt: "Depoimento de uma família da Petit Poá", video: true, poster: depo1Poster.url },
     { src: depo2.url, alt: "Depoimento de uma família da Petit Poá", video: true, poster: depo2Poster.url },
   ] },
@@ -285,7 +285,7 @@ function Highlights() {
   }
   return (
     <div id="destaques" className="mt-8 scroll-mt-24">
-      <div role="tablist" aria-label="Destaques da escola" className="grid grid-cols-3 gap-2 rounded-2xl bg-primary-foreground/10 p-2 sm:grid-cols-5">
+      <div role="tablist" aria-label="Destaques da escola" className="grid grid-cols-3 gap-2 rounded-2xl bg-primary-foreground/10 p-2 sm:grid-cols-6">
         {HL.map((h, i) => (
           <Button key={h.k} id={`tab-${h.k}`} variant="ghost" role="tab" aria-selected={a === i} aria-controls={`panel-${h.k}`} tabIndex={a === i ? 0 : -1} onKeyDown={(event) => onTabKey(event, i)} onClick={() => setA(i)}
             className={`h-11 gap-1.5 rounded-full px-2 text-sm font-bold transition-colors ${a === i ? "bg-sun text-navy hover:bg-sun/90 hover:text-navy" : "text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"}`}>
