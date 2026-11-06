@@ -1,4 +1,5 @@
 # Finalização Petit Poá
+- [ ] Revisão técnica geral: conferir páginas, abas, fotos, vídeos e agendamento pelo WhatsApp; corrigir problemas encontrados sem alterar o visual.
 - [x] Concluir e testar a integração anterior do PPP e Regimento.
 - [x] Corrigir credibilidade, fotos sem autorização documentada e contatos divergentes.
 - [x] Melhorar formulário, acessibilidade, navegação, desempenho e SEO local.
