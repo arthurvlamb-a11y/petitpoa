@@ -436,7 +436,7 @@ function ClassesTeaser() {
 }
 
 const TOUR = [
-  { src: natPatio1.url, t: "Pátio verde e acolhida", d: "Uma casa de verdade, cercada de natureza.", cls: "md:col-span-2 md:row-span-2 aspect-[4/5] md:aspect-auto" },
+  { src: natPatio1.url, t: "Pátio verde e acolhida", d: "Uma casa de verdade, cercada de natureza.", cls: "md:col-span-2 lg:row-span-2 aspect-[4/5] md:aspect-[16/9] lg:aspect-auto" },
   { src: lago.url, t: "Laguinho dos peixes", d: "Natureza para observar todos os dias.", cls: "aspect-[4/3]" },
   { src: uniforme.url, t: "Pátio arborizado", d: "Casinhas, caminhos de pedra e bichinhos.", cls: "aspect-[4/3]" },
   { src: horta.url, t: "Horta pedagógica", d: "Plantar, cuidar e colher com as próprias mãos.", cls: "aspect-[4/3]" },
@@ -452,13 +452,13 @@ function Tour() {
           <Reveal delay={80}><h2 className="mt-4 text-4xl leading-tight text-primary-foreground md:text-5xl">Entre e sinta. É assim que a gente gostaria que você nos conhecesse.</h2></Reveal>
           <Reveal delay={160}><p className="mt-5 text-lg text-primary-foreground/70">Também temos salas amplas, casinha na árvore, biblioteca, refeitório e embarque coberto. Venha ver pessoalmente.</p></Reveal>
         </div>
-        <div className="mt-14 grid auto-rows-auto grid-cols-1 gap-4 md:grid-cols-4">
+        <div className="mt-14 grid auto-rows-auto grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
           {TOUR.map((p, i) => (
             <Reveal key={p.t} delay={(i % 3) * 80} className={`group relative overflow-hidden rounded-[2rem] ${p.cls}`}>
               <Parallax src={p.src} alt={p.t} className="absolute inset-0" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/0 to-ink/0 transition-opacity duration-500" />
               <div className="absolute inset-x-0 bottom-0 p-6 transition-transform duration-500 group-hover:-translate-y-1">
-                <h3 className="text-2xl text-primary-foreground">{p.t}</h3>
+                <h3 className="text-xl leading-tight text-primary-foreground lg:text-2xl">{p.t}</h3>
                 <p className="mt-1 text-sm text-primary-foreground/80">{p.d}</p>
               </div>
             </Reveal>
