@@ -438,7 +438,7 @@ function ClassesTeaser() {
 const TOUR = [
   { src: natPatio1.url, t: "Pátio verde e acolhida", d: "Uma casa de verdade, cercada de natureza.", cls: "md:col-span-2 md:row-span-2 aspect-[4/5] md:aspect-auto" },
   { src: lago.url, t: "Laguinho dos peixes", d: "Natureza para observar todos os dias.", cls: "aspect-[4/3]" },
-  { src: uniforme.url, t: "Pátio arborizado", d: "Casinhas, caminhos de pedra e bichinhos.", cls: "md:col-span-2 aspect-[16/10]" },
+  { src: uniforme.url, t: "Pátio arborizado", d: "Casinhas, caminhos de pedra e bichinhos.", cls: "aspect-[4/3]" },
   { src: horta.url, t: "Horta pedagógica", d: "Plantar, cuidar e colher com as próprias mãos.", cls: "aspect-[4/3]" },
   { src: coelho.url, t: "Contato com animais", d: "Cuidar de um coelho ensina empatia.", cls: "aspect-[4/3]" },
 ];
