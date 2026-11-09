@@ -238,7 +238,6 @@ const HL = [
     { src: natParquinho.url, alt: "Parquinho de madeira entre as árvores" },
     { src: natPatio2.url, alt: "Pátio externo com árvores e parquinho" },
     { src: natBalanco.url, alt: "Balanço de madeira no gramado" },
-    { src: natPlayground.url, alt: "Playground de areia com casinhas de madeira" },
     { src: lago.url, alt: "Laguinho dos peixes" },
     { src: fachada.url, alt: "Fachada e jardim da escola" },
   ] },
