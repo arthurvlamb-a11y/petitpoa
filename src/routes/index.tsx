@@ -33,7 +33,6 @@ import natPatio1 from "@/assets/nat-patio-1.webp.asset.json";
 import natParquinho from "@/assets/nat-parquinho.webp.asset.json";
 import natPatio2 from "@/assets/nat-patio-2.webp.asset.json";
 import natBalanco from "@/assets/nat-balanco.webp.asset.json";
-import natPlayground from "@/assets/nat-playground-areia.webp.asset.json";
 import alimLegumes from "@/assets/alim-legumes.webp.asset.json";
 import alimCozinha from "@/assets/alim-cozinha.webp.asset.json";
 import alimVideo from "@/assets/alimentacao.mp4.asset.json";
