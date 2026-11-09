@@ -238,7 +238,6 @@ const HL = [
     { src: natPatio2.url, alt: "Pátio externo com árvores e parquinho" },
     { src: natBalanco.url, alt: "Balanço de madeira no gramado" },
     { src: lago.url, alt: "Laguinho dos peixes" },
-    { src: fachada.url, alt: "Fachada e jardim da escola" },
   ] },
   { k: "animais", t: "Animais", I: Rabbit, d: "Patos, pavão, coelho, galo e periquito convivem com as crianças.", p: [
     { src: aPatinhosComendo.url, alt: "Patinhos comendo no pátio" },
