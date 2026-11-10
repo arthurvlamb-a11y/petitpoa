@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Rabbit, BookOpen, Drama, FlaskConical, Footprints, Hand, Languages, Music, Palette, Sprout, Sun, Trees, Waves, Flower2, Sparkles, ShieldCheck } from "lucide-react";
 import b1aEstimulos from "@/assets/b1a-sala-estimulos.webp.asset.json";
-import bercarioBebes from "@/assets/bercario-bebes.webp.asset.json";
+import bercarioAcolhimento from "@/assets/bercario-acolhimento.webp.asset.json";
 import salaMaternal from "@/assets/sala-maternal.webp.asset.json";
 import maternalEscorregador from "@/assets/maternal-escorregador.webp.asset.json";
 import preTurma from "@/assets/pre-turma.webp.asset.json";
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/turmas")({
 
 const CLASSES = [
   {
-    t: "Berçário", age: "Berçário I e II · a partir de 4 meses", img: b1aEstimulos.url, alt: "Sala do Berçário I com tatames coloridos e brinquedos de espuma", img2: bercarioBebes.url, alt2: "Educadoras do Berçário cuidando dos bebês no tatame", bg: "bg-sky-soft", accent: "text-primary",
+    t: "Berçário", age: "Berçário I e II · a partir de 4 meses", img: b1aEstimulos.url, alt: "Sala do Berçário I com tatames coloridos e brinquedos de espuma", img2: bercarioAcolhimento.url, alt2: "Educadora acolhendo um bebê sorridente no Berçário", bg: "bg-sky-soft", accent: "text-primary",
     lead: "Acolher, cuidar e descobrir — no tempo de cada bebê.",
     w: [{ I: Sun, t: "Solário" }, { I: Hand, t: "Adaptação Humanizada" }, { I: Trees, t: "Natureza" }, { I: ShieldCheck, t: "Segurança" }, { I: Flower2, t: "Pilates" }, { I: Rabbit, t: "Primeiros encontros com os bichinhos" }],
   },
