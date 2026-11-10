@@ -1,4 +1,5 @@
 # Finalização Petit Poá
+- [ ] Encurtar a página inicial, retirar textos e proposta da navegação, priorizar abas, atualizar foto do Pré e vídeo de alimentação e resumir frases das turmas com base nos documentos oficiais.
 - [ ] Revisão técnica geral: conferir páginas, abas, fotos, vídeos e agendamento pelo WhatsApp; corrigir problemas encontrados sem alterar o visual.
 - [x] Concluir e testar a integração anterior do PPP e Regimento.
 - [x] Corrigir credibilidade, fotos sem autorização documentada e contatos divergentes.
