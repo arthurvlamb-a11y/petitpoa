@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 
 const NAV = [
   { to: "/", label: "A escola" },
-  { to: "/proposta-pedagogica", label: "Proposta" },
   { to: "/turmas", label: "Turmas" },
   { to: "/agendar-visita", label: "Agendar visita" },
 ] as const;
@@ -32,7 +31,7 @@ export function Header() {
           <span className={cn("hidden font-display text-lg font-semibold sm:block", "text-primary-foreground")}>Petit Poá</span>
         </Link>
         <nav aria-label="Navegação principal" className="hidden items-center gap-1 md:flex">
-          {NAV.slice(0, 3).map((n) => (
+          {NAV.slice(0, 2).map((n) => (
             <Link key={n.to} to={n.to} className={cn("rounded-full px-4 py-2 text-sm font-semibold transition-colors", "text-primary-foreground/90 hover:bg-primary-foreground/10")} activeOptions={{ exact: true }}>
               {n.label}
             </Link>
@@ -86,29 +85,24 @@ export function WhatsAppFab() {
 
 export function Footer() {
   return (
-    <footer className="bg-navy pb-28 pt-20 text-primary-foreground/80 md:pb-12">
-      <div className="container-x grid gap-12 lg:grid-cols-[1.1fr_1fr]">
+    <footer className="bg-navy pb-28 pt-8 text-primary-foreground/80 md:pb-6">
+      <div className="container-x grid gap-6 md:grid-cols-[auto_1fr_auto] md:items-center">
         <div>
-          <img src={logo.url} alt="Petit Poá" width={120} height={85} loading="lazy" className="h-20 w-auto rounded-2xl" />
-          <p className="mt-6 max-w-sm font-display text-2xl leading-snug text-primary-foreground">Um lugar onde seu filho é conhecido pelo nome, pelo jeito e pelo tempo dele.</p>
-          <ul className="mt-8 space-y-4 text-sm">
+          <img src={logo.url} alt="Petit Poá" width={120} height={85} loading="lazy" className="h-14 w-auto rounded-lg" />
+        </div>
+          <ul className="space-y-3 text-sm">
             <li className="flex gap-3"><MapPin className="h-5 w-5 shrink-0 text-sun" />{SITE.street} — {SITE.district}, {SITE.city}/{SITE.state}</li>
             <li className="flex gap-3"><Phone className="h-5 w-5 shrink-0 text-sun" /><a href={SITE.phoneHref} className="hover:text-primary-foreground">{SITE.phoneDisplay}</a></li>
             <li className="flex gap-3"><Clock className="h-5 w-5 shrink-0 text-sun" />{SITE.hours}</li>
           </ul>
-          <div className="mt-8 flex gap-3">
+          <div className="flex gap-3">
             {[{ h: SITE.instagram, I: Instagram, l: "Instagram" }, { h: SITE.facebook, I: Facebook, l: "Facebook" }, { h: SITE.linktree, I: Link2, l: "Linktree" }].map(({ h, I, l }) => (
               <a key={l} href={h} target="_blank" rel="noopener" aria-label={l} className="grid h-12 w-12 place-items-center rounded-full bg-primary-foreground/10 transition-colors hover:bg-primary-foreground/20"><I className="h-5 w-5" /></a>
             ))}
           </div>
-        </div>
-        <div className="overflow-hidden rounded-3xl">
-          <iframe title="Mapa da Petit Poá" src={SITE.mapEmbed} loading="lazy" className="h-80 w-full border-0 grayscale-[30%]" referrerPolicy="no-referrer-when-downgrade" />
-        </div>
       </div>
-      <div className="container-x mt-14 flex flex-col justify-between gap-2 border-t border-primary-foreground/10 pt-6 text-xs sm:flex-row">
+      <div className="container-x mt-6 border-t border-primary-foreground/10 pt-4 text-xs">
         <p>© {new Date().getFullYear()} Escola de Educação Infantil Petit Poá. Todos os direitos reservados.</p>
-        <p>Berçário, Maternal e Pré-escola em Estância Velha/RS</p>
       </div>
     </footer>
   );
