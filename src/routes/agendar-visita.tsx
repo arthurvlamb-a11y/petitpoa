@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { cloneElement, useId, useState, type FormEvent, type ReactElement } from "react";
-import { Camera, CheckCircle2, Clock, MessageCircle, ShieldCheck, Utensils } from "lucide-react";
+import { CheckCircle2, MessageCircle } from "lucide-react";
 import visitaFoto from "@/assets/visita-escola.webp.asset.json";
 import { Reveal } from "@/components/site/Reveal";
 import { SITE, waLink } from "@/lib/site";
