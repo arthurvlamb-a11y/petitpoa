@@ -1,7 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
-import { CalendarHeart, Clock, Facebook, Instagram, Link2, MapPin, Menu, MessageCircle, Phone, X } from "lucide-react";
+import { CalendarHeart, Clock, Instagram, MapPin, Menu, MessageCircle, Phone, X } from "lucide-react";
 import logo from "@/assets/logo.webp.asset.json";
 import { SITE, waLink } from "@/lib/site";
 import { cn } from "@/lib/utils";
