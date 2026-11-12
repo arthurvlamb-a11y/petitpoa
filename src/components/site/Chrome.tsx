@@ -96,7 +96,7 @@ export function Footer() {
             <li className="flex gap-3"><Clock className="h-5 w-5 shrink-0 text-sun" />{SITE.hours}</li>
           </ul>
           <div className="flex gap-3">
-            {[{ h: SITE.instagram, I: Instagram, l: "Instagram" }, { h: SITE.facebook, I: Facebook, l: "Facebook" }, { h: SITE.linktree, I: Link2, l: "Linktree" }].map(({ h, I, l }) => (
+            {[{ h: SITE.instagram, I: Instagram, l: "Instagram" }].map(({ h, I, l }) => (
               <a key={l} href={h} target="_blank" rel="noopener" aria-label={l} className="grid h-12 w-12 place-items-center rounded-full bg-primary-foreground/10 transition-colors hover:bg-primary-foreground/20"><I className="h-5 w-5" /></a>
             ))}
           </div>
