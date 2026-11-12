@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { cloneElement, useId, useState, type FormEvent, type ReactElement } from "react";
-import { Camera, CheckCircle2, Clock, MessageCircle, ShieldCheck, Utensils } from "lucide-react";
+import { CheckCircle2, MessageCircle } from "lucide-react";
 import visitaFoto from "@/assets/visita-escola.webp.asset.json";
 import { Reveal } from "@/components/site/Reveal";
 import { SITE, waLink } from "@/lib/site";
@@ -95,11 +95,6 @@ function Agendar() {
         <aside className="space-y-5">
           <Reveal className="overflow-hidden rounded-[2rem] shadow-lift">
             <img src={visitaFoto.url} alt="Jardim e pátio da Petit Poá" loading="lazy" decoding="async" className="aspect-[4/3] w-full object-cover" />
-          </Reveal>
-          <Reveal delay={80} className="grid grid-cols-2 gap-3">
-            {[{ I: Camera, t: "Câmeras para os pais" }, { I: Clock, t: "Integral até 19h" }, { I: Utensils, t: "Alimentação inclusa" }, { I: ShieldCheck, t: "Segurança 24h" }].map(({ I, t }) => (
-              <div key={t} className="flex items-center gap-3 rounded-2xl bg-card p-4 shadow-soft"><I className="h-5 w-5 shrink-0 text-primary" /><span className="text-sm font-semibold text-ink">{t}</span></div>
-            ))}
           </Reveal>
           <Reveal delay={140} className="overflow-hidden rounded-[2rem] bg-card shadow-soft">
             <iframe title="Mapa da Petit Poá" src={SITE.mapEmbed} loading="lazy" className="h-64 w-full border-0" referrerPolicy="no-referrer-when-downgrade" />
