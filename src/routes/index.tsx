@@ -30,6 +30,8 @@ import alimLegumes from "@/assets/alim-legumes.webp.asset.json";
 import alimCozinha from "@/assets/alim-cozinha.webp.asset.json";
 import alimVideo from "@/assets/alimentacao-nova.mp4.asset.json";
 import alimPoster from "@/assets/alimentacao-nova-poster.webp.asset.json";
+import alimVideo2 from "@/assets/alimentacao-2.mp4.asset.json";
+import alimPoster2 from "@/assets/alimentacao-2-poster.webp.asset.json";
 import depo1 from "@/assets/depoimento-familia-1.mp4.asset.json";
 import depo1Poster from "@/assets/depoimento-familia-1.jpg.asset.json";
 import depo2 from "@/assets/depoimento-familia-2.mp4.asset.json";
@@ -185,6 +187,7 @@ const HL = [
   ] },
   { k: "alimentacao", t: "Alimentação", I: Utensils, d: "Comida de verdade, carinho em cada refeição.", p: [
     { src: alimVideo.url, alt: "Vídeo da cozinha da Petit Poá", video: true, poster: alimPoster.url },
+    { src: alimVideo2.url, alt: "Vídeo das refeições da Petit Poá", video: true, poster: alimPoster2.url },
     { src: alimLegumes.url, alt: "Cesta com legumes e verduras frescas" },
     { src: alimCozinha.url, alt: "Cozinha da escola com frutas e legumes" },
   ] },
