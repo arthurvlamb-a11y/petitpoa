@@ -106,7 +106,7 @@ function Hero() {
         </Reveal>
         <Reveal delay={200}>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground/90 sm:text-lg">
-            Berçário, Maternal e Pré-escola. Cuidado, brincadeira e descobertas no tempo de cada criança.
+            Valorizamos uma infância “raiz”, com vivências lúdicas e investigativas, contato com a natureza, criatividade e relações que constroem memórias para a vida inteira.
           </p>
         </Reveal>
         <Reveal delay={300} className="mt-8 flex flex-col gap-3 sm:flex-row">

@@ -32,17 +32,17 @@ export const Route = createFileRoute("/turmas")({
 const CLASSES = [
   {
     t: "Berçário", age: "Berçário I e II · a partir de 4 meses", img: b1aEstimulos.url, alt: "Sala do Berçário I com tatames coloridos e brinquedos de espuma", img2: bercarioAcolhimento.url, alt2: "Educadora acolhendo um bebê sorridente no Berçário", bg: "bg-sky-soft", accent: "text-primary",
-    lead: "Acolher, cuidar e descobrir — no tempo de cada bebê.",
+    lead: "O berçário como extensão de casa, com cuidado e atenção redobrados.",
     w: [{ I: Sun, t: "Solário" }, { I: Hand, t: "Adaptação Humanizada" }, { I: Trees, t: "Natureza" }, { I: ShieldCheck, t: "Segurança" }, { I: Flower2, t: "Pilates" }, { I: Rabbit, t: "Primeiros encontros com os bichinhos" }],
   },
   {
     t: "Maternal", age: "Maternal I e II", img: salaMaternal.url, alt: "Sala do Maternal com tatames, pelúcias e armários", img2: maternalEscorregador.url, alt2: "Crianças do Maternal brincando no escorregador do parquinho", bg: "bg-sky-soft", accent: "text-accent-foreground",
-    lead: "Brincar, explorar e fazer as primeiras amizades.",
+    lead: "A fase em que eles nunca param: experimentam, criam e constroem autonomia.",
     w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }, { I: Rabbit, t: "Cuidar dos animais da escola" }],
   },
   {
     t: "Pré-escola", age: "Pré-escola I e II · 4 e 5 anos", img: salaPre.url, alt: "Sala da Pré-escola com produções das crianças e materiais ao seu alcance", img2: preTurma.url, alt2: "Turma da Pré-escola reunida no espaço externo da Petit Poá", bg: "bg-sky-soft", accent: "text-ink",
-    lead: "Imaginar, investigar e crescer com autonomia.",
+    lead: "Turno integral e proposta abrangente para uma base completa.",
     w: [{ I: Sparkles, t: "Balé" }, { I: Footprints, t: "Dança" }, { I: Waves, t: "Natação" }, { I: BookOpen, t: "Biblioteca" }, { I: Trees, t: "Natureza" }, { I: Rabbit, t: "Pequenos guardiões dos animais" }],
   },
 ];
