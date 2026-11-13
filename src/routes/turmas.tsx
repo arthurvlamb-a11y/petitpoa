@@ -1,15 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Rabbit, BookOpen, Drama, FlaskConical, Footprints, Hand, Languages, Music, Palette, Sprout, Sun, Trees, Waves, Flower2, Sparkles, ShieldCheck } from "lucide-react";
-import b1aEstimulos from "@/assets/b1a-sala-estimulos.webp.asset.json";
-import bercarioAcolhimento from "@/assets/bercario-acolhimento.webp.asset.json";
-import salaMaternal from "@/assets/sala-maternal.webp.asset.json";
-import maternalEscorregador from "@/assets/maternal-escorregador.webp.asset.json";
-import preTurma from "@/assets/pre-turma.webp.asset.json";
-import salaPre from "@/assets/pre-sala-nova.webp.asset.json";
+import { CLASS_AGES } from "@/lib/class-ages";
 import { SITE } from "@/lib/site";
 import { Reveal } from "@/components/site/Reveal";
 
-const TITLE = "Turmas: Berçário, Maternal e Pré-escola em Estância Velha — Petit Poá";
+const TITLE = "Berçário, Maternal I e II e Pré-escola — Petit Poá em Estância Velha";
 const DESC = "Conheça as turmas da Petit Poá: Berçário com adaptação, natureza e pilates, Maternal com inglês e horta, Pré-escola com balé, natação e biblioteca. Estância Velha/RS.";
 
 export const Route = createFileRoute("/turmas")({
@@ -31,17 +26,22 @@ export const Route = createFileRoute("/turmas")({
 
 const CLASSES = [
   {
-    t: "Berçário", age: "Berçário I e II · a partir de 4 meses", img: b1aEstimulos.url, alt: "Sala do Berçário I com tatames coloridos e brinquedos de espuma", img2: bercarioAcolhimento.url, alt2: "Educadora acolhendo um bebê sorridente no Berçário", bg: "bg-sky-soft", accent: "text-primary",
+    id: "bercario", t: "Berçário", age: CLASS_AGES.bercario, bg: "bg-sky-soft", accent: "text-primary",
     lead: "O berçário como extensão de casa, com cuidado e atenção redobrados.",
     w: [{ I: Sun, t: "Solário" }, { I: Hand, t: "Adaptação Humanizada" }, { I: Trees, t: "Natureza" }, { I: ShieldCheck, t: "Segurança" }, { I: Flower2, t: "Pilates" }, { I: Rabbit, t: "Primeiros encontros com os bichinhos" }],
   },
   {
-    t: "Maternal", age: "Maternal I e II", img: salaMaternal.url, alt: "Sala do Maternal com tatames, pelúcias e armários", img2: maternalEscorregador.url, alt2: "Crianças do Maternal brincando no escorregador do parquinho", bg: "bg-sky-soft", accent: "text-accent-foreground",
+    id: "maternal", t: "Maternal I", age: CLASS_AGES.maternal1, bg: "bg-sky-soft", accent: "text-accent-foreground",
     lead: "A fase em que eles nunca param: experimentam, criam e constroem autonomia.",
     w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }, { I: Rabbit, t: "Cuidar dos animais da escola" }],
   },
   {
-    t: "Pré-escola", age: "Pré-escola I e II · 4 e 5 anos", img: salaPre.url, alt: "Sala da Pré-escola com produções das crianças e materiais ao seu alcance", img2: preTurma.url, alt2: "Turma da Pré-escola reunida no espaço externo da Petit Poá", bg: "bg-sky-soft", accent: "text-ink",
+    id: "maternal-ii", t: "Maternal II", age: CLASS_AGES.maternal2, bg: "bg-sky-soft", accent: "text-accent-foreground",
+    lead: "Experimentar, criar e construir autonomia a cada descoberta.",
+    w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }, { I: Rabbit, t: "Cuidar dos animais da escola" }],
+  },
+  {
+    id: "pre-escola", t: "Pré-escola", age: CLASS_AGES.pre, bg: "bg-sky-soft", accent: "text-ink",
     lead: "Turno integral e proposta abrangente para uma base completa.",
     w: [{ I: Sparkles, t: "Balé" }, { I: Footprints, t: "Dança" }, { I: Waves, t: "Natação" }, { I: BookOpen, t: "Biblioteca" }, { I: Trees, t: "Natureza" }, { I: Rabbit, t: "Pequenos guardiões dos animais" }],
   },
@@ -60,13 +60,8 @@ function Turmas() {
         <div className="container-x space-y-6">
           {CLASSES.map((c, i) => (
             <Reveal key={c.t}>
-              <article id={["bercario", "maternal", "pre-escola"][i]} className={`grid scroll-mt-24 overflow-hidden rounded-[2.5rem] ${c.bg} lg:grid-cols-2`}>
-                <div className={`relative min-h-72 overflow-hidden ${i % 2 ? "lg:order-2" : ""}`}>
-                  <img src={c.img} alt={c.alt} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.5s] hover:scale-105" />
-                  {"img2" in c && c.img2 && (
-                    <img src={c.img2} alt={c.alt2} loading="lazy" decoding="async" className="absolute bottom-4 right-4 w-2/5 rounded-2xl border-4 border-card object-cover shadow-lift aspect-[4/3]" />
-                  )}
-                </div>
+              <article id={c.id} className={`grid scroll-mt-24 overflow-hidden rounded-[2.5rem] ${c.bg} lg:grid-cols-2`}>
+                <div aria-hidden="true" className={`min-h-72 bg-card ${i % 2 ? "lg:order-2" : ""}`} />
                 <div className="p-6 md:p-8">
                   <p className={`text-sm font-bold ${c.accent}`}>{c.age}</p>
                   <h2 className="mt-2 text-4xl md:text-5xl">{c.t}</h2>
