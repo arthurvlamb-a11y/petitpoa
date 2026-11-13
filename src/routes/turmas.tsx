@@ -74,10 +74,12 @@ function Turmas() {
           {CLASSES.map((c, i) => (
             <Reveal key={c.t}>
               <article id={c.id} className={`grid scroll-mt-24 overflow-hidden rounded-[2.5rem] ${c.bg} lg:grid-cols-2`}>
-                {c.id === "bercario" ? (
-                  <div className="relative min-h-72 overflow-hidden">
-                    <img src={b1aEstimulos.url} alt="Sala do Berçário I com tatames coloridos e brinquedos de espuma" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.5s] hover:scale-105" />
-                    <img src={bercarioAcolhimento.url} alt="Educadora acolhendo um bebê sorridente no Berçário" loading="lazy" decoding="async" className="absolute bottom-4 right-4 aspect-[4/3] w-2/5 rounded-2xl border-4 border-card object-cover shadow-lift" />
+                {"img" in c ? (
+                  <div className={`relative min-h-72 overflow-hidden ${i % 2 ? "lg:order-2" : ""}`}>
+                    <img src={c.img} alt={c.imgAlt} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.5s] hover:scale-105" />
+                    {"img2" in c && (
+                      <img src={c.img2} alt={c.img2Alt} loading="lazy" decoding="async" className="absolute bottom-4 right-4 aspect-[4/3] w-2/5 rounded-2xl border-4 border-card object-cover shadow-lift" />
+                    )}
                   </div>
                 ) : (
                   <div aria-hidden="true" className={`min-h-72 bg-card ${i % 2 ? "lg:order-2" : ""}`} />
