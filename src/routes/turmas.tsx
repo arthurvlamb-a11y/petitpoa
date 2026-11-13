@@ -38,11 +38,13 @@ const CLASSES = [
   {
     id: "maternal", t: "Maternal I", age: CLASS_AGES.maternal1, bg: "bg-sky-soft", accent: "text-accent-foreground",
     lead: "A fase em que eles nunca param: experimentam, criam e constroem autonomia.",
+    img: salaMaternal1.url, imgAlt: "Sala do Maternal I com pelúcias, tatames e armários",
     w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }, { I: Rabbit, t: "Cuidar dos animais da escola" }],
   },
   {
     id: "maternal-ii", t: "Maternal II", age: CLASS_AGES.maternal2, bg: "bg-sky-soft", accent: "text-accent-foreground",
     lead: "Experimentar, criar e construir autonomia a cada descoberta.",
+    img: salaMaternal2.url, imgAlt: "Sala do Maternal II com mesas e decoração de árvore na parede",
     w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }, { I: Rabbit, t: "Cuidar dos animais da escola" }],
   },
   {
@@ -53,6 +55,7 @@ const CLASSES = [
   {
     id: "pre-ii", t: "Pré II", age: CLASS_AGES.pre2, bg: "bg-sky-soft", accent: "text-ink",
     lead: "Turno integral e proposta abrangente para uma base completa.",
+    img: salaPre2.url, imgAlt: "Sala do Pré II com mesas coloridas e alfabeto na parede",
     w: [{ I: Sparkles, t: "Balé" }, { I: Footprints, t: "Dança" }, { I: Waves, t: "Natação" }, { I: BookOpen, t: "Biblioteca" }, { I: Trees, t: "Natureza" }, { I: Rabbit, t: "Pequenos guardiões dos animais" }],
   },
 ];
