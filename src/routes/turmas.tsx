@@ -4,7 +4,7 @@ import { CLASS_AGES } from "@/lib/class-ages";
 import { SITE } from "@/lib/site";
 import { Reveal } from "@/components/site/Reveal";
 
-const TITLE = "Berçário, Maternal I e II e Pré-escola — Petit Poá em Estância Velha";
+const TITLE = "Berçário, Maternal I e II, Pré I e II — Petit Poá em Estância Velha";
 const DESC = "Conheça as turmas da Petit Poá: Berçário com adaptação, natureza e pilates, Maternal com inglês e horta, Pré-escola com balé, natação e biblioteca. Estância Velha/RS.";
 
 export const Route = createFileRoute("/turmas")({
@@ -41,7 +41,12 @@ const CLASSES = [
     w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }, { I: Rabbit, t: "Cuidar dos animais da escola" }],
   },
   {
-    id: "pre-escola", t: "Pré-escola", age: CLASS_AGES.pre, bg: "bg-sky-soft", accent: "text-ink",
+    id: "pre-escola", t: "Pré I", age: CLASS_AGES.pre1, bg: "bg-sky-soft", accent: "text-ink",
+    lead: "Turno integral e proposta abrangente para uma base completa.",
+    w: [{ I: Sparkles, t: "Balé" }, { I: Footprints, t: "Dança" }, { I: Waves, t: "Natação" }, { I: BookOpen, t: "Biblioteca" }, { I: Trees, t: "Natureza" }, { I: Rabbit, t: "Pequenos guardiões dos animais" }],
+  },
+  {
+    id: "pre-ii", t: "Pré II", age: CLASS_AGES.pre2, bg: "bg-sky-soft", accent: "text-ink",
     lead: "Turno integral e proposta abrangente para uma base completa.",
     w: [{ I: Sparkles, t: "Balé" }, { I: Footprints, t: "Dança" }, { I: Waves, t: "Natação" }, { I: BookOpen, t: "Biblioteca" }, { I: Trees, t: "Natureza" }, { I: Rabbit, t: "Pequenos guardiões dos animais" }],
   },
