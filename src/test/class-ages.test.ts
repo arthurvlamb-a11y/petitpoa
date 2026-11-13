@@ -11,7 +11,10 @@ describe("Idades confirmadas pela escola", () => {
   it("define Maternal II para 3 anos", () => {
     expect(CLASS_AGES.maternal2).toBe("3 anos");
   });
-  it("mantém Pré-escola para 4 e 5 anos", () => {
-    expect(CLASS_AGES.pre).toBe("4 e 5 anos");
+  it("define Pré I para 4 anos", () => {
+    expect(CLASS_AGES.pre1).toBe("4 anos");
+  });
+  it("define Pré II para 5 anos", () => {
+    expect(CLASS_AGES.pre2).toBe("5 anos");
   });
 });

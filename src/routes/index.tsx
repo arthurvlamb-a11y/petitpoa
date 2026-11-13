@@ -39,6 +39,7 @@ import depo2Poster from "@/assets/depoimento-familia-2.jpg.asset.json";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/site/Reveal";
 import { SITE } from "@/lib/site";
+import { CLASS_AGES } from "@/lib/class-ages";
 
 const TITLE = "Escola Infantil em Estância Velha | Berçário, Maternal e Pré — Petit Poá";
 const DESC = "Creche e escola de educação infantil no Centro de Estância Velha/RS. Berçário, Maternal e Pré-escola de 4 meses a 5 anos, integral até 19h, câmeras para os pais e alimentação inclusa.";
@@ -134,16 +135,18 @@ function Hero() {
 }
 
 const TABS = [
-  { hash: "bercario", t: "Berçário", a: "a partir de 4 meses", c: "bg-sky-soft text-primary" },
-  { hash: "maternal", t: "Maternal", a: "Maternal I e II", c: "bg-sage-soft text-accent-foreground" },
-  { hash: "pre-escola", t: "Pré-escola", a: "4 e 5 anos", c: "bg-sun-soft text-ink" },
+  { hash: "bercario", t: "Berçário", a: CLASS_AGES.bercario, c: "bg-sky-soft text-primary" },
+  { hash: "maternal", t: "Maternal I", a: CLASS_AGES.maternal1, c: "bg-sage-soft text-accent-foreground" },
+  { hash: "maternal-ii", t: "Maternal II", a: CLASS_AGES.maternal2, c: "bg-sage-soft text-accent-foreground" },
+  { hash: "pre-escola", t: "Pré I", a: CLASS_AGES.pre1, c: "bg-sun-soft text-ink" },
+  { hash: "pre-ii", t: "Pré II", a: CLASS_AGES.pre2, c: "bg-sun-soft text-ink" },
 ] as const;
 
 function TrustBar() {
   return (
     <section className="relative z-10 bg-navy pb-8 md:pb-10">
       <div className="container-x">
-        <div className="-mt-10 grid grid-cols-3 gap-2 sm:gap-3">
+        <div className="-mt-10 grid grid-cols-3 gap-2 sm:grid-cols-5 sm:gap-3">
           {TABS.map((x) => (
             <Link key={x.hash} to="/turmas" hash={x.hash} className={`lift flex flex-col items-center justify-center rounded-2xl px-2 py-4 text-center shadow-lift ${x.c}`}>
               <span className="font-display text-lg font-semibold sm:text-2xl">{x.t}</span>
