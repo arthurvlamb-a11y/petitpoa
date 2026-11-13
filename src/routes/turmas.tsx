@@ -3,6 +3,9 @@ import { ArrowRight, Rabbit, BookOpen, Drama, FlaskConical, Footprints, Hand, La
 import { CLASS_AGES } from "@/lib/class-ages";
 import b1aEstimulos from "@/assets/b1a-sala-estimulos.webp.asset.json";
 import bercarioAcolhimento from "@/assets/bercario-acolhimento.webp.asset.json";
+import salaMaternal1 from "@/assets/sala-maternal1.webp.asset.json";
+import salaMaternal2 from "@/assets/sala-maternal2.webp.asset.json";
+import salaPre2 from "@/assets/sala-pre2.webp.asset.json";
 import { SITE } from "@/lib/site";
 import { Reveal } from "@/components/site/Reveal";
 
