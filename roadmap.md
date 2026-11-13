@@ -1,4 +1,5 @@
 # Finalização Petit Poá
+- [x] Atender ao vídeo da cliente: Maternal I (2 anos), Maternal II (3 anos), Berçário a partir de 4 meses e Pré de 4 e 5 anos; espaços das fotos em branco. Conferido no computador e celular; 16 testes passaram.
 - [x] Encurtar a página inicial, retirar textos e proposta da navegação, priorizar abas, atualizar foto do Pré e vídeo de alimentação e resumir frases das turmas com base nos documentos oficiais. Conferido no computador e celular; 12 testes passaram e agendamento para WhatsApp verificado sem envio.
 - [ ] Revisão técnica geral: conferir páginas, abas, fotos, vídeos e agendamento pelo WhatsApp; corrigir problemas encontrados sem alterar o visual.
 - [x] Concluir e testar a integração anterior do PPP e Regimento.

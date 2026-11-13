@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 ## Project rules
+- Class age labels are centralized in `src/lib/class-ages.ts` and covered by tests so confirmed age rules stay consistent.
 - School contact data (phone, WhatsApp, address, social links) lives only in `src/lib/site.ts` — single source so every page stays consistent.
 - Site chrome (header, footer, WhatsApp button, mobile bottom bar) is mounted once in `__root.tsx` — pages render only their own content.
 - Keep the home composition limited to its photo cover and tabbed media section; detailed class content stays on the class page to avoid duplicate scrolling.
