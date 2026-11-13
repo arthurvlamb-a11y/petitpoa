@@ -33,6 +33,8 @@ const CLASSES = [
   {
     id: "bercario", t: "Berçário", age: CLASS_AGES.bercario, bg: "bg-sky-soft", accent: "text-primary",
     lead: "O berçário como extensão de casa, com cuidado e atenção redobrados.",
+    img: b1aEstimulos.url, imgAlt: "Sala do Berçário I com tatames coloridos e brinquedos de espuma",
+    img2: bercarioAcolhimento.url, img2Alt: "Educadora acolhendo um bebê sorridente no Berçário",
     w: [{ I: Sun, t: "Solário" }, { I: Hand, t: "Adaptação Humanizada" }, { I: Trees, t: "Natureza" }, { I: ShieldCheck, t: "Segurança" }, { I: Flower2, t: "Pilates" }, { I: Rabbit, t: "Primeiros encontros com os bichinhos" }],
   },
   {
