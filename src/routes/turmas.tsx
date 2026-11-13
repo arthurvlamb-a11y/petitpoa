@@ -29,7 +29,13 @@ export const Route = createFileRoute("/turmas")({
   component: Turmas,
 });
 
-const CLASSES = [
+type ClassCard = {
+  id: string; t: string; age: string; bg: string; accent: string; lead: string;
+  img?: string; imgAlt?: string; img2?: string; img2Alt?: string;
+  w: { I: typeof Sun; t: string }[];
+};
+
+const CLASSES: ClassCard[] = [
   {
     id: "bercario", t: "Berçário", age: CLASS_AGES.bercario, bg: "bg-sky-soft", accent: "text-primary",
     lead: "O berçário como extensão de casa, com cuidado e atenção redobrados.",
