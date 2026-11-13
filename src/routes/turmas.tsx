@@ -3,6 +3,9 @@ import { ArrowRight, Rabbit, BookOpen, Drama, FlaskConical, Footprints, Hand, La
 import { CLASS_AGES } from "@/lib/class-ages";
 import b1aEstimulos from "@/assets/b1a-sala-estimulos.webp.asset.json";
 import bercarioAcolhimento from "@/assets/bercario-acolhimento.webp.asset.json";
+import salaMaternal1 from "@/assets/sala-maternal1.webp.asset.json";
+import salaMaternal2 from "@/assets/sala-maternal2.webp.asset.json";
+import salaPre2 from "@/assets/sala-pre2.webp.asset.json";
 import { SITE } from "@/lib/site";
 import { Reveal } from "@/components/site/Reveal";
 
@@ -26,20 +29,30 @@ export const Route = createFileRoute("/turmas")({
   component: Turmas,
 });
 
-const CLASSES = [
+type ClassCard = {
+  id: string; t: string; age: string; bg: string; accent: string; lead: string;
+  img?: string; imgAlt?: string; img2?: string; img2Alt?: string;
+  w: { I: typeof Sun; t: string }[];
+};
+
+const CLASSES: ClassCard[] = [
   {
     id: "bercario", t: "Berçário", age: CLASS_AGES.bercario, bg: "bg-sky-soft", accent: "text-primary",
     lead: "O berçário como extensão de casa, com cuidado e atenção redobrados.",
+    img: b1aEstimulos.url, imgAlt: "Sala do Berçário I com tatames coloridos e brinquedos de espuma",
+    img2: bercarioAcolhimento.url, img2Alt: "Educadora acolhendo um bebê sorridente no Berçário",
     w: [{ I: Sun, t: "Solário" }, { I: Hand, t: "Adaptação Humanizada" }, { I: Trees, t: "Natureza" }, { I: ShieldCheck, t: "Segurança" }, { I: Flower2, t: "Pilates" }, { I: Rabbit, t: "Primeiros encontros com os bichinhos" }],
   },
   {
     id: "maternal", t: "Maternal I", age: CLASS_AGES.maternal1, bg: "bg-sky-soft", accent: "text-accent-foreground",
     lead: "A fase em que eles nunca param: experimentam, criam e constroem autonomia.",
+    img: salaMaternal1.url, imgAlt: "Sala do Maternal I com pelúcias, tatames e armários",
     w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }, { I: Rabbit, t: "Cuidar dos animais da escola" }],
   },
   {
     id: "maternal-ii", t: "Maternal II", age: CLASS_AGES.maternal2, bg: "bg-sky-soft", accent: "text-accent-foreground",
     lead: "Experimentar, criar e construir autonomia a cada descoberta.",
+    img: salaMaternal2.url, imgAlt: "Sala do Maternal II com mesas e decoração de árvore na parede",
     w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }, { I: Rabbit, t: "Cuidar dos animais da escola" }],
   },
   {
@@ -50,6 +63,7 @@ const CLASSES = [
   {
     id: "pre-ii", t: "Pré II", age: CLASS_AGES.pre2, bg: "bg-sky-soft", accent: "text-ink",
     lead: "Turno integral e proposta abrangente para uma base completa.",
+    img: salaPre2.url, imgAlt: "Sala do Pré II com mesas coloridas e alfabeto na parede",
     w: [{ I: Sparkles, t: "Balé" }, { I: Footprints, t: "Dança" }, { I: Waves, t: "Natação" }, { I: BookOpen, t: "Biblioteca" }, { I: Trees, t: "Natureza" }, { I: Rabbit, t: "Pequenos guardiões dos animais" }],
   },
 ];
@@ -68,10 +82,12 @@ function Turmas() {
           {CLASSES.map((c, i) => (
             <Reveal key={c.t}>
               <article id={c.id} className={`grid scroll-mt-24 overflow-hidden rounded-[2.5rem] ${c.bg} lg:grid-cols-2`}>
-                {c.id === "bercario" ? (
-                  <div className="relative min-h-72 overflow-hidden">
-                    <img src={b1aEstimulos.url} alt="Sala do Berçário I com tatames coloridos e brinquedos de espuma" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.5s] hover:scale-105" />
-                    <img src={bercarioAcolhimento.url} alt="Educadora acolhendo um bebê sorridente no Berçário" loading="lazy" decoding="async" className="absolute bottom-4 right-4 aspect-[4/3] w-2/5 rounded-2xl border-4 border-card object-cover shadow-lift" />
+                {c.img ? (
+                  <div className={`relative min-h-72 overflow-hidden ${i % 2 ? "lg:order-2" : ""}`}>
+                    <img src={c.img} alt={c.imgAlt} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.5s] hover:scale-105" />
+                    {c.img2 && (
+                      <img src={c.img2} alt={c.img2Alt} loading="lazy" decoding="async" className="absolute bottom-4 right-4 aspect-[4/3] w-2/5 rounded-2xl border-4 border-card object-cover shadow-lift" />
+                    )}
                   </div>
                 ) : (
                   <div aria-hidden="true" className={`min-h-72 bg-card ${i % 2 ? "lg:order-2" : ""}`} />
