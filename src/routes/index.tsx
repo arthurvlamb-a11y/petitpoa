@@ -5,6 +5,7 @@ import {
   Sprout, Utensils, Rabbit, Languages, Trees,
 } from "lucide-react";
 import hero from "@/assets/hero-capa.webp.asset.json";
+import heroMobile from "@/assets/hero-capa-mobile.webp.asset.json";
 import uniforme from "@/assets/criancas-uniforme.webp.asset.json";
 import lago from "@/assets/lago.webp.asset.json";
 import horta from "@/assets/horta-nova.webp.asset.json";
@@ -59,7 +60,8 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: SITE.origin + "/" },
-      { rel: "preload", as: "image", href: hero.url, fetchPriority: "high" },
+      { rel: "preload", as: "image", href: heroMobile.url, media: "(max-width: 767px)", fetchPriority: "high" },
+      { rel: "preload", as: "image", href: hero.url, media: "(min-width: 768px)", fetchPriority: "high" },
     ],
     scripts: [
       {
@@ -99,7 +101,10 @@ function Home() {
 function Hero() {
   return (
     <section className="relative flex min-h-[92svh] items-end overflow-hidden">
-      <img src={hero.url} alt="Menina da Petit Poá mostrando as mãos sujas de terra na horta" fetchPriority="high" decoding="async" className="hero-zoom absolute inset-0 h-full w-full object-cover object-[center_35%]" />
+      <picture>
+        <source media="(max-width: 767px)" srcSet={heroMobile.url} />
+        <img src={hero.url} alt="Menina da Petit Poá mostrando as mãos sujas de terra na horta" fetchPriority="high" decoding="async" className="hero-zoom absolute inset-0 h-full w-full object-cover object-[center_35%]" />
+      </picture>
       <div className="bg-hero-fade absolute inset-0" />
       <div className="container-x relative pb-32 pt-32 md:pb-24">
         <Reveal delay={100}>
