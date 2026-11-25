@@ -5,7 +5,6 @@ import {
   Sprout, Utensils, Rabbit, Languages, Trees,
 } from "lucide-react";
 import hero from "@/assets/hero-capa.webp.asset.json";
-import heroMobile from "@/assets/hero-capa-mobile.webp.asset.json";
 import uniforme from "@/assets/criancas-uniforme.webp.asset.json";
 import lago from "@/assets/lago.webp.asset.json";
 import horta from "@/assets/horta-nova.webp.asset.json";
@@ -60,8 +59,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [
       { rel: "canonical", href: SITE.origin + "/" },
-      { rel: "preload", as: "image", href: heroMobile.url, media: "(max-width: 767px)", fetchPriority: "high" },
-      { rel: "preload", as: "image", href: hero.url, media: "(min-width: 768px)", fetchPriority: "high" },
+      { rel: "preload", as: "image", href: hero.url, fetchPriority: "high" },
     ],
     scripts: [
       {
@@ -100,34 +98,30 @@ function Home() {
 
 function Hero() {
   return (
-    <section className="relative flex min-h-[92svh] items-end overflow-hidden">
-      <picture>
-        <source media="(max-width: 767px)" srcSet={heroMobile.url} />
-        <img src={hero.url} alt="Menina da Petit Poá mostrando as mãos sujas de terra na horta" fetchPriority="high" decoding="async" className="hero-zoom absolute inset-0 h-full w-full object-cover object-[center_35%]" />
-      </picture>
-      <div className="bg-hero-fade absolute inset-0" />
-      <div className="container-x relative pb-32 pt-32 md:pb-24">
+    <section className="school-hero overflow-hidden">
+      <img src={hero.url} alt="Menina da Petit Poá mostrando as mãos sujas de terra na horta" fetchPriority="high" decoding="async" className="block aspect-square w-full object-cover sm:aspect-[16/9] sm:max-h-[480px] sm:object-[center_40%]" />
+      <div className="container-x pb-16 pt-6 md:pb-20 md:pt-8">
         <Reveal delay={100}>
-          <h1 className="max-w-4xl text-[2.6rem] font-medium leading-[1.04] text-primary-foreground sm:text-6xl lg:text-7xl">
+          <h1 className="max-w-4xl text-3xl font-medium leading-tight text-primary-foreground sm:text-4xl lg:text-5xl">
             Muito mais que estrutura, um lugar para viver a infância.
           </h1>
         </Reveal>
         <Reveal delay={200}>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground/90 sm:text-lg">
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-primary-foreground/90 sm:text-base">
             Valorizamos uma infância “raiz”, com vivências lúdicas e investigativas, contato com a natureza, criatividade e relações que constroem memórias para a vida inteira.
           </p>
         </Reveal>
-        <Reveal delay={300} className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Link to="/agendar-visita" className="ripple-btn inline-flex h-14 items-center justify-center gap-2 rounded-full bg-sun px-8 font-bold text-navy shadow-lift transition-transform hover:scale-[1.03]">
-            Agendar visita <ArrowRight className="h-5 w-5" />
-          </Link>
-          <Button asChild variant="ghost" className="inline-flex h-14 items-center justify-center rounded-full bg-primary-foreground/15 px-8 text-base font-semibold text-primary-foreground backdrop-blur-md transition-colors hover:bg-primary-foreground/25 hover:text-primary-foreground">
+        <Reveal delay={300} className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <Button asChild className="ripple-btn h-12 rounded-full bg-sun px-8 font-bold text-navy shadow-lift hover:bg-sun/90">
+            <Link to="/agendar-visita">Agendar visita <ArrowRight className="h-5 w-5" /></Link>
+          </Button>
+          <Button asChild variant="ghost" className="inline-flex h-12 items-center justify-center rounded-full bg-primary-foreground/15 px-8 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary-foreground/25 hover:text-primary-foreground">
             <a href="#destaques">
             Conhecer a escola
             </a>
           </Button>
         </Reveal>
-        <Reveal delay={400} className="mt-10 flex flex-wrap gap-2 sm:gap-3">
+        <Reveal delay={400} className="mt-6 flex flex-wrap gap-2 sm:gap-3">
           {[{ I: Baby, t: "4 meses a 5 anos" }, { I: Clock, t: "Integral até 19h" }, { I: MapPin, t: "Centro de Estância Velha" }].map(({ I, t }) => (
             <span key={t} className="inline-flex items-center gap-2 rounded-full bg-card px-4 py-2.5 text-sm font-semibold text-ink shadow-soft">
               <I className="h-4 w-4 text-primary" /> {t}
