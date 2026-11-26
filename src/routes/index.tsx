@@ -36,6 +36,13 @@ import depo1 from "@/assets/depoimento-familia-1.mp4.asset.json";
 import depo1Poster from "@/assets/depoimento-familia-1.jpg.asset.json";
 import depo2 from "@/assets/depoimento-familia-2.mp4.asset.json";
 import depo2Poster from "@/assets/depoimento-familia-2.jpg.asset.json";
+import depo3 from "@/assets/depoimento-familia-3.mp4.asset.json";
+import depo3Poster from "@/assets/depoimento-familia-3-poster.jpg.asset.json";
+import depo4 from "@/assets/depoimento-familia-4.mp4.asset.json";
+import depo4Poster from "@/assets/depoimento-familia-4-poster.jpg.asset.json";
+import animaisVideo from "@/assets/animais-video.mp4.asset.json";
+import animaisPoster from "@/assets/animais-video-poster.jpg.asset.json";
+import alimCozinheira from "@/assets/alim-cozinheira.webp.asset.json";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/site/Reveal";
 import { SITE } from "@/lib/site";
@@ -163,6 +170,8 @@ const HL = [
   { k: "familias", t: "Depoimentos", I: HeartHandshake, d: "Confiança contada por quem vive a Petit Poá.", p: [
     { src: depo1.url, alt: "Depoimento de uma família da Petit Poá", video: true, poster: depo1Poster.url },
     { src: depo2.url, alt: "Depoimento de uma família da Petit Poá", video: true, poster: depo2Poster.url },
+    { src: depo3.url, alt: "Depoimento de uma família da Petit Poá", video: true, poster: depo3Poster.url },
+    { src: depo4.url, alt: "Depoimento de uma família da Petit Poá", video: true, poster: depo4Poster.url },
   ] },  { k: "horta", t: "Horta", I: Sprout, d: "Plantar, cuidar e colher. Da horta para a mesa.", p: [
     { src: h1.url, alt: "Crianças colhendo alface com a professora" },
     { src: h2.url, alt: "Menino segurando rabanetes colhidos" },
@@ -179,6 +188,7 @@ const HL = [
     { src: lago.url, alt: "Laguinho dos peixes" },
   ] },
   { k: "animais", t: "Animais", I: Rabbit, d: "Pequenos encontros que ensinam a cuidar.", p: [
+    { src: animaisVideo.url, alt: "Vídeo de uma criança com os bichinhos da escola", video: true, poster: animaisPoster.url },
     { src: aPatinhosComendo.url, alt: "Patinhos comendo no pátio" },
     { src: aPavao.url, alt: "Pavão no pátio" },
     { src: aCoelho.url, alt: "Coelho entre as plantas" },
@@ -190,6 +200,7 @@ const HL = [
   { k: "alimentacao", t: "Alimentação", I: Utensils, d: "Comida de verdade, carinho em cada refeição.", p: [
     { src: alimVideo.url, alt: "Vídeo da cozinha da Petit Poá", video: true, poster: alimPoster.url },
     { src: alimVideo2.url, alt: "Vídeo das refeições da Petit Poá", video: true, poster: alimPoster2.url },
+    { src: alimCozinheira.url, alt: "Cozinheira da escola servindo a refeição" },
     { src: alimLegumes.url, alt: "Cesta com legumes e verduras frescas" },
     { src: alimCozinha.url, alt: "Cozinha da escola com frutas e legumes" },
   ] },
