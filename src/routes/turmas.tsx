@@ -6,6 +6,7 @@ import bercarioAcolhimento from "@/assets/bercario-acolhimento.webp.asset.json";
 import salaMaternal1 from "@/assets/sala-maternal1.webp.asset.json";
 import salaMaternal2 from "@/assets/sala-maternal2.webp.asset.json";
 import salaPre1 from "@/assets/sala-pre1.webp.asset.json";
+import pre1Turma from "@/assets/pre1-turma.webp.asset.json";
 import salaPre2 from "@/assets/sala-pre2.webp.asset.json";
 import { SITE } from "@/lib/site";
 import { Reveal } from "@/components/site/Reveal";
@@ -60,6 +61,7 @@ const CLASSES: ClassCard[] = [
     id: "pre-escola", t: "Pré I", age: CLASS_AGES.pre1, bg: "bg-sky-soft", accent: "text-ink",
     lead: "Turno integral e proposta abrangente para uma base completa.",
     img: salaPre1.url, imgAlt: "Sala do Pré I com mesas coloridas e cantinho de leitura",
+    img2: pre1Turma.url, img2Alt: "Turma do Pré I em uniforme azul posando no pátio da escola",
     w: [{ I: Sparkles, t: "Balé" }, { I: Footprints, t: "Dança" }, { I: Waves, t: "Natação" }, { I: BookOpen, t: "Biblioteca" }, { I: Trees, t: "Natureza" }, { I: Rabbit, t: "Pequenos guardiões dos animais" }],
   },
   {
