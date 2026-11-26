@@ -4,6 +4,7 @@ import { CLASS_AGES } from "@/lib/class-ages";
 import b1aEstimulos from "@/assets/b1a-sala-estimulos.webp.asset.json";
 import bercarioAcolhimento from "@/assets/bercario-acolhimento.webp.asset.json";
 import salaMaternal1 from "@/assets/sala-maternal1.webp.asset.json";
+import maternal1Turma from "@/assets/maternal1-turma.webp.asset.json";
 import salaMaternal2 from "@/assets/sala-maternal2.webp.asset.json";
 import salaPre1 from "@/assets/sala-pre1.webp.asset.json";
 import pre1Turma from "@/assets/pre1-turma.webp.asset.json";
@@ -49,6 +50,7 @@ const CLASSES: ClassCard[] = [
     id: "maternal", t: "Maternal I", age: CLASS_AGES.maternal1, bg: "bg-sky-soft", accent: "text-accent-foreground",
     lead: "A fase em que eles nunca param: experimentam, criam e constroem autonomia.",
     img: salaMaternal1.url, imgAlt: "Sala do Maternal I com pelúcias, tatames e armários",
+    img2: maternal1Turma.url, img2Alt: "Crianças do Maternal I em uniforme azul brincando no escorregador do pátio",
     w: [{ I: Languages, t: "Inglês" }, { I: Drama, t: "Teatro" }, { I: FlaskConical, t: "Experiências científicas" }, { I: Sprout, t: "Horta" }, { I: Palette, t: "Artes" }, { I: Rabbit, t: "Cuidar dos animais da escola" }],
   },
   {
